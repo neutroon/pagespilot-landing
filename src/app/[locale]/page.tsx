@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
+import { trackWaitlistSignup, trackFeatureInteraction } from "@/lib/analytics";
 
 export default function Home() {
   const params = useParams();
@@ -24,6 +25,12 @@ export default function Home() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Waitlist signup:", formData);
+
+    // Track waitlist signup
+    if (formData.email) {
+      trackWaitlistSignup(formData.email, locale);
+    }
+
     setIsSubmitted(true);
   };
 
@@ -120,6 +127,9 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <a
                   href="#waitlist"
+                  onClick={() =>
+                    trackFeatureInteraction("hero_cta_primary", locale)
+                  }
                   className="inline-flex items-center justify-center px-8 py-4 bg-indigo-600 text-white font-semibold rounded-xl text-lg hover:bg-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   <svg
@@ -131,7 +141,12 @@ export default function Home() {
                   </svg>
                   {t("hero.ctaPrimary")}
                 </a>
-                <button className="inline-flex items-center justify-center px-8 py-4 border-2 border-slate-300 text-slate-700 font-semibold rounded-xl text-lg hover:border-slate-400 transition-all duration-200">
+                <button
+                  onClick={() =>
+                    trackFeatureInteraction("hero_cta_demo", locale)
+                  }
+                  className="inline-flex items-center justify-center px-8 py-4 border-2 border-slate-300 text-slate-700 font-semibold rounded-xl text-lg hover:border-slate-400 transition-all duration-200"
+                >
                   <svg
                     className="w-5 h-5 mr-2"
                     fill="currentColor"

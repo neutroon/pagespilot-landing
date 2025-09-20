@@ -12,6 +12,6 @@ export const config = {
     // - Image optimization
     // - Static assets (images, icons, etc.)
     // - Favicon
-    "/((?!api|_next/static|_next/image|_next/webpack-hmr|favicon.ico|.*\\..*).*)"
+    "/((?!api|_next/static|_next/image|_next/webpack-hmr|favicon.ico|.*\\..*).*)",
   ],
 };
