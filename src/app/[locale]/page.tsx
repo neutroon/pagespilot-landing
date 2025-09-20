@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { trackWaitlistSignup, trackFeatureInteraction } from "@/lib/analytics";
+import api from "@/app/services/api";
 
 export default function Home() {
   const params = useParams();
@@ -20,18 +21,20 @@ export default function Home() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [activeFeature, setActiveFeature] = useState(0);
-
+  const [isLoading, setIsLoading] = useState(false);
   const t = useTranslations("HomePage");
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Waitlist signup:", formData);
-
-    // Track waitlist signup
-    if (formData.email) {
-      trackWaitlistSignup(formData.email, locale);
-    }
+    setIsLoading(true);
+    const response = await api.postLead(
+      formData.name,
+      formData.email,
+      formData.facebookPage,
+      formData.message
+    );
 
     setIsSubmitted(true);
+    setIsLoading(false);
   };
 
   const handleChange = (
@@ -938,6 +941,7 @@ export default function Home() {
                   </div>
 
                   <button
+                    disabled={isLoading}
                     type="submit"
                     className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-4 px-8 rounded-xl text-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                   >
@@ -948,7 +952,17 @@ export default function Home() {
                     >
                       <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z" />
                     </svg>
-                    {t("waitlist.form.submitButton")}
+                    {isLoading ? (
+                      <svg
+                        className="w-6 h-6 mr-3 animate-spin"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z" />
+                      </svg>
+                    ) : (
+                      t("waitlist.form.submitButton")
+                    )}
                   </button>
                 </form>
               </div>
