@@ -91,7 +91,7 @@ export default function SignupPage() {
         formData.email.trim(),
         formData.password
       );
-      router.push(`/user/login?message=signup-success`);
+      router.push(`/auth/login?message=signup-success`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Signup failed");
     } finally {
@@ -345,7 +345,7 @@ export default function SignupPage() {
                 {t("signup.haveAccount")}{" "}
               </span>
               <Link
-                href="/user/login"
+                href="/auth/login"
                 className="text-indigo-600 hover:text-indigo-700 font-medium text-sm"
               >
                 {t("signup.signIn")}

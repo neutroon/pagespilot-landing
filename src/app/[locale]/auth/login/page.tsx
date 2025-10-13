@@ -216,24 +216,13 @@ export default function LoginPage() {
                 {t("login.noAccount")}{" "}
               </span>
               <Link
-                href="/user/signup"
+                href="/auth/signup"
                 className="text-indigo-600 hover:text-indigo-700 font-medium text-sm"
               >
                 {t("login.signUp")}
               </Link>
             </div>
           </form>
-        </div>
-
-        {/* Demo Credentials */}
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
-          <div className="text-center">
-            <p className="text-sm text-blue-800 font-medium mb-2">
-              Demo Credentials
-            </p>
-            <p className="text-xs text-blue-600">Email: demo@pagespilot.com</p>
-            <p className="text-xs text-blue-600">Password: demo123</p>
-          </div>
         </div>
 
         {/* Back to Home */}

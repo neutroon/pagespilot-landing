@@ -99,10 +99,7 @@ export default function Home() {
             {/* Left Content */}
             <div className={`text-${isRTL ? "right" : "left"}`}>
               <div className="inline-flex items-center bg-indigo-50 text-indigo-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <CheckIcon
-                  className={`w-4 h-4 me-2`}
-                  aria-label={t("icons.alt.checkIcon")}
-                />
+                <CheckIcon className={`w-4 h-4 me-2`} />
                 {t("hero.badge")}
               </div>
 
@@ -232,10 +229,7 @@ export default function Home() {
                   <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg">
                     <div className="flex items-center space-x-3">
                       <div className="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
-                        <ChartNoAxesCombined
-                          className="w-4 h-4 text-white"
-                          aria-label={t("icons.alt.ChartNoAxesCombined")}
-                        />
+                        <ChartNoAxesCombined className="w-4 h-4 text-white" />
                       </div>
                       <div>
                         <div className="text-sm font-medium text-slate-900">
@@ -257,10 +251,7 @@ export default function Home() {
               <div
                 className={`absolute -top-4 -end-4 text-white p-3 animate-bounce bg-indigo-400 rounded-2xl`}
               >
-                <Rocket
-                  className="w-6 h-6"
-                  aria-label={t("icons.alt.rocketIcon")}
-                />
+                <Rocket className="w-6 h-6" />
               </div>
 
               <div
@@ -310,14 +301,8 @@ export default function Home() {
                 className={`hidden md:block absolute top-1/2 -end-4 transform -translate-y-1/2 text-slate-300`}
               >
                 {getDirectionalIcon(
-                  <ArrowRightIcon
-                    className="w-8 h-8"
-                    aria-label={t("icons.alt.arrowRightIcon")}
-                  />,
-                  <ArrowLeftIcon
-                    className="w-8 h-8"
-                    aria-label={t("icons.alt.arrowLeftIcon")}
-                  />
+                  <ArrowRightIcon className="w-8 h-8" />,
+                  <ArrowLeftIcon className="w-8 h-8" />
                 )}
               </div>
             </div>
@@ -325,10 +310,7 @@ export default function Home() {
             <div className="relative">
               <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100 hover:shadow-lg transition-all duration-300 group">
                 <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <Rocket
-                    className="w-8 h-8 text-white"
-                    aria-label={t("icons.alt.Rocket")}
-                  />
+                  <Rocket className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-slate-900 mb-4 text-center">
                   {t("howItWorks.steps.execution.title")}
@@ -342,14 +324,8 @@ export default function Home() {
                 className={`hidden md:block absolute top-1/2 -end-4 transform -translate-y-1/2 text-slate-300`}
               >
                 {getDirectionalIcon(
-                  <ArrowRightIcon
-                    className="w-8 h-8"
-                    aria-label={t("icons.alt.arrowRightIcon")}
-                  />,
-                  <ArrowLeftIcon
-                    className="w-8 h-8"
-                    aria-label={t("icons.alt.arrowLeftIcon")}
-                  />
+                  <ArrowRightIcon className="w-8 h-8" />,
+                  <ArrowLeftIcon className="w-8 h-8" />
                 )}
               </div>
             </div>
@@ -394,10 +370,7 @@ export default function Home() {
               } transition-opacity duration-500`}
             >
               <div className="inline-flex items-center bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-medium">
-                <TableOfContents
-                  className={`w-4 h-4 me-2`}
-                  aria-label={t("icons.alt.TableOfContents")}
-                />
+                <TableOfContents className={`w-4 h-4 me-2`} />
                 {t("features.contentGeneration.badge")}
               </div>
               <h3 className="text-3xl font-bold text-slate-900">
@@ -408,24 +381,15 @@ export default function Home() {
               </p>
               <ul className="space-y-3">
                 <li className="flex items-center text-slate-700">
-                  <CheckIcon
-                    className={`w-5 h-5 text-green-500 me-3`}
-                    aria-label={t("icons.alt.CheckIcon")}
-                  />
+                  <CheckIcon className={`w-5 h-5 text-green-500 me-3`} />
                   {t("features.contentGeneration.benefits.0")}
                 </li>
                 <li className="flex items-center text-slate-700">
-                  <CheckIcon
-                    className={`w-5 h-5 text-green-500 me-3`}
-                    aria-label={t("icons.alt.CheckIcon")}
-                  />
+                  <CheckIcon className={`w-5 h-5 text-green-500 me-3`} />
                   {t("features.contentGeneration.benefits.1")}
                 </li>
                 <li className="flex items-center text-slate-700">
-                  <CheckIcon
-                    className={`w-5 h-5 text-green-500 me-3`}
-                    aria-label={t("icons.alt.CheckIcon")}
-                  />
+                  <CheckIcon className={`w-5 h-5 text-green-500 me-3`} />
                   {t("features.contentGeneration.benefits.2")}
                 </li>
               </ul>
@@ -725,14 +689,8 @@ export default function Home() {
             <div className="text-center mb-16">
               <div className="inline-flex items-center bg-indigo-100 text-indigo-800 px-6 py-3 rounded-full text-sm font-medium mb-6">
                 {getDirectionalIcon(
-                  <ArrowRightIcon
-                    className={`w-5 h-5 me-2`}
-                    aria-label={t("icons.alt.ArrowRightIcon")}
-                  />,
-                  <ArrowLeftIcon
-                    className={`w-5 h-5 me-2`}
-                    aria-label={t("icons.alt.ArrowLeftIcon")}
-                  />
+                  <ArrowRightIcon className={`w-5 h-5 me-2`} />,
+                  <ArrowLeftIcon className={`w-5 h-5 me-2`} />
                 )}
                 {t("waitlist.badge")}
               </div>
@@ -814,31 +772,19 @@ export default function Home() {
                     </h4>
                     <ul className="space-y-2 text-slate-600">
                       <li className="flex items-center">
-                        <CheckIcon
-                          className="w-5 h-5 text-green-500 mr-3"
-                          aria-label={t("icons.alt.CheckIcon")}
-                        />
+                        <CheckIcon className="w-5 h-5 text-green-500 mr-3" />
                         {t("waitlist.form.benefits.0")}
                       </li>
                       <li className="flex items-center">
-                        <CheckIcon
-                          className="w-5 h-5 text-green-500 mr-3"
-                          aria-label={t("icons.alt.CheckIcon")}
-                        />
+                        <CheckIcon className="w-5 h-5 text-green-500 mr-3" />
                         {t("waitlist.form.benefits.1")}
                       </li>
                       <li className="flex items-center">
-                        <CheckIcon
-                          className="w-5 h-5 text-green-500 mr-3"
-                          aria-label={t("icons.alt.CheckIcon")}
-                        />
+                        <CheckIcon className="w-5 h-5 text-green-500 mr-3" />
                         {t("waitlist.form.benefits.2")}
                       </li>
                       <li className="flex items-center">
-                        <CheckIcon
-                          className="w-5 h-5 text-green-500 mr-3"
-                          aria-label={t("icons.alt.CheckIcon")}
-                        />
+                        <CheckIcon className="w-5 h-5 text-green-500 mr-3" />
                         {t("waitlist.form.benefits.3")}
                       </li>
                     </ul>
@@ -849,10 +795,7 @@ export default function Home() {
                     type="submit"
                     className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-4 px-8 rounded-xl text-xl hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center"
                   >
-                    <Rocket
-                      className={`w-6 h-6 me-3`}
-                      aria-label={t("icons.alt.rocketIcon")}
-                    />
+                    <Rocket className={`w-6 h-6 me-3`} />
                     {isLoading ? (
                       <Shell
                         className={`w-6 h-6 me-3 animate-spin`}
@@ -924,23 +867,14 @@ export default function Home() {
                 href="#waitlist"
                 className="inline-flex items-center px-10 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-semibold rounded-xl text-lg hover:from-indigo-600 hover:to-purple-600 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <Rocket
-                  className={`w-6 h-6 me-3`}
-                  aria-label={t("icons.alt.rocketIcon")}
-                />
+                <Rocket className={`w-6 h-6 me-3`} />
                 {t("cta.button")}
               </a>
 
               <div className="flex items-center text-white/80">
                 {getDirectionalIcon(
-                  <ArrowRightIcon
-                    className={`w-5 h-5 me-2`}
-                    aria-label={t("icons.alt.ArrowRightIcon")}
-                  />,
-                  <ArrowLeftIcon
-                    className={`w-5 h-5 me-2`}
-                    aria-label={t("icons.alt.ArrowLeftIcon")}
-                  />
+                  <ArrowRightIcon className={`w-5 h-5 me-2`} />,
+                  <ArrowLeftIcon className={`w-5 h-5 me-2`} />
                 )}
                 {t("cta.noCard")}
               </div>
@@ -993,7 +927,7 @@ export default function Home() {
                   <span className="sr-only">
                     {t("icons.labels.socialMedia.twitter")}
                   </span>
-                  <X className="w-6 h-6" aria-label={t("icons.alt.XIcon")} />
+                  <X className="w-6 h-6" />
                 </a>
                 <a
                   href="#"

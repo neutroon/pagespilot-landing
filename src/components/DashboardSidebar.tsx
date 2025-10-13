@@ -133,7 +133,7 @@ export default function DashboardSidebar() {
     <div className="flex flex-col h-full sidebar-content">
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200">
-        <div className="flex items-center space-x-3 rtl:space-x-reverse">
+        <div className="flex items-center space-x-3">
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
             <Home className="w-5 h-5 text-white" />
           </div>
@@ -175,9 +175,7 @@ export default function DashboardSidebar() {
                       active
                         ? "bg-blue-50 text-blue-700 border border-blue-200"
                         : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                    } ${
-                      isCollapsed ? "justify-center sidebar-tooltip" : ""
-                    } rtl:space-x-reverse`}
+                    } ${isCollapsed ? "justify-center sidebar-tooltip" : ""}`}
                     title={isCollapsed ? item.name : undefined}
                     data-tooltip={isCollapsed ? item.name : undefined}
                   >
@@ -217,7 +215,7 @@ export default function DashboardSidebar() {
                   key={item.name}
                   className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 group text-gray-600 hover:text-gray-900 hover:bg-gray-50 ${
                     isCollapsed ? "justify-center" : ""
-                  } rtl:space-x-reverse`}
+                  }`}
                   title={isCollapsed ? item.name : undefined}
                 >
                   <span className="text-gray-500 group-hover:text-gray-700">
@@ -246,7 +244,7 @@ export default function DashboardSidebar() {
                     index === 0
                       ? "bg-gradient-to-r from-purple-50 to-purple-100 text-purple-700 hover:from-purple-100 hover:to-purple-200"
                       : "bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 hover:from-blue-100 hover:to-blue-200"
-                  } ${isCollapsed ? "justify-center" : ""} rtl:space-x-reverse`}
+                  } ${isCollapsed ? "justify-center" : ""}`}
                   title={isCollapsed ? item.name : undefined}
                 >
                   <span
@@ -269,7 +267,7 @@ export default function DashboardSidebar() {
         <div
           className={`flex items-center space-x-3 ${
             isCollapsed ? "justify-center" : ""
-          } rtl:space-x-reverse`}
+          }`}
         >
           <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
             <User className="w-4 h-4 text-gray-600" />

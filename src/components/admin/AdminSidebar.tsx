@@ -20,6 +20,7 @@ import {
   Settings,
   LogOut,
 } from "lucide-react";
+import router from "next/router";
 
 interface AdminSidebarItem {
   name: string;
@@ -29,6 +30,7 @@ interface AdminSidebarItem {
 }
 
 export default function AdminSidebar() {
+  const { logout } = useAuth();
   const pathname = usePathname();
   const params = useParams();
   const { user, isAuthenticated, isLoading } = useAuth();
@@ -37,7 +39,14 @@ export default function AdminSidebar() {
   const t = useTranslations("admin");
 
   const currentLocale = params.locale as string;
-
+  const handleLogout = async () => {
+    try {
+      await logout();
+      router.push("/admin/login");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
   // Close mobile sidebar when pathname changes
   useEffect(() => {
     setIsMobileOpen(false);
@@ -109,7 +118,7 @@ export default function AdminSidebar() {
     <div className="flex flex-col h-full sidebar-content">
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200">
-        <div className="flex items-center space-x-3 rtl:space-x-reverse">
+        <div className="flex items-center space-x-3">
           <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
             <Home className="w-5 h-5 text-white" />
           </div>
@@ -151,9 +160,7 @@ export default function AdminSidebar() {
                       active
                         ? "bg-blue-50 text-blue-700 border border-blue-200"
                         : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
-                    } ${
-                      isCollapsed ? "justify-center sidebar-tooltip" : ""
-                    } rtl:space-x-reverse`}
+                    } ${isCollapsed ? "justify-center sidebar-tooltip" : ""}`}
                     title={isCollapsed ? item.name : undefined}
                     data-tooltip={isCollapsed ? item.name : undefined}
                   >
@@ -185,10 +192,18 @@ export default function AdminSidebar() {
         <div
           className={`flex items-center space-x-3 ${
             isCollapsed ? "justify-center" : ""
-          } rtl:space-x-reverse`}
+          }`}
         >
-          <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-            <Settings className="w-4 h-4 text-gray-600" />
+          <div
+            onClick={handleLogout}
+            className="w-8 h-8 bg-gray-200 text-red-500 hover:bg-red-500 hover:text-white transition-all rounded-full flex items-center justify-center"
+          >
+            {/* <button
+              onClick={handleLogout}
+              className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            > */}
+            <LogOut className="h-4 w-4" />
+            {/* </button>{" "} */}
           </div>
           {!isCollapsed && (
             <div className="flex-1 min-w-0">
