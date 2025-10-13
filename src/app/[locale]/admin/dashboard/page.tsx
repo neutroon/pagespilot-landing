@@ -140,9 +140,11 @@ export default function AdminDashboard() {
     <AdminLayout>
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">
-          {t("dashboard.welcomeBack", { name: user?.name })}
-        </h1>
+        {user && (
+          <h1 className="text-3xl font-bold text-gray-900">
+            {t("dashboard.welcomeBack", { name: user.name })}
+          </h1>
+        )}
         <p className="text-gray-600 mt-2">{t("dashboard.subtitle")}</p>
       </div>
 
