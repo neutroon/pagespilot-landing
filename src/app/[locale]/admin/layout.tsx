@@ -1,6 +1,7 @@
+// app/[locale]/layout.tsx
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "../globals.css";
+// import "../globals.css";
 import { Locale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -8,8 +9,6 @@ import { locales } from "@/i18n/config";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AuthProvider } from "@/contexts/AuthContext";
-import { DashboardProtection } from "@/components/DashboardProtection";
-// import { AdminAuthProvider } from "@/contexts/AdminAuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,8 +37,6 @@ export default async function LocaleLayout({
 }: LocaleLayoutProps) {
   const { locale } = await params;
 
-  // Validate that the incoming locale is valid
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if (!locales.includes(locale as any)) {
     notFound();
   }
@@ -48,21 +45,16 @@ export default async function LocaleLayout({
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <html lang={locale} dir={dir} data-scroll-behavior="smooth">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NextIntlClientProvider messages={messages}>
-          <AuthProvider>
-            {/* <AdminAuthProvider> */}
-            <DashboardProtection />
-            {children}
-            {/* </AdminAuthProvider> */}
-          </AuthProvider>
-        </NextIntlClientProvider>
-        <Analytics />
-        <SpeedInsights />
-      </body>
-    </html>
+    // <html lang={locale} dir={dir}>
+    //   <body
+    //     className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+    //   >
+    <NextIntlClientProvider messages={messages}>
+      <AuthProvider>{children}</AuthProvider>
+      <Analytics />
+      <SpeedInsights />
+    </NextIntlClientProvider>
+    // </body>
+    // </html>
   );
 }
