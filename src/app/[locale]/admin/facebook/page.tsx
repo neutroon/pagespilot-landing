@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { adminService, FacebookAccount, User } from "@/lib/admin-api";
 import AdminLayout from "@/components/admin/AdminLayout";
@@ -21,6 +22,7 @@ import {
 } from "lucide-react";
 
 export default function FacebookPage() {
+  const t = useTranslations("admin");
   const { user } = useAuth();
   const router = useRouter();
   const [accounts, setAccounts] = useState<
@@ -248,11 +250,9 @@ export default function FacebookPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">
-              Facebook Accounts
+              {t("facebook.title")}
             </h1>
-            <p className="text-gray-600 mt-2">
-              Manage Facebook accounts and connected pages across all users
-            </p>
+            <p className="text-gray-600 mt-2">{t("facebook.subtitle")}</p>
           </div>
         </div>
       </div>
@@ -266,7 +266,7 @@ export default function FacebookPage() {
             </div>
             <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
-                Total Accounts
+                {t("facebook.stats.totalAccounts")}
               </p>
               <p className="text-2xl font-bold text-gray-900">
                 {accounts.length}
@@ -281,7 +281,7 @@ export default function FacebookPage() {
             </div>
             <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
-                Active Accounts
+                {t("facebook.stats.activeAccounts")}
               </p>
               <p className="text-2xl font-bold text-gray-900">
                 {accounts.filter((a) => a.isActive).length}
@@ -295,7 +295,9 @@ export default function FacebookPage() {
               <UserIcon className="h-5 w-5 text-purple-600" />
             </div>
             <div className="ms-3">
-              <p className="text-sm font-medium text-gray-600">Total Pages</p>
+              <p className="text-sm font-medium text-gray-600">
+                {t("facebook.stats.totalPages")}
+              </p>
               <p className="text-2xl font-bold text-gray-900">
                 {accounts.reduce(
                   (total, account) => total + (account.pages?.length || 0),
@@ -312,7 +314,7 @@ export default function FacebookPage() {
             </div>
             <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
-                Total Activities
+                {t("facebook.stats.totalActivities")}
               </p>
               <p className="text-2xl font-bold text-gray-900">
                 {accounts.reduce(

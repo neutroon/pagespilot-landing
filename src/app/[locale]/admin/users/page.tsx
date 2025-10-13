@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { adminService, User } from "@/lib/admin-api";
 import AdminLayout from "@/components/admin/AdminLayout";
@@ -20,6 +21,7 @@ import {
 } from "lucide-react";
 
 export default function UsersPage() {
+  const t = useTranslations("admin");
   const { user } = useAuth();
   const router = useRouter();
   const [users, setUsers] = useState<User[]>([]);
@@ -116,10 +118,22 @@ export default function UsersPage() {
 
   const getRoleBadge = (role: string) => {
     const roleConfig = {
-      super_admin: { color: "bg-red-100 text-red-800", label: "Super Admin" },
-      admin: { color: "bg-blue-100 text-blue-800", label: "Admin" },
-      manager: { color: "bg-green-100 text-green-800", label: "Manager" },
-      user: { color: "bg-gray-100 text-gray-800", label: "User" },
+      super_admin: {
+        color: "bg-red-100 text-red-800",
+        label: t("users.roles.super_admin"),
+      },
+      admin: {
+        color: "bg-blue-100 text-blue-800",
+        label: t("users.roles.admin"),
+      },
+      manager: {
+        color: "bg-green-100 text-green-800",
+        label: t("users.roles.manager"),
+      },
+      user: {
+        color: "bg-gray-100 text-gray-800",
+        label: t("users.roles.user"),
+      },
     };
 
     const config =
@@ -139,7 +153,7 @@ export default function UsersPage() {
       return (
         <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
           <UserX className="h-3 w-3 me-1" />
-          Deleted
+          {t("users.status.deleted")}
         </span>
       );
     }
@@ -147,12 +161,12 @@ export default function UsersPage() {
     return isActive ? (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
         <UserCheck className="h-3 w-3 me-1" />
-        Active
+        {t("users.status.active")}
       </span>
     ) : (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
         <UserX className="h-3 w-3 me-1" />
-        Inactive
+        {t("users.status.inactive")}
       </span>
     );
   };
@@ -160,13 +174,13 @@ export default function UsersPage() {
   const columns = [
     {
       key: "id",
-      label: "ID",
+      label: t("users.table.id"),
       width: "80px",
       sortable: true,
     },
     {
       key: "name",
-      label: "Name",
+      label: t("users.table.name"),
       sortable: true,
       render: (value: string, row: User) => (
         <div className="flex items-center">
@@ -184,20 +198,20 @@ export default function UsersPage() {
     },
     {
       key: "role",
-      label: "Role",
+      label: t("users.table.role"),
       sortable: true,
       render: (value: string) => getRoleBadge(value),
     },
     {
       key: "isActive",
-      label: "Status",
+      label: t("users.table.status"),
       sortable: true,
       render: (value: boolean, row: User) =>
         getStatusBadge(value, row.deletedAt),
     },
     {
       key: "createdAt",
-      label: "Created",
+      label: t("users.table.created"),
       sortable: true,
       render: (value: string) => (
         <div className="flex items-center text-sm text-gray-500">
@@ -208,7 +222,7 @@ export default function UsersPage() {
     },
     {
       key: "facebookAccounts",
-      label: "FB Accounts",
+      label: t("users.table.fbAccounts"),
       render: (value: any[]) => (
         <span className="text-sm text-gray-900">{value?.length || 0}</span>
       ),
@@ -217,19 +231,21 @@ export default function UsersPage() {
 
   const actions = [
     {
-      label: "View",
+      label: t("users.table.view"),
       action: "view",
       icon: Eye,
       className: "text-blue-600 hover:text-blue-700",
     },
     {
-      label: "Edit",
+      label: t("users.table.edit"),
       action: "edit",
       icon: Edit,
       className: "text-green-600 hover:text-green-700",
     },
     {
-      label: selectedUser?.isActive ? "Deactivate" : "Reactivate",
+      label: selectedUser?.isActive
+        ? t("users.table.deactivate")
+        : t("users.table.reactivate"),
       action: selectedUser?.isActive ? "deactivate" : "reactivate",
       icon: selectedUser?.isActive ? UserX : UserCheck,
       className: selectedUser?.isActive
@@ -237,7 +253,7 @@ export default function UsersPage() {
         : "text-green-600 hover:text-green-700",
     },
     {
-      label: "Delete",
+      label: t("users.table.delete"),
       action: "delete",
       icon: Trash2,
       className: "text-red-600 hover:text-red-700",
@@ -272,15 +288,17 @@ export default function UsersPage() {
       <div className="mb-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Users</h1>
-            <p className="text-gray-600 mt-2">Manage all users in the system</p>
+            <h1 className="text-3xl font-bold text-gray-900">
+              {t("users.title")}
+            </h1>
+            <p className="text-gray-600 mt-2">{t("users.subtitle")}</p>
           </div>
           <button
             onClick={handleCreateUser}
             className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
             <Plus className="h-4 w-4 me-2" />
-            Create User
+            {t("users.createUser")}
           </button>
         </div>
       </div>
@@ -290,20 +308,20 @@ export default function UsersPage() {
         <div className="mb-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
           <div className="flex items-center justify-between">
             <span className="text-sm text-blue-700">
-              {selectedUsers.length} user(s) selected
+              {t("users.bulkActions.selected", { count: selectedUsers.length })}
             </span>
             <div className="flex space-x-2">
               <button
                 onClick={() => handleBulkAction("deactivate")}
                 className="px-3 py-1 text-sm bg-yellow-100 text-yellow-700 rounded hover:bg-yellow-200"
               >
-                Deactivate
+                {t("users.bulkActions.deactivate")}
               </button>
               <button
                 onClick={() => handleBulkAction("delete")}
                 className="px-3 py-1 text-sm bg-red-100 text-red-700 rounded hover:bg-red-200"
               >
-                Delete
+                {t("users.bulkActions.delete")}
               </button>
             </div>
           </div>
@@ -315,7 +333,7 @@ export default function UsersPage() {
         data={users}
         columns={columns}
         searchable={true}
-        searchPlaceholder="Search users..."
+        searchPlaceholder={t("users.table.searchPlaceholder")}
         searchFields={["name", "email", "role"]}
         pagination={true}
         pageSize={10}

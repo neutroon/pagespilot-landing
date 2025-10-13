@@ -94,8 +94,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     document.cookie = "role=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
 
     // Extract locale from current pathname for redirect
-    const locale = pathname.split("/")[1] || "en";
-    router.push(`/${locale}/auth/login`);
+    // const locale = pathname.split("/")[1] || "en";
+    router.push(`/auth/login`);
   };
 
   const signup = async (name: string, email: string, password: string) => {

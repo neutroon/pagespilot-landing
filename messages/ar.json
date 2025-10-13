@@ -536,7 +536,8 @@
       "assignments": "التعيينات",
       "analytics": "التحليلات",
       "facebook": "فيسبوك",
-      "settings": "الإعدادات"
+      "settings": "الإعدادات",
+      "adminPanel": "لوحة الإدارة"
     },
     "auth": {
       "login": {
@@ -607,7 +608,8 @@
         "deactivate": "إلغاء التفعيل",
         "reactivate": "إعادة التفعيل",
         "delete": "حذف",
-        "noUsers": "لم يتم العثور على مستخدمين"
+        "noUsers": "لم يتم العثور على مستخدمين",
+        "searchPlaceholder": "البحث عن المستخدمين..."
       },
       "roles": {
         "super_admin": "مدير عام",
@@ -631,7 +633,14 @@
           "roleDesc": "اختر الدور المناسب لهذا المستخدم",
           "create": "إنشاء مستخدم",
           "creating": "جاري الإنشاء...",
-          "cancel": "إلغاء"
+          "cancel": "إلغاء",
+          "validation": {
+            "nameRequired": "الاسم مطلوب",
+            "emailRequired": "البريد الإلكتروني مطلوب",
+            "emailInvalid": "يرجى إدخال عنوان بريد إلكتروني صحيح",
+            "passwordRequired": "كلمة المرور مطلوبة",
+            "passwordMinLength": "يجب أن تكون كلمة المرور 6 أحرف على الأقل"
+          }
         },
         "editUser": {
           "title": "تعديل المستخدم",
@@ -734,17 +743,44 @@
         }
       }
     },
+    "managers": {
+      "title": "المديرين",
+      "subtitle": "إدارة مديري الفرق وتعييناتهم",
+      "createManager": "إنشاء مدير",
+      "stats": {
+        "totalManagers": "إجمالي المديرين",
+        "activeManagers": "المديرين النشطين",
+        "totalAssignments": "إجمالي التعيينات",
+        "avgTeamSize": "متوسط حجم الفريق"
+      },
+      "bulkActions": {
+        "selected": "تم تحديد {count} مدير",
+        "deactivate": "إلغاء التفعيل",
+        "delete": "حذف"
+      },
+      "table": {
+        "manager": "مدير",
+        "assignedUsers": "المستخدمين المعينين",
+        "assignments": "التعيينات"
+      }
+    },
     "analytics": {
       "title": "لوحة التحليلات",
       "subtitle": "تحليلات فيسبوك ورؤى المنصة",
       "exportReport": "تصدير التقرير",
+      "overview": {
+        "totalUsers": "إجمالي المستخدمين",
+        "activeUsers": "المستخدمين النشطين",
+        "facebookAccounts": "حسابات فيسبوك",
+        "totalPages": "إجمالي الصفحات"
+      },
       "filters": {
         "title": "المرشحات:",
         "dateRange": "نطاق التاريخ:",
-        "last7Days": "آخر 7 أيام",
-        "last30Days": "آخر 30 يوم",
-        "last90Days": "آخر 90 يوم",
-        "lastYear": "العام الماضي",
+        "last7days": "آخر 7 أيام",
+        "last30days": "آخر 30 يوم",
+        "last90days": "آخر 90 يوم",
+        "lastYear": "السنة الماضية",
         "user": "المستخدم:",
         "allUsers": "جميع المستخدمين"
       },
@@ -783,6 +819,26 @@
         "advancedAnalyticsDesc": "الغوص العميق في البيانات"
       }
     },
+    "assignments": {
+      "title": "تعيينات المستخدمين",
+      "subtitle": "إدارة تعيينات المستخدمين والمديرين وهياكل الفرق",
+      "assignUser": "تعيين مستخدم",
+      "stats": {
+        "totalAssignments": "إجمالي التعيينات",
+        "activeAssignments": "التعيينات النشطة",
+        "managers": "المديرين",
+        "assignedUsers": "المستخدمين المعينين"
+      },
+      "table": {
+        "manager": "مدير",
+        "user": "مستخدم",
+        "assignedAt": "تم التعيين في",
+        "status": "الحالة",
+        "viewManager": "عرض المدير",
+        "viewUser": "عرض المستخدم",
+        "delete": "حذف"
+      }
+    },
     "facebook": {
       "title": "حسابات فيسبوك",
       "subtitle": "إدارة حسابات فيسبوك والصفحات المتصلة عبر جميع المستخدمين",
@@ -792,110 +848,41 @@
         "totalPages": "إجمالي الصفحات",
         "totalActivities": "إجمالي الأنشطة"
       },
-      "filters": {
-        "title": "المرشحات:",
-        "user": "المستخدم:",
-        "allUsers": "جميع المستخدمين",
-        "status": "الحالة:",
-        "allStatus": "جميع الحالات",
-        "active": "نشط",
-        "inactive": "غير نشط",
-        "clearFilters": "مسح المرشحات"
-      },
       "table": {
-        "id": "المعرف",
-        "user": "المستخدم",
-        "facebookUserId": "معرف مستخدم فيسبوك",
-        "connectedPages": "الصفحات المتصلة",
+        "user": "مستخدم",
+        "pageName": "اسم الصفحة",
         "status": "الحالة",
-        "lastUsed": "آخر استخدام",
+        "connectedAt": "تم الاتصال في",
         "activities": "الأنشطة",
-        "actions": "الإجراءات",
         "view": "عرض",
-        "delete": "حذف",
-        "noAccounts": "لم يتم العثور على حسابات فيسبوك"
-      },
-      "accountManagement": {
-        "title": "إدارة الحسابات",
-        "viewAccountDetails": "عرض تفاصيل الحساب",
-        "viewAccountDetailsDesc": "عرض الصفحات والأنشطة",
-        "refreshTokens": "تحديث الرموز",
-        "refreshTokensDesc": "تحديث رموز الوصول",
-        "bulkActions": "الإجراءات المجمعة",
-        "bulkActionsDesc": "إدارة حسابات متعددة"
+        "delete": "حذف"
       }
     },
-    "common": {
-      "loading": "جاري التحميل...",
-      "error": "خطأ",
-      "success": "نجح",
-      "warning": "تحذير",
-      "info": "معلومات",
-      "confirm": "تأكيد",
-      "cancel": "إلغاء",
-      "save": "حفظ",
-      "delete": "حذف",
-      "edit": "تعديل",
-      "view": "عرض",
-      "create": "إنشاء",
-      "update": "تحديث",
-      "search": "بحث",
-      "filter": "تصفية",
-      "export": "تصدير",
-      "import": "استيراد",
-      "refresh": "تحديث",
-      "close": "إغلاق",
-      "back": "رجوع",
-      "next": "التالي",
-      "previous": "السابق",
-      "submit": "إرسال",
-      "reset": "إعادة تعيين",
-      "clear": "مسح",
-      "select": "اختيار",
-      "selectAll": "اختيار الكل",
-      "deselectAll": "إلغاء اختيار الكل",
-      "bulkActions": "الإجراءات المجمعة",
-      "noData": "لا توجد بيانات متاحة",
-      "noResults": "لم يتم العثور على نتائج",
-      "loadingData": "جاري تحميل البيانات...",
-      "errorLoading": "خطأ في تحميل البيانات",
-      "tryAgain": "حاول مرة أخرى",
-      "permissionDenied": "الصلاحية مرفوضة",
-      "accessDenied": "الوصول مرفوض",
-      "unauthorized": "غير مصرح",
-      "forbidden": "محظور",
-      "notFound": "غير موجود",
-      "serverError": "خطأ في الخادم",
-      "networkError": "خطأ في الشبكة",
-      "validationError": "خطأ في التحقق",
-      "required": "مطلوب",
-      "optional": "اختياري",
-      "email": "البريد الإلكتروني",
-      "password": "كلمة المرور",
-      "name": "الاسم",
-      "role": "الدور",
-      "status": "الحالة",
-      "created": "تاريخ الإنشاء",
-      "updated": "تاريخ التحديث",
-      "actions": "الإجراءات",
-      "details": "التفاصيل",
-      "settings": "الإعدادات",
-      "preferences": "التفضيلات",
-      "profile": "الملف الشخصي",
-      "account": "الحساب",
-      "security": "الأمان",
-      "privacy": "الخصوصية",
-      "notifications": "الإشعارات",
-      "help": "المساعدة",
-      "support": "الدعم",
-      "documentation": "الوثائق",
-      "feedback": "التعليقات",
-      "contact": "التواصل",
-      "about": "حول",
-      "version": "الإصدار",
-      "lastUpdated": "آخر تحديث",
-      "createdBy": "تم الإنشاء بواسطة",
-      "modifiedBy": "تم التعديل بواسطة"
+    "settings": {
+      "title": "الإعدادات",
+      "subtitle": "إدارة إعدادات النظام والتكوينات",
+      "general": {
+        "title": "الإعدادات العامة",
+        "siteName": "اسم الموقع",
+        "siteDescription": "وصف الموقع",
+        "defaultLanguage": "اللغة الافتراضية",
+        "timezone": "المنطقة الزمنية"
+      },
+      "security": {
+        "title": "إعدادات الأمان",
+        "sessionTimeout": "انتهاء صلاحية الجلسة",
+        "passwordPolicy": "سياسة كلمة المرور",
+        "twoFactorAuth": "المصادقة الثنائية"
+      },
+      "notifications": {
+        "title": "إعدادات الإشعارات",
+        "emailNotifications": "إشعارات البريد الإلكتروني",
+        "pushNotifications": "الإشعارات الفورية",
+        "smsNotifications": "إشعارات الرسائل النصية"
+      },
+      "save": "حفظ التغييرات",
+      "saving": "جاري الحفظ...",
+      "cancel": "إلغاء"
     }
   }
 }

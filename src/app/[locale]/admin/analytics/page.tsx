@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { adminService, FacebookAnalytics } from "@/lib/admin-api";
 import AdminLayout from "@/components/admin/AdminLayout";
@@ -20,6 +21,7 @@ import {
 } from "lucide-react";
 
 export default function AnalyticsPage() {
+  const t = useTranslations("admin");
   const { user } = useAuth();
   const [analytics, setAnalytics] = useState<FacebookAnalytics | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -44,7 +46,7 @@ export default function AnalyticsPage() {
 
   const overviewCards = [
     {
-      title: "Total Users",
+      title: t("analytics.overview.totalUsers"),
       value: analytics?.overview.totalUsers || 0,
       icon: Users,
       color: "blue",
@@ -52,7 +54,7 @@ export default function AnalyticsPage() {
       changeType: "positive",
     },
     {
-      title: "Active Users",
+      title: t("analytics.overview.activeUsers"),
       value: analytics?.overview.activeUsers || 0,
       icon: UserCheck,
       color: "green",
@@ -60,7 +62,7 @@ export default function AnalyticsPage() {
       changeType: "positive",
     },
     {
-      title: "Facebook Accounts",
+      title: t("analytics.overview.facebookAccounts"),
       value: analytics?.overview.totalAccounts || 0,
       icon: Facebook,
       color: "purple",
@@ -68,7 +70,7 @@ export default function AnalyticsPage() {
       changeType: "positive",
     },
     {
-      title: "Total Pages",
+      title: t("analytics.overview.totalPages"),
       value: analytics?.overview.totalPages || 0,
       icon: TrendingUp,
       color: "orange",
@@ -103,16 +105,14 @@ export default function AnalyticsPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">
-              Analytics Dashboard
+              {t("analytics.title")}
             </h1>
-            <p className="text-gray-600 mt-2">
-              Facebook analytics and platform insights
-            </p>
+            <p className="text-gray-600 mt-2">{t("analytics.subtitle")}</p>
           </div>
           <div className="flex items-center space-x-4">
             <button className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
               <Download className="h-4 w-4 me-2" />
-              Export Report
+              {t("analytics.exportReport")}
             </button>
           </div>
         </div>
@@ -123,25 +123,31 @@ export default function AnalyticsPage() {
         <div className="flex items-center space-x-6">
           <div className="flex items-center space-x-2">
             <Filter className="h-4 w-4 text-gray-400" />
-            <span className="text-sm font-medium text-gray-700">Filters:</span>
+            <span className="text-sm font-medium text-gray-700">
+              {t("analytics.filters.title")}
+            </span>
           </div>
 
           <div className="flex items-center space-x-2">
-            <label className="text-sm text-gray-600">Date Range:</label>
+            <label className="text-sm text-gray-600">
+              {t("analytics.filters.dateRange")}
+            </label>
             <select
               value={dateRange}
               onChange={(e) => setDateRange(e.target.value)}
               className="px-3 py-1 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
-              <option value="7">Last 7 days</option>
-              <option value="30">Last 30 days</option>
-              <option value="90">Last 90 days</option>
-              <option value="365">Last year</option>
+              <option value="7">{t("analytics.filters.last7days")}</option>
+              <option value="30">{t("analytics.filters.last30days")}</option>
+              <option value="90">{t("analytics.filters.last90days")}</option>
+              <option value="365">{t("analytics.filters.lastYear")}</option>
             </select>
           </div>
 
           <div className="flex items-center space-x-2">
-            <label className="text-sm text-gray-600">User:</label>
+            <label className="text-sm text-gray-600">
+              {t("analytics.filters.user")}
+            </label>
             <select
               value={selectedUser}
               onChange={(e) => setSelectedUser(e.target.value)}

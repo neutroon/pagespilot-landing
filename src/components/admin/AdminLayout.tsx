@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import AdminSidebar from "./AdminSidebar";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
@@ -11,6 +12,7 @@ interface AdminLayoutProps {
 }
 
 export default function AdminLayout({ children }: AdminLayoutProps) {
+  const t = useTranslations("admin");
   const { isAuthenticated, isLoading } = useAuth();
   const params = useParams();
   const router = useRouter();
@@ -46,7 +48,9 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
         {/* Top Bar for Mobile */}
         <div className="lg:hidden bg-white border-b border-gray-200 px-4 py-3">
           <div className="flex items-center justify-between">
-            <h1 className="text-lg font-semibold text-gray-900">Admin Panel</h1>
+            <h1 className="text-lg font-semibold text-gray-900">
+              {t("navigation.adminPanel")}
+            </h1>
             <div className="flex items-center space-x-2">
               {/* Add any mobile-specific controls here */}
             </div>

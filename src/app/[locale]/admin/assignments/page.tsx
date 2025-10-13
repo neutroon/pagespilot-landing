@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { adminService, UserAssignment, User } from "@/lib/admin-api";
 import AdminLayout from "@/components/admin/AdminLayout";
@@ -20,6 +21,7 @@ import {
 } from "lucide-react";
 
 export default function AssignmentsPage() {
+  const t = useTranslations("admin");
   const { user } = useAuth();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -258,18 +260,16 @@ export default function AssignmentsPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">
-              User Assignments
+              {t("assignments.title")}
             </h1>
-            <p className="text-gray-600 mt-2">
-              Manage user-manager assignments and team structures
-            </p>
+            <p className="text-gray-600 mt-2">{t("assignments.subtitle")}</p>
           </div>
           <button
             onClick={handleAssignUser}
             className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
           >
             <Plus className="h-4 w-4 me-2" />
-            Assign User
+            {t("assignments.assignUser")}
           </button>
         </div>
       </div>

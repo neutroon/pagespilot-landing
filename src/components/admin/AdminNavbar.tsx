@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
+import { useTranslations } from "next-intl";
 import LocaleSwitcher from "../LocaleSwitcher";
 import {
   LayoutDashboard,
@@ -20,23 +21,40 @@ import {
 } from "lucide-react";
 import { useLocale } from "next-intl";
 
-const navigation = [
-  { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
-  { name: "Users", href: "/admin/users", icon: Users },
-  { name: "Managers", href: "/admin/managers", icon: UserCheck },
-  { name: "Assignments", href: "/admin/assignments", icon: UserPlus },
-  { name: "Analytics", href: "/admin/analytics", icon: BarChart3 },
-  { name: "Facebook", href: "/admin/facebook", icon: Facebook },
-  { name: "Settings", href: "/admin/settings", icon: Settings },
-];
-
 export default function AdminNavbar() {
+  const t = useTranslations("admin");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const { user, logout } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
   const currentLocale = useLocale();
+
+  const navigation = [
+    {
+      name: t("navigation.dashboard"),
+      href: "/admin/dashboard",
+      icon: LayoutDashboard,
+    },
+    { name: t("navigation.users"), href: "/admin/users", icon: Users },
+    {
+      name: t("navigation.managers"),
+      href: "/admin/managers",
+      icon: UserCheck,
+    },
+    {
+      name: t("navigation.assignments"),
+      href: "/admin/assignments",
+      icon: UserPlus,
+    },
+    {
+      name: t("navigation.analytics"),
+      href: "/admin/analytics",
+      icon: BarChart3,
+    },
+    { name: t("navigation.facebook"), href: "/admin/facebook", icon: Facebook },
+    { name: t("navigation.settings"), href: "/admin/settings", icon: Settings },
+  ];
   const handleLogout = async () => {
     try {
       await logout();

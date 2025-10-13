@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { adminService, CreateUserRequest } from "@/lib/admin-api";
 import { X, Save, User, Mail, Lock, Shield, Eye, EyeOff } from "lucide-react";
 
@@ -15,6 +16,7 @@ export default function CreateUserModal({
   onClose,
   onSuccess,
 }: CreateUserModalProps) {
+  const t = useTranslations("admin");
   const [formData, setFormData] = useState<CreateUserRequest>({
     name: "",
     email: "",
@@ -29,19 +31,23 @@ export default function CreateUserModal({
     const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
+      newErrors.name = t("users.modals.createUser.validation.nameRequired");
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
+      newErrors.email = t("users.modals.createUser.validation.emailRequired");
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
+      newErrors.email = t("users.modals.createUser.validation.emailInvalid");
     }
 
     if (!formData.password.trim()) {
-      newErrors.password = "Password is required";
+      newErrors.password = t(
+        "users.modals.createUser.validation.passwordRequired"
+      );
     } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
+      newErrors.password = t(
+        "users.modals.createUser.validation.passwordMinLength"
+      );
     }
 
     setErrors(newErrors);
@@ -96,10 +102,10 @@ export default function CreateUserModal({
             </div>
             <div>
               <h3 className="text-lg font-semibold text-gray-900">
-                Create User
+                {t("users.modals.createUser.title")}
               </h3>
               <p className="text-sm text-gray-500">
-                Add a new user to the system
+                {t("users.modals.createUser.subtitle")}
               </p>
             </div>
           </div>
@@ -126,7 +132,7 @@ export default function CreateUserModal({
                 htmlFor="name"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                Full Name
+                {t("users.modals.createUser.name")}
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -156,7 +162,7 @@ export default function CreateUserModal({
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                Email Address
+                {t("users.modals.createUser.email")}
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -186,7 +192,7 @@ export default function CreateUserModal({
                 htmlFor="password"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                Password
+                {t("users.modals.createUser.password")}
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -227,7 +233,7 @@ export default function CreateUserModal({
                 htmlFor="role"
                 className="block text-sm font-medium text-gray-700 mb-1"
               >
-                Role
+                {t("users.modals.createUser.role")}
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -241,13 +247,13 @@ export default function CreateUserModal({
                   }
                   className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  <option value="user">User</option>
-                  <option value="manager">Manager</option>
-                  <option value="admin">Admin</option>
+                  <option value="user">{t("users.roles.user")}</option>
+                  <option value="manager">{t("users.roles.manager")}</option>
+                  <option value="admin">{t("users.roles.admin")}</option>
                 </select>
               </div>
               <p className="mt-1 text-xs text-gray-500">
-                Select the appropriate role for this user
+                {t("users.modals.createUser.roleDesc")}
               </p>
             </div>
           </div>
@@ -259,7 +265,7 @@ export default function CreateUserModal({
               onClick={handleClose}
               className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
             >
-              Cancel
+              {t("users.modals.createUser.cancel")}
             </button>
             <button
               type="submit"
@@ -271,7 +277,9 @@ export default function CreateUserModal({
               ) : (
                 <Save className="h-4 w-4 me-2" />
               )}
-              {isLoading ? "Creating..." : "Create User"}
+              {isLoading
+                ? t("users.modals.createUser.creating")
+                : t("users.modals.createUser.create")}
             </button>
           </div>
         </form>

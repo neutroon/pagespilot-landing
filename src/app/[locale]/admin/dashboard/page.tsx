@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 // import { useAdminAuth } from "@/contexts/AdminAuthContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { adminService, FacebookAnalytics } from "@/lib/admin-api";
@@ -28,6 +29,7 @@ interface DashboardStats {
 }
 
 export default function AdminDashboard() {
+  const t = useTranslations("admin");
   const { user } = useAuth();
   const [stats, setStats] = useState<DashboardStats>({
     totalUsers: 0,
@@ -58,7 +60,7 @@ export default function AdminDashboard() {
 
   const statCards = [
     {
-      title: "Total Users",
+      title: t("dashboard.stats.totalUsers"),
       value: stats.totalUsers,
       icon: Users,
       color: "blue",
@@ -66,7 +68,7 @@ export default function AdminDashboard() {
       changeType: "positive",
     },
     {
-      title: "Active Users",
+      title: t("dashboard.stats.activeUsers"),
       value: stats.activeUsers,
       icon: UserCheck,
       color: "green",
@@ -74,7 +76,7 @@ export default function AdminDashboard() {
       changeType: "positive",
     },
     {
-      title: "Facebook Accounts",
+      title: t("dashboard.stats.facebookAccounts"),
       value: stats.totalAccounts,
       icon: Facebook,
       color: "purple",
@@ -82,7 +84,7 @@ export default function AdminDashboard() {
       changeType: "positive",
     },
     {
-      title: "Total Pages",
+      title: t("dashboard.stats.totalPages"),
       value: stats.totalPages,
       icon: TrendingUp,
       color: "orange",
@@ -93,22 +95,22 @@ export default function AdminDashboard() {
 
   const quickActions = [
     {
-      title: "Create User",
-      description: "Add a new user to the system",
+      title: t("dashboard.quickActions.createUser"),
+      description: t("dashboard.quickActions.createUserDesc"),
       icon: UserPlus,
       href: "/admin/users",
       color: "blue",
     },
     {
-      title: "View Analytics",
-      description: "Check detailed analytics and reports",
+      title: t("dashboard.quickActions.viewAnalytics"),
+      description: t("dashboard.quickActions.viewAnalyticsDesc"),
       icon: BarChart3,
       href: "/admin/analytics",
       color: "green",
     },
     {
-      title: "Manage Facebook",
-      description: "View and manage Facebook accounts",
+      title: t("dashboard.quickActions.manageFacebook"),
+      description: t("dashboard.quickActions.manageFacebookDesc"),
       icon: Facebook,
       href: "/admin/facebook",
       color: "purple",
@@ -139,11 +141,9 @@ export default function AdminDashboard() {
       {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">
-          Welcome back, {user?.name}! 👋
+          {t("dashboard.welcomeBack", { name: user?.name })}
         </h1>
-        <p className="text-gray-600 mt-2">
-          Here's what's happening with your platform today.
-        </p>
+        <p className="text-gray-600 mt-2">{t("dashboard.subtitle")}</p>
       </div>
 
       {/* Stats Cards */}
@@ -184,7 +184,7 @@ export default function AdminDashboard() {
         <div className="lg:col-span-1">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Quick Actions
+              {t("dashboard.quickActions.title")}
             </h3>
             <div className="space-y-3">
               {quickActions.map((action, index) => {
@@ -224,13 +224,13 @@ export default function AdminDashboard() {
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold text-gray-900">
-                Recent Activity
+                {t("dashboard.recentActivity.title")}
               </h3>
               <Link
                 href="/admin/analytics"
                 className="text-sm text-blue-600 hover:text-blue-700"
               >
-                View all
+                {t("dashboard.recentActivity.viewAll")}
               </Link>
             </div>
 
@@ -264,9 +264,11 @@ export default function AdminDashboard() {
             ) : (
               <div className="text-center py-8">
                 <AlertCircle className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500">No recent activity</p>
+                <p className="text-gray-500">
+                  {t("dashboard.recentActivity.noActivity")}
+                </p>
                 <p className="text-sm text-gray-400 mt-1">
-                  Activity will appear here as users interact with the platform
+                  {t("dashboard.recentActivity.noActivityDesc")}
                 </p>
               </div>
             )}
@@ -278,7 +280,7 @@ export default function AdminDashboard() {
       <div className="mt-8">
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            System Status
+            {t("dashboard.systemStatus.title")}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="flex items-center">
@@ -286,8 +288,12 @@ export default function AdminDashboard() {
                 <Eye className="h-4 w-4 text-green-600" />
               </div>
               <div className="ms-3">
-                <p className="text-sm font-medium text-gray-900">API Status</p>
-                <p className="text-sm text-green-600">Operational</p>
+                <p className="text-sm font-medium text-gray-900">
+                  {t("dashboard.systemStatus.apiStatus")}
+                </p>
+                <p className="text-sm text-green-600">
+                  {t("dashboard.systemStatus.operational")}
+                </p>
               </div>
             </div>
             <div className="flex items-center">
@@ -296,9 +302,11 @@ export default function AdminDashboard() {
               </div>
               <div className="ms-3">
                 <p className="text-sm font-medium text-gray-900">
-                  Facebook API
+                  {t("dashboard.systemStatus.facebookApi")}
                 </p>
-                <p className="text-sm text-green-600">Connected</p>
+                <p className="text-sm text-green-600">
+                  {t("dashboard.systemStatus.connected")}
+                </p>
               </div>
             </div>
             <div className="flex items-center">
@@ -306,8 +314,12 @@ export default function AdminDashboard() {
                 <Users className="h-4 w-4 text-green-600" />
               </div>
               <div className="ms-3">
-                <p className="text-sm font-medium text-gray-900">User System</p>
-                <p className="text-sm text-green-600">Active</p>
+                <p className="text-sm font-medium text-gray-900">
+                  {t("dashboard.systemStatus.userSystem")}
+                </p>
+                <p className="text-sm text-green-600">
+                  {t("dashboard.systemStatus.active")}
+                </p>
               </div>
             </div>
           </div>

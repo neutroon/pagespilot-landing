@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { adminService, User } from "@/lib/admin-api";
 import AdminLayout from "@/components/admin/AdminLayout";
@@ -21,6 +22,7 @@ import {
 } from "lucide-react";
 
 export default function ManagersPage() {
+  const t = useTranslations("admin");
   const { user } = useAuth();
   const router = useRouter();
   const [managers, setManagers] = useState<User[]>([]);
@@ -130,7 +132,7 @@ export default function ManagersPage() {
       return (
         <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
           <UserX className="h-3 w-3 me-1" />
-          Deleted
+          {t("users.status.deleted")}
         </span>
       );
     }
@@ -138,12 +140,12 @@ export default function ManagersPage() {
     return isActive ? (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
         <UserCheck className="h-3 w-3 me-1" />
-        Active
+        {t("users.status.active")}
       </span>
     ) : (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
         <UserX className="h-3 w-3 me-1" />
-        Inactive
+        {t("users.status.inactive")}
       </span>
     );
   };
@@ -151,13 +153,13 @@ export default function ManagersPage() {
   const columns = [
     {
       key: "id",
-      label: "ID",
+      label: t("users.table.id"),
       width: "80px",
       sortable: true,
     },
     {
       key: "name",
-      label: "Manager",
+      label: t("managers.table.manager"),
       sortable: true,
       render: (value: string, row: User) => (
         <div className="flex items-center">
@@ -175,14 +177,14 @@ export default function ManagersPage() {
     },
     {
       key: "isActive",
-      label: "Status",
+      label: t("users.table.status"),
       sortable: true,
       render: (value: boolean, row: User) =>
         getStatusBadge(value, row.deletedAt),
     },
     {
       key: "createdAt",
-      label: "Created",
+      label: t("users.table.created"),
       sortable: true,
       render: (value: string) => (
         <div className="flex items-center text-sm text-gray-500">
@@ -193,7 +195,7 @@ export default function ManagersPage() {
     },
     {
       key: "assignedUsers",
-      label: "Assigned Users",
+      label: t("managers.table.assignedUsers"),
       render: (value: any, row: User) => (
         <div className="flex items-center">
           <Users className="h-4 w-4 text-gray-400 me-1" />
@@ -205,7 +207,7 @@ export default function ManagersPage() {
     },
     {
       key: "facebookAccounts",
-      label: "FB Accounts",
+      label: t("users.table.fbAccounts"),
       render: (value: any[]) => (
         <span className="text-sm text-gray-900">{value?.length || 0}</span>
       ),
@@ -214,25 +216,27 @@ export default function ManagersPage() {
 
   const actions = [
     {
-      label: "View",
+      label: t("users.table.view"),
       action: "view",
       icon: Eye,
       className: "text-blue-600 hover:text-blue-700",
     },
     {
-      label: "Assignments",
+      label: t("managers.table.assignments"),
       action: "assignments",
       icon: UserPlus,
       className: "text-purple-600 hover:text-purple-700",
     },
     {
-      label: "Edit",
+      label: t("users.table.edit"),
       action: "edit",
       icon: Edit,
       className: "text-green-600 hover:text-green-700",
     },
     {
-      label: selectedManager?.isActive ? "Deactivate" : "Reactivate",
+      label: selectedManager?.isActive
+        ? t("users.table.deactivate")
+        : t("users.table.reactivate"),
       action: selectedManager?.isActive ? "deactivate" : "reactivate",
       icon: selectedManager?.isActive ? UserX : UserCheck,
       className: selectedManager?.isActive
@@ -240,7 +244,7 @@ export default function ManagersPage() {
         : "text-green-600 hover:text-green-700",
     },
     {
-      label: "Delete",
+      label: t("users.table.delete"),
       action: "delete",
       icon: Trash2,
       className: "text-red-600 hover:text-red-700",
@@ -278,17 +282,17 @@ export default function ManagersPage() {
       <div className="mb-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Managers</h1>
-            <p className="text-gray-600 mt-2">
-              Manage team managers and their assignments
-            </p>
+            <h1 className="text-3xl font-bold text-gray-900">
+              {t("managers.title")}
+            </h1>
+            <p className="text-gray-600 mt-2">{t("managers.subtitle")}</p>
           </div>
           <button
             onClick={handleCreateManager}
             className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
           >
             <Plus className="h-4 w-4 me-2" />
-            Create Manager
+            {t("managers.createManager")}
           </button>
         </div>
       </div>
@@ -302,7 +306,7 @@ export default function ManagersPage() {
             </div>
             <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
-                Total Managers
+                {t("managers.stats.totalManagers")}
               </p>
               <p className="text-2xl font-bold text-gray-900">
                 {managers.length}
@@ -317,7 +321,7 @@ export default function ManagersPage() {
             </div>
             <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
-                Active Managers
+                {t("managers.stats.activeManagers")}
               </p>
               <p className="text-2xl font-bold text-gray-900">
                 {managers.filter((m) => m.isActive).length}
@@ -332,7 +336,7 @@ export default function ManagersPage() {
             </div>
             <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
-                Total Assignments
+                {t("managers.stats.totalAssignments")}
               </p>
               <p className="text-2xl font-bold text-gray-900">0</p>
             </div>
@@ -345,7 +349,7 @@ export default function ManagersPage() {
             </div>
             <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
-                Avg. Team Size
+                {t("managers.stats.avgTeamSize")}
               </p>
               <p className="text-2xl font-bold text-gray-900">0</p>
             </div>
@@ -358,7 +362,9 @@ export default function ManagersPage() {
         <div className="mb-6 bg-green-50 border border-green-200 rounded-lg p-4">
           <div className="flex items-center justify-between">
             <span className="text-sm text-green-700">
-              {selectedManagers.length} manager(s) selected
+              {t("managers.bulkActions.selected", {
+                count: selectedManagers.length,
+              })}
             </span>
             <div className="flex space-x-2">
               <button
