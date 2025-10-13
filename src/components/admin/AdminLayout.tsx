@@ -22,7 +22,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      router.push(`/${locale}/admin/login`);
+      router.push(`/${locale}/auth/login`);
     }
   }, [isAuthenticated, isLoading, router, locale]);
 

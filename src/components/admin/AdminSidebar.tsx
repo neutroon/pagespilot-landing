@@ -34,16 +34,19 @@ export default function AdminSidebar() {
   const { logout } = useAuth();
   const pathname = usePathname();
   const params = useParams();
+
   const { user, isAuthenticated, isLoading } = useAuth();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const t = useTranslations("admin");
-
+  useEffect(() => {
+    if (isMobileOpen) setIsCollapsed(false);
+  }, [isMobileOpen]);
   const currentLocale = params.locale as string;
   const handleLogout = async () => {
     try {
       await logout();
-      router.push("/admin/login");
+      router.push("/auth/login");
     } catch (error) {
       console.error("Logout failed:", error);
     }
@@ -243,9 +246,15 @@ export default function AdminSidebar() {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 lg:hidden ${
-          isMobileOpen ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed inset-y-0  z-50 w-64 bg-white border-r border-gray-200 lg:hidden ${
+          isMobileOpen
+            ? "translate-x-0"
+            : currentLocale === "ar"
+            ? "translate-x-full"
+            : "-translate-x-full"
+        }
+        ${currentLocale === "ar" ? "right-0" : "left-0"}
+        `}
         style={{ transition: "transform 0.3s ease" }}
       >
         <SidebarContent />
@@ -254,7 +263,9 @@ export default function AdminSidebar() {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMobileOpen(!isMobileOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white rounded-lg shadow-lg border border-gray-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+        className={`
+          lg:hidden fixed top-4  z-50 p-2 bg-white rounded-lg shadow-lg border border-gray-200 text-gray-600 hover:text-gray-900 hover:bg-gray-50 
+          ${currentLocale === "ar" ? "right-0" : "left-0"}`}
       >
         {isMobileOpen ? (
           <X className="w-5 h-5" />

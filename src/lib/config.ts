@@ -37,11 +37,6 @@ export const API_CONFIG = {
 
   // Admin API endpoints
   ADMIN: {
-    // Authentication
-    LOGIN: "/api/v1/admin/login",
-    REFRESH: "/api/v1/admin/refresh",
-    LOGOUT: "/api/v1/users/logout", // Shared logout endpoint
-
     // User Management
     USERS: "/api/v1/admin/users",
     USER_BY_ID: "/api/v1/admin/users/:id",
@@ -101,9 +96,9 @@ export const DASHBOARD_API = {
 // Admin API URLs
 export const ADMIN_API = {
   // Authentication
-  LOGIN: buildApiUrl(API_CONFIG.ADMIN.LOGIN),
-  REFRESH: buildApiUrl(API_CONFIG.ADMIN.REFRESH),
-  LOGOUT: buildApiUrl(API_CONFIG.ADMIN.LOGOUT),
+  LOGIN: buildApiUrl(API_CONFIG.AUTH.LOGIN),
+  REFRESH: buildApiUrl(API_CONFIG.AUTH.REFRESH),
+  LOGOUT: buildApiUrl(API_CONFIG.AUTH.LOGOUT),
 
   // User Management
   USERS: buildApiUrl(API_CONFIG.ADMIN.USERS),

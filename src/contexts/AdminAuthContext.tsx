@@ -36,7 +36,7 @@
 
 //   // Handle pathname changes separately
 //   useEffect(() => {
-//     const isLoginPage = pathname.includes("/admin/login");
+//     const isLoginPage = pathname.includes("/auth/login");
 //     const isNonAdminPage = !pathname.includes("/admin");
 
 //     if (isLoginPage || isNonAdminPage) {
