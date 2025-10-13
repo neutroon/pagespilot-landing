@@ -78,7 +78,7 @@ export default function UserMenu() {
               href="/profile"
               className="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
             >
-              <LayoutDashboard className="w-4 h-4 mr-3 text-slate-500" />
+              <LayoutDashboard className="w-4 h-4 me-3 text-slate-500" />
               {t("login.profileNav")}
             </Link>
           </div>
@@ -88,7 +88,7 @@ export default function UserMenu() {
               onClick={logout}
               className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
             >
-              <LogOut className="w-4 h-4 mr-3" />
+              <LogOut className="w-4 h-4 me-3" />
               {t("login.logoutNav")}
             </button>
           </div>

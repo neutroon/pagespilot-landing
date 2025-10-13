@@ -129,7 +129,7 @@ export default function ManagersPage() {
     if (deletedAt) {
       return (
         <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-          <UserX className="h-3 w-3 mr-1" />
+          <UserX className="h-3 w-3 me-1" />
           Deleted
         </span>
       );
@@ -137,12 +137,12 @@ export default function ManagersPage() {
 
     return isActive ? (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-        <UserCheck className="h-3 w-3 mr-1" />
+        <UserCheck className="h-3 w-3 me-1" />
         Active
       </span>
     ) : (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-        <UserX className="h-3 w-3 mr-1" />
+        <UserX className="h-3 w-3 me-1" />
         Inactive
       </span>
     );
@@ -166,7 +166,7 @@ export default function ManagersPage() {
               {value.charAt(0).toUpperCase()}
             </span>
           </div>
-          <div className="ml-3">
+          <div className="ms-3">
             <div className="text-sm font-medium text-gray-900">{value}</div>
             <div className="text-sm text-gray-500">{row.email}</div>
           </div>
@@ -186,7 +186,7 @@ export default function ManagersPage() {
       sortable: true,
       render: (value: string) => (
         <div className="flex items-center text-sm text-gray-500">
-          <Calendar className="h-4 w-4 mr-1" />
+          <Calendar className="h-4 w-4 me-1" />
           {new Date(value).toLocaleDateString()}
         </div>
       ),
@@ -196,7 +196,7 @@ export default function ManagersPage() {
       label: "Assigned Users",
       render: (value: any, row: User) => (
         <div className="flex items-center">
-          <Users className="h-4 w-4 text-gray-400 mr-1" />
+          <Users className="h-4 w-4 text-gray-400 me-1" />
           <span className="text-sm text-gray-900">
             {/* This would need to be fetched from assignments API */}0
           </span>
@@ -287,7 +287,7 @@ export default function ManagersPage() {
             onClick={handleCreateManager}
             className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
           >
-            <Plus className="h-4 w-4 mr-2" />
+            <Plus className="h-4 w-4 me-2" />
             Create Manager
           </button>
         </div>
@@ -300,7 +300,7 @@ export default function ManagersPage() {
             <div className="p-2 bg-green-100 rounded-lg">
               <UserCheck className="h-5 w-5 text-green-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
                 Total Managers
               </p>
@@ -315,7 +315,7 @@ export default function ManagersPage() {
             <div className="p-2 bg-blue-100 rounded-lg">
               <Users className="h-5 w-5 text-blue-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
                 Active Managers
               </p>
@@ -330,7 +330,7 @@ export default function ManagersPage() {
             <div className="p-2 bg-purple-100 rounded-lg">
               <UserPlus className="h-5 w-5 text-purple-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
                 Total Assignments
               </p>
@@ -343,7 +343,7 @@ export default function ManagersPage() {
             <div className="p-2 bg-orange-100 rounded-lg">
               <Shield className="h-5 w-5 text-orange-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
                 Avg. Team Size
               </p>

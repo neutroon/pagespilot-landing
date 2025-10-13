@@ -21,6 +21,7 @@ import {
   LogOut,
 } from "lucide-react";
 import router from "next/router";
+import LocaleSwitcher from "../LocaleSwitcher";
 
 interface AdminSidebarItem {
   name: string;
@@ -175,7 +176,7 @@ export default function AdminSidebar() {
                     </span>
                     {!isCollapsed && <span>{item.name}</span>}
                     {!isCollapsed && item.badge && (
-                      <span className="ml-auto bg-red-100 text-red-600 text-xs px-2 py-0.5 rounded-full">
+                      <span className="ms-auto bg-red-100 text-red-600 text-xs px-2 py-0.5 rounded-full">
                         {item.badge}
                       </span>
                     )}
@@ -186,6 +187,8 @@ export default function AdminSidebar() {
           </div>
         </div>
       </div>
+      {/* Language Switcher */}
+      <LocaleSwitcher currentLocale={currentLocale} />
 
       {/* Admin Info */}
       <div className="p-4 border-t border-gray-200">

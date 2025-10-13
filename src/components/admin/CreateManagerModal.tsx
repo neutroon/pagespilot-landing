@@ -91,7 +91,7 @@ export default function CreateManagerModal({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <div className="flex items-center">
-            <div className="h-10 w-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+            <div className="h-10 w-10 bg-green-600 rounded-lg flex items-center justify-center me-3">
               <Shield className="h-5 w-5 text-white" />
             </div>
             <div>
@@ -224,7 +224,7 @@ export default function CreateManagerModal({
             {/* Manager Permissions Info */}
             <div className="bg-green-50 border border-green-200 rounded-lg p-4">
               <div className="flex items-start">
-                <Shield className="h-5 w-5 text-green-600 mr-2 mt-0.5" />
+                <Shield className="h-5 w-5 text-green-600 me-2 mt-0.5" />
                 <div>
                   <h4 className="text-sm font-medium text-green-900">
                     Manager Permissions
@@ -255,9 +255,9 @@ export default function CreateManagerModal({
               className="flex-1 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
             >
               {isLoading ? (
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin me-2"></div>
               ) : (
-                <Save className="h-4 w-4 mr-2" />
+                <Save className="h-4 w-4 me-2" />
               )}
               {isLoading ? "Creating..." : "Create Manager"}
             </button>
@@ -267,4 +267,3 @@ export default function CreateManagerModal({
     </div>
   );
 }
-

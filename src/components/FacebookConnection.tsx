@@ -271,7 +271,7 @@ export default function FacebookConnection({
       {success && (
         <div className="mb-4 bg-green-50 border border-green-200 rounded-xl p-4">
           <div className="flex items-center">
-            <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+            <CheckCircle className="w-5 h-5 text-green-500 me-3" />
             <span className="text-green-800 text-sm font-medium">
               {success}
             </span>
@@ -282,7 +282,7 @@ export default function FacebookConnection({
       {error && (
         <div className="mb-4 bg-red-50 border border-red-200 rounded-xl p-4">
           <div className="flex items-center">
-            <X className="w-5 h-5 text-red-500 mr-3" />
+            <X className="w-5 h-5 text-red-500 me-3" />
             <span className="text-red-800 text-sm font-medium">{error}</span>
           </div>
         </div>
@@ -291,7 +291,7 @@ export default function FacebookConnection({
       {warning && (
         <div className="mb-4 bg-yellow-50 border border-yellow-200 rounded-xl p-4">
           <div className="flex items-center">
-            <X className="w-5 h-5 text-yellow-500 mr-3" />
+            <X className="w-5 h-5 text-yellow-500 me-3" />
             <span className="text-yellow-800 text-sm font-medium">
               {warning}
             </span>
@@ -303,7 +303,7 @@ export default function FacebookConnection({
       {isLoading ? (
         <div className="flex items-center justify-center py-8">
           <Loader2 className="w-6 h-6 animate-spin text-slate-400" />
-          <span className="ml-2 text-slate-600">
+          <span className="ms-2 text-slate-600">
             {t("dashboard.facebook.loading")}
           </span>
         </div>

@@ -187,7 +187,7 @@ export default function DataTable<T extends Record<string, any>>({
                 onClick={onExport}
                 className="flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50"
               >
-                <Download className="h-4 w-4 mr-2" />
+                <Download className="h-4 w-4 me-2" />
                 Export
               </button>
             )}
@@ -301,7 +301,7 @@ export default function DataTable<T extends Record<string, any>>({
                                 "text-blue-600 hover:text-blue-700 hover:bg-blue-50"
                               }`}
                             >
-                              {Icon && <Icon className="h-4 w-4 mr-1" />}
+                              {Icon && <Icon className="h-4 w-4 me-1" />}
                               {action.label}
                             </button>
                           );
@@ -364,4 +364,3 @@ export default function DataTable<T extends Record<string, any>>({
     </div>
   );
 }
-

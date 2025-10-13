@@ -155,7 +155,7 @@ export default function AdminLoginPage() {
                 />
                 <label
                   htmlFor="remember-me"
-                  className="ml-2 block text-sm text-gray-700"
+                  className="ms-2 block text-sm text-gray-700"
                 >
                   Remember me
                 </label>
@@ -171,7 +171,7 @@ export default function AdminLoginPage() {
               >
                 {isSubmitting ? (
                   <div className="flex items-center">
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white me-2"></div>
                     Signing in...
                   </div>
                 ) : (

@@ -112,7 +112,7 @@ export default function GeneratePostForm({
           {/* Header */}
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-              <Sparkles className="w-5 h-5 mr-2 text-purple-600" />
+              <Sparkles className="w-5 h-5 me-2 text-purple-600" />
               {t("dashboard.facebook.generateForm.title")}
             </h3>
             <button
@@ -127,7 +127,7 @@ export default function GeneratePostForm({
           {error && (
             <div className="mb-4 bg-red-50 border border-red-200 rounded-lg p-3">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-red-500 rounded-full me-2"></div>
                 <span className="text-red-800 text-sm">{error}</span>
               </div>
             </div>
@@ -247,7 +247,7 @@ export default function GeneratePostForm({
                       generateImage: e.target.checked,
                     })
                   }
-                  className="mr-2"
+                  className="me-2"
                   disabled={isGenerating}
                 />
                 <span className="text-sm font-medium text-gray-700">
@@ -275,7 +275,7 @@ export default function GeneratePostForm({
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 ) : (
                   <>
-                    <Sparkles className="w-5 h-5 mr-2" />
+                    <Sparkles className="w-5 h-5 me-2" />
                     {t("dashboard.facebook.generateForm.generate")}
                   </>
                 )}

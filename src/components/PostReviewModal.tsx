@@ -130,7 +130,7 @@ export default function PostReviewModal({
           {success && (
             <div className="mb-4 bg-green-50 border border-green-200 rounded-lg p-3">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-green-500 rounded-full me-2"></div>
                 <span className="text-green-800 text-sm">{success}</span>
               </div>
             </div>
@@ -139,7 +139,7 @@ export default function PostReviewModal({
           {error && (
             <div className="mb-4 bg-red-50 border border-red-200 rounded-lg p-3">
               <div className="flex items-center">
-                <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
+                <div className="w-2 h-2 bg-red-500 rounded-full me-2"></div>
                 <span className="text-red-800 text-sm">{error}</span>
               </div>
             </div>
@@ -186,7 +186,7 @@ export default function PostReviewModal({
             {generatedData.imageError && (
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
                 <div className="flex items-center">
-                  <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
+                  <div className="w-2 h-2 bg-yellow-500 rounded-full me-2"></div>
                   <span className="text-yellow-800 text-sm">
                     Image generation failed: {generatedData.imageError}
                   </span>
@@ -244,7 +244,7 @@ export default function PostReviewModal({
                     value="now"
                     checked={postType === "now"}
                     onChange={(e) => setPostType(e.target.value as "now")}
-                    className="mr-2"
+                    className="me-2"
                     disabled={isPosting}
                   />
                   <span className="text-sm">Post Now</span>
@@ -255,7 +255,7 @@ export default function PostReviewModal({
                     value="schedule"
                     checked={postType === "schedule"}
                     onChange={(e) => setPostType(e.target.value as "schedule")}
-                    className="mr-2"
+                    className="me-2"
                     disabled={isPosting}
                   />
                   <span className="text-sm">Schedule</span>
@@ -289,7 +289,7 @@ export default function PostReviewModal({
                 className="flex-1 px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 hover:border-gray-400 flex items-center justify-center transition-all duration-200"
                 disabled={isPosting}
               >
-                <Edit className="w-5 h-5 mr-2" />
+                <Edit className="w-5 h-5 me-2" />
                 Edit
               </button>
               <button
@@ -309,12 +309,12 @@ export default function PostReviewModal({
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                 ) : postType === "schedule" ? (
                   <>
-                    <Calendar className="w-5 h-5 mr-2" />
+                    <Calendar className="w-5 h-5 me-2" />
                     Schedule
                   </>
                 ) : (
                   <>
-                    <Plus className="w-5 h-5 mr-2" />
+                    <Plus className="w-5 h-5 me-2" />
                     Post Now
                   </>
                 )}

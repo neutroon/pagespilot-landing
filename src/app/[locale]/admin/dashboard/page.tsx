@@ -164,7 +164,7 @@ export default function AdminDashboard() {
                     {stat.value.toLocaleString()}
                   </p>
                   <p className="text-sm text-green-600 flex items-center mt-1">
-                    <TrendingUp className="h-3 w-3 mr-1" />
+                    <TrendingUp className="h-3 w-3 me-1" />
                     {stat.change}
                   </p>
                 </div>
@@ -203,7 +203,7 @@ export default function AdminDashboard() {
                       >
                         <Icon className="h-5 w-5" />
                       </div>
-                      <div className="ml-3">
+                      <div className="ms-3">
                         <p className="font-medium text-gray-900">
                           {action.title}
                         </p>
@@ -244,7 +244,7 @@ export default function AdminDashboard() {
                     <div className="p-2 bg-blue-100 rounded-lg">
                       <Activity className="h-4 w-4 text-blue-600" />
                     </div>
-                    <div className="ml-3 flex-1">
+                    <div className="ms-3 flex-1">
                       <p className="text-sm font-medium text-gray-900">
                         {activity.title || "System Activity"}
                       </p>
@@ -253,7 +253,7 @@ export default function AdminDashboard() {
                       </p>
                     </div>
                     <div className="text-xs text-gray-500">
-                      <Clock className="h-3 w-3 inline mr-1" />
+                      <Clock className="h-3 w-3 inline me-1" />
                       {new Date(
                         activity.timestamp || Date.now()
                       ).toLocaleDateString()}
@@ -285,7 +285,7 @@ export default function AdminDashboard() {
               <div className="p-2 bg-green-100 rounded-lg">
                 <Eye className="h-4 w-4 text-green-600" />
               </div>
-              <div className="ml-3">
+              <div className="ms-3">
                 <p className="text-sm font-medium text-gray-900">API Status</p>
                 <p className="text-sm text-green-600">Operational</p>
               </div>
@@ -294,7 +294,7 @@ export default function AdminDashboard() {
               <div className="p-2 bg-green-100 rounded-lg">
                 <Facebook className="h-4 w-4 text-green-600" />
               </div>
-              <div className="ml-3">
+              <div className="ms-3">
                 <p className="text-sm font-medium text-gray-900">
                   Facebook API
                 </p>
@@ -305,7 +305,7 @@ export default function AdminDashboard() {
               <div className="p-2 bg-green-100 rounded-lg">
                 <Users className="h-4 w-4 text-green-600" />
               </div>
-              <div className="ml-3">
+              <div className="ms-3">
                 <p className="text-sm font-medium text-gray-900">User System</p>
                 <p className="text-sm text-green-600">Active</p>
               </div>

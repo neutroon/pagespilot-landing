@@ -128,7 +128,7 @@ export default function UsersPage() {
       <span
         className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${config.color}`}
       >
-        <Shield className="h-3 w-3 mr-1" />
+        <Shield className="h-3 w-3 me-1" />
         {config.label}
       </span>
     );
@@ -138,7 +138,7 @@ export default function UsersPage() {
     if (deletedAt) {
       return (
         <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-          <UserX className="h-3 w-3 mr-1" />
+          <UserX className="h-3 w-3 me-1" />
           Deleted
         </span>
       );
@@ -146,12 +146,12 @@ export default function UsersPage() {
 
     return isActive ? (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-        <UserCheck className="h-3 w-3 mr-1" />
+        <UserCheck className="h-3 w-3 me-1" />
         Active
       </span>
     ) : (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-        <UserX className="h-3 w-3 mr-1" />
+        <UserX className="h-3 w-3 me-1" />
         Inactive
       </span>
     );
@@ -175,7 +175,7 @@ export default function UsersPage() {
               {value.charAt(0).toUpperCase()}
             </span>
           </div>
-          <div className="ml-3">
+          <div className="ms-3">
             <div className="text-sm font-medium text-gray-900">{value}</div>
             <div className="text-sm text-gray-500">{row.email}</div>
           </div>
@@ -201,7 +201,7 @@ export default function UsersPage() {
       sortable: true,
       render: (value: string) => (
         <div className="flex items-center text-sm text-gray-500">
-          <Calendar className="h-4 w-4 mr-1" />
+          <Calendar className="h-4 w-4 me-1" />
           {new Date(value).toLocaleDateString()}
         </div>
       ),
@@ -279,7 +279,7 @@ export default function UsersPage() {
             onClick={handleCreateUser}
             className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
-            <Plus className="h-4 w-4 mr-2" />
+            <Plus className="h-4 w-4 me-2" />
             Create User
           </button>
         </div>

@@ -118,12 +118,12 @@ export default function FacebookPage() {
   const getStatusBadge = (isActive: boolean) => {
     return isActive ? (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-        <CheckCircle className="h-3 w-3 mr-1" />
+        <CheckCircle className="h-3 w-3 me-1" />
         Active
       </span>
     ) : (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-        <XCircle className="h-3 w-3 mr-1" />
+        <XCircle className="h-3 w-3 me-1" />
         Inactive
       </span>
     );
@@ -147,7 +147,7 @@ export default function FacebookPage() {
               {row.user.name.charAt(0).toUpperCase()}
             </span>
           </div>
-          <div className="ml-3">
+          <div className="ms-3">
             <div className="text-sm font-medium text-gray-900">
               {row.user.name}
             </div>
@@ -162,7 +162,7 @@ export default function FacebookPage() {
       sortable: true,
       render: (value: string) => (
         <div className="flex items-center">
-          <Facebook className="h-4 w-4 text-blue-600 mr-2" />
+          <Facebook className="h-4 w-4 text-blue-600 me-2" />
           <span className="text-sm font-mono text-gray-900">{value}</span>
         </div>
       ),
@@ -174,7 +174,7 @@ export default function FacebookPage() {
         <div className="flex items-center">
           <span className="text-sm text-gray-900">{value?.length || 0}</span>
           {value && value.length > 0 && (
-            <span className="ml-1 text-xs text-gray-500">
+            <span className="ms-1 text-xs text-gray-500">
               ({value.filter((p) => p.isActive).length} active)
             </span>
           )}
@@ -193,7 +193,7 @@ export default function FacebookPage() {
       sortable: true,
       render: (value: string | null) => (
         <div className="flex items-center text-sm text-gray-500">
-          <Calendar className="h-4 w-4 mr-1" />
+          <Calendar className="h-4 w-4 me-1" />
           {value ? new Date(value).toLocaleDateString() : "Never"}
         </div>
       ),
@@ -203,7 +203,7 @@ export default function FacebookPage() {
       label: "Activities",
       render: (value: any) => (
         <div className="flex items-center">
-          <Activity className="h-4 w-4 text-gray-400 mr-1" />
+          <Activity className="h-4 w-4 text-gray-400 me-1" />
           <span className="text-sm text-gray-900">
             {value?.activities || 0}
           </span>
@@ -264,7 +264,7 @@ export default function FacebookPage() {
             <div className="p-2 bg-blue-100 rounded-lg">
               <Facebook className="h-5 w-5 text-blue-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
                 Total Accounts
               </p>
@@ -279,7 +279,7 @@ export default function FacebookPage() {
             <div className="p-2 bg-green-100 rounded-lg">
               <CheckCircle className="h-5 w-5 text-green-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
                 Active Accounts
               </p>
@@ -294,7 +294,7 @@ export default function FacebookPage() {
             <div className="p-2 bg-purple-100 rounded-lg">
               <UserIcon className="h-5 w-5 text-purple-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">Total Pages</p>
               <p className="text-2xl font-bold text-gray-900">
                 {accounts.reduce(
@@ -310,7 +310,7 @@ export default function FacebookPage() {
             <div className="p-2 bg-orange-100 rounded-lg">
               <Activity className="h-5 w-5 text-orange-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
                 Total Activities
               </p>
@@ -423,7 +423,7 @@ export default function FacebookPage() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <button className="flex items-center p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors">
-              <Eye className="h-5 w-5 text-blue-600 mr-3" />
+              <Eye className="h-5 w-5 text-blue-600 me-3" />
               <div className="text-left">
                 <p className="font-medium text-gray-900">
                   View Account Details
@@ -434,14 +434,14 @@ export default function FacebookPage() {
               </div>
             </button>
             <button className="flex items-center p-4 rounded-lg border border-gray-200 hover:border-green-300 hover:bg-green-50 transition-colors">
-              <CheckCircle className="h-5 w-5 text-green-600 mr-3" />
+              <CheckCircle className="h-5 w-5 text-green-600 me-3" />
               <div className="text-left">
                 <p className="font-medium text-gray-900">Refresh Tokens</p>
                 <p className="text-sm text-gray-500">Update access tokens</p>
               </div>
             </button>
             <button className="flex items-center p-4 rounded-lg border border-gray-200 hover:border-red-300 hover:bg-red-50 transition-colors">
-              <AlertCircle className="h-5 w-5 text-red-600 mr-3" />
+              <AlertCircle className="h-5 w-5 text-red-600 me-3" />
               <div className="text-left">
                 <p className="font-medium text-gray-900">Bulk Actions</p>
                 <p className="text-sm text-gray-500">

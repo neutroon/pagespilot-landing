@@ -95,7 +95,7 @@ export default function FacebookFeatures({ locale }: FacebookFeaturesProps) {
                 : "bg-slate-100 text-slate-700 hover:bg-slate-200"
             }`}
           >
-            <feature.icon className="w-4 h-4 inline mr-2" />
+            <feature.icon className="w-4 h-4 inline me-2" />
             {feature.title}
           </button>
         ))}

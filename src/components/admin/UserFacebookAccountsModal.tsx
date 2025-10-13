@@ -231,7 +231,7 @@ export default function UserFacebookAccountsModal({
                             Last Used
                           </span>
                           <span className="text-sm text-gray-900 flex items-center">
-                            <Calendar className="h-4 w-4 mr-1" />
+                            <Calendar className="h-4 w-4 me-1" />
                             {account.lastUsedAt
                               ? new Date(
                                   account.lastUsedAt
@@ -244,7 +244,7 @@ export default function UserFacebookAccountsModal({
                             Activities
                           </span>
                           <span className="text-sm text-gray-900 flex items-center">
-                            <Activity className="h-4 w-4 mr-1" />
+                            <Activity className="h-4 w-4 me-1" />
                             {account._count?.activities || 0}
                           </span>
                         </div>
@@ -264,7 +264,7 @@ export default function UserFacebookAccountsModal({
                               className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
                             >
                               <div className="flex items-center">
-                                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center me-3">
                                   <Facebook className="h-3 w-3 text-blue-600" />
                                 </div>
                                 <div>
@@ -307,11 +307,11 @@ export default function UserFacebookAccountsModal({
                     <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                       <div className="flex items-center space-x-4">
                         <button className="flex items-center text-sm text-blue-600 hover:text-blue-700">
-                          <RefreshCw className="h-4 w-4 mr-1" />
+                          <RefreshCw className="h-4 w-4 me-1" />
                           Refresh Token
                         </button>
                         <button className="flex items-center text-sm text-gray-600 hover:text-gray-700">
-                          <ExternalLink className="h-4 w-4 mr-1" />
+                          <ExternalLink className="h-4 w-4 me-1" />
                           View on Facebook
                         </button>
                       </div>
@@ -319,7 +319,7 @@ export default function UserFacebookAccountsModal({
                         onClick={() => handleDeleteAccount(account)}
                         className="flex items-center px-3 py-1 text-sm text-red-600 hover:text-red-700 hover:bg-red-50 rounded"
                       >
-                        <Trash2 className="h-4 w-4 mr-1" />
+                        <Trash2 className="h-4 w-4 me-1" />
                         Delete Account
                       </button>
                     </div>
@@ -369,4 +369,3 @@ export default function UserFacebookAccountsModal({
     </div>
   );
 }
-

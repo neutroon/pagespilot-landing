@@ -63,7 +63,7 @@ export default function ConfirmDialog({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <div className="flex items-center">
-            <div className="p-2 rounded-lg bg-gray-100 mr-3">{getIcon()}</div>
+            <div className="p-2 rounded-lg bg-gray-100 me-3">{getIcon()}</div>
             <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
           </div>
           <button
@@ -94,7 +94,7 @@ export default function ConfirmDialog({
             className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center ${getButtonClasses()}`}
           >
             {isLoading ? (
-              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin me-2"></div>
             ) : null}
             {isLoading ? "Processing..." : confirmText}
           </button>
@@ -103,4 +103,3 @@ export default function ConfirmDialog({
     </div>
   );
 }
-

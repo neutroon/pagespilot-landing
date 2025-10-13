@@ -100,7 +100,7 @@ export default function LoginPage() {
             {successMessage && (
               <div className="bg-green-50 border border-green-200 rounded-xl p-4">
                 <div className="flex items-center">
-                  <div className="w-5 h-5 text-green-500 mr-3">
+                  <div className="w-5 h-5 text-green-500 me-3">
                     <svg fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fillRule="evenodd"
@@ -118,7 +118,7 @@ export default function LoginPage() {
             {error && (
               <div className="bg-red-50 border border-red-200 rounded-xl p-4">
                 <div className="flex items-center">
-                  <div className="w-5 h-5 text-red-500 mr-3">
+                  <div className="w-5 h-5 text-red-500 me-3">
                     <svg fill="currentColor" viewBox="0 0 20 20">
                       <path
                         fillRule="evenodd"
@@ -203,7 +203,7 @@ export default function LoginPage() {
             >
               {isSubmitting ? (
                 <>
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3" />
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin me-3" />
                   {t("login.loggingIn")}
                 </>
               ) : (

@@ -496,7 +496,7 @@ export default function Home() {
               <ul className="space-y-3">
                 <li className="flex items-center text-slate-700">
                   <svg
-                    className="w-5 h-5 text-green-500 mr-3"
+                    className="w-5 h-5 text-green-500 me-3"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -509,7 +509,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center text-slate-700">
                   <svg
-                    className="w-5 h-5 text-green-500 mr-3"
+                    className="w-5 h-5 text-green-500 me-3"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -522,7 +522,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center text-slate-700">
                   <svg
-                    className="w-5 h-5 text-green-500 mr-3"
+                    className="w-5 h-5 text-green-500 me-3"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -568,7 +568,7 @@ export default function Home() {
                 &ldquo;{t("testimonials.customers.0.quote")}&rdquo;
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center me-4">
                   <span className="text-indigo-600 font-semibold">SM</span>
                 </div>
                 <div>
@@ -598,7 +598,7 @@ export default function Home() {
                 &ldquo;{t("testimonials.customers.1.quote")}&rdquo;
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center me-4">
                   <span className="text-green-600 font-semibold">MR</span>
                 </div>
                 <div>
@@ -628,7 +628,7 @@ export default function Home() {
                 &ldquo;{t("testimonials.customers.2.quote")}&rdquo;
               </blockquote>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center me-4">
                   <span className="text-purple-600 font-semibold">LK</span>
                 </div>
                 <div>
@@ -772,19 +772,19 @@ export default function Home() {
                     </h4>
                     <ul className="space-y-2 text-slate-600">
                       <li className="flex items-center">
-                        <CheckIcon className="w-5 h-5 text-green-500 mr-3" />
+                        <CheckIcon className="w-5 h-5 text-green-500 me-3" />
                         {t("waitlist.form.benefits.0")}
                       </li>
                       <li className="flex items-center">
-                        <CheckIcon className="w-5 h-5 text-green-500 mr-3" />
+                        <CheckIcon className="w-5 h-5 text-green-500 me-3" />
                         {t("waitlist.form.benefits.1")}
                       </li>
                       <li className="flex items-center">
-                        <CheckIcon className="w-5 h-5 text-green-500 mr-3" />
+                        <CheckIcon className="w-5 h-5 text-green-500 me-3" />
                         {t("waitlist.form.benefits.2")}
                       </li>
                       <li className="flex items-center">
-                        <CheckIcon className="w-5 h-5 text-green-500 mr-3" />
+                        <CheckIcon className="w-5 h-5 text-green-500 me-3" />
                         {t("waitlist.form.benefits.3")}
                       </li>
                     </ul>

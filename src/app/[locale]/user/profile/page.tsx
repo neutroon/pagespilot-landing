@@ -131,7 +131,7 @@ export default function ProfilePage() {
                   href="/dashboard"
                   className="group flex items-center p-4 border border-gray-200 rounded-lg hover:border-green-300 hover:bg-green-50 transition-all duration-200"
                 >
-                  <div className="w-12 h-12 bg-green-100 group-hover:bg-green-200 rounded-lg flex items-center justify-center mr-4 transition-colors duration-200">
+                  <div className="w-12 h-12 bg-green-100 group-hover:bg-green-200 rounded-lg flex items-center justify-center me-4 transition-colors duration-200">
                     <svg
                       className="w-6 h-6 text-green-600"
                       fill="currentColor"

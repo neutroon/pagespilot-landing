@@ -10,7 +10,7 @@ import {
   Search,
   CheckCircle,
 } from "lucide-react";
-  import { User as UserType } from "@/lib/admin-api";
+import { User as UserType } from "@/lib/admin-api";
 
 interface AssignUserModalProps {
   isOpen: boolean;
@@ -154,7 +154,7 @@ export default function AssignUserModal({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <div className="flex items-center">
-            <div className="h-10 w-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+            <div className="h-10 w-10 bg-purple-600 rounded-lg flex items-center justify-center me-3">
               <UserIcon className="h-5 w-5 text-white" />
             </div>
             <div>
@@ -220,7 +220,7 @@ export default function AssignUserModal({
                           : ""
                       }`}
                     >
-                      <div className="h-8 w-8 bg-green-600 rounded-full flex items-center justify-center mr-3">
+                      <div className="h-8 w-8 bg-green-600 rounded-full flex items-center justify-center me-3">
                         <span className="text-sm font-medium text-white">
                           {manager.name.charAt(0).toUpperCase()}
                         </span>
@@ -284,7 +284,7 @@ export default function AssignUserModal({
                           : ""
                       }`}
                     >
-                      <div className="h-8 w-8 bg-blue-600 rounded-full flex items-center justify-center mr-3">
+                      <div className="h-8 w-8 bg-blue-600 rounded-full flex items-center justify-center me-3">
                         <span className="text-sm font-medium text-white">
                           {user.name.charAt(0).toUpperCase()}
                         </span>
@@ -317,7 +317,7 @@ export default function AssignUserModal({
                 </h4>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <div className="h-8 w-8 bg-green-600 rounded-full flex items-center justify-center mr-3">
+                    <div className="h-8 w-8 bg-green-600 rounded-full flex items-center justify-center me-3">
                       <Shield className="h-4 w-4 text-white" />
                     </div>
                     <div>
@@ -338,7 +338,7 @@ export default function AssignUserModal({
                       </div>
                       <div className="text-xs text-gray-500">User</div>
                     </div>
-                    <div className="h-8 w-8 bg-blue-600 rounded-full flex items-center justify-center ml-3">
+                    <div className="h-8 w-8 bg-blue-600 rounded-full flex items-center justify-center ms-3">
                       <UserIcon className="h-4 w-4 text-white" />
                     </div>
                   </div>
@@ -362,9 +362,9 @@ export default function AssignUserModal({
               className="flex-1 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
             >
               {isLoading ? (
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin me-2"></div>
               ) : (
-                <Save className="h-4 w-4 mr-2" />
+                <Save className="h-4 w-4 me-2" />
               )}
               {isLoading ? "Assigning..." : "Create Assignment"}
             </button>

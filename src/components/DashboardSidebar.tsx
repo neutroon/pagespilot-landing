@@ -190,7 +190,7 @@ export default function DashboardSidebar() {
                     </span>
                     {!isCollapsed && <span>{item.name}</span>}
                     {!isCollapsed && item.badge && (
-                      <span className="ml-auto bg-red-100 text-red-600 text-xs px-2 py-0.5 rounded-full">
+                      <span className="ms-auto bg-red-100 text-red-600 text-xs px-2 py-0.5 rounded-full">
                         {item.badge}
                       </span>
                     )}

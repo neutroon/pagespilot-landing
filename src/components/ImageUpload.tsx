@@ -194,7 +194,7 @@ export default function ImageUpload({
             </button>
           </div>
           <div className="text-xs text-green-600 mt-1 flex items-center">
-            <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
+            <div className="w-2 h-2 bg-green-500 rounded-full me-1"></div>
             {t("dashboard.facebook.imageSelected")}
           </div>
         </div>
@@ -204,7 +204,7 @@ export default function ImageUpload({
       {error && (
         <div className="bg-red-50 border border-red-200 rounded-lg p-3">
           <div className="flex items-center">
-            <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
+            <div className="w-2 h-2 bg-red-500 rounded-full me-2"></div>
             <span className="text-red-800 text-sm">{error}</span>
           </div>
         </div>

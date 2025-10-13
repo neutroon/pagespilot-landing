@@ -107,7 +107,7 @@ export default function CreateAdminModal({
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <div className="flex items-center">
-            <div className="h-10 w-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+            <div className="h-10 w-10 bg-red-600 rounded-lg flex items-center justify-center me-3">
               <Shield className="h-5 w-5 text-white" />
             </div>
             <div>
@@ -240,7 +240,7 @@ export default function CreateAdminModal({
             {/* Admin Permissions Warning */}
             <div className="bg-red-50 border border-red-200 rounded-lg p-4">
               <div className="flex items-start">
-                <AlertTriangle className="h-5 w-5 text-red-600 mr-2 mt-0.5" />
+                <AlertTriangle className="h-5 w-5 text-red-600 me-2 mt-0.5" />
                 <div>
                   <h4 className="text-sm font-medium text-red-900">
                     Admin Permissions
@@ -265,7 +265,7 @@ export default function CreateAdminModal({
                   onChange={(e) => setConfirmAdmin(e.target.checked)}
                   className="mt-1 h-4 w-4 text-red-600 focus:ring-red-500 border-gray-300 rounded"
                 />
-                <span className="ml-2 text-sm text-gray-700">
+                <span className="ms-2 text-sm text-gray-700">
                   I understand that this will create a new admin user with full
                   system access. This action should only be performed by
                   authorized personnel.
@@ -294,9 +294,9 @@ export default function CreateAdminModal({
               className="flex-1 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
             >
               {isLoading ? (
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin me-2"></div>
               ) : (
-                <Save className="h-4 w-4 mr-2" />
+                <Save className="h-4 w-4 me-2" />
               )}
               {isLoading ? "Creating..." : "Create Admin"}
             </button>
@@ -306,4 +306,3 @@ export default function CreateAdminModal({
     </div>
   );
 }
-

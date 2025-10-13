@@ -144,7 +144,7 @@ export default function UserDetailModal({
     if (deletedAt) {
       return (
         <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-          <UserX className="h-3 w-3 mr-1" />
+          <UserX className="h-3 w-3 me-1" />
           Deleted
         </span>
       );
@@ -152,12 +152,12 @@ export default function UserDetailModal({
 
     return isActive ? (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-        <UserCheck className="h-3 w-3 mr-1" />
+        <UserCheck className="h-3 w-3 me-1" />
         Active
       </span>
     ) : (
       <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-        <UserX className="h-3 w-3 mr-1" />
+        <UserX className="h-3 w-3 me-1" />
         Inactive
       </span>
     );
@@ -271,7 +271,7 @@ export default function UserDetailModal({
                           user.role
                         )}`}
                       >
-                        <Shield className="h-3 w-3 mr-1" />
+                        <Shield className="h-3 w-3 me-1" />
                         {user.role.replace("_", " ").toUpperCase()}
                       </span>
                     </div>
@@ -286,7 +286,7 @@ export default function UserDetailModal({
                         Created
                       </span>
                       <span className="text-sm text-gray-900 flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
+                        <Calendar className="h-4 w-4 me-1" />
                         {new Date(user.createdAt).toLocaleDateString()}
                       </span>
                     </div>
@@ -295,7 +295,7 @@ export default function UserDetailModal({
                         Last Updated
                       </span>
                       <span className="text-sm text-gray-900 flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
+                        <Calendar className="h-4 w-4 me-1" />
                         {new Date(user.updatedAt).toLocaleDateString()}
                       </span>
                     </div>
@@ -314,7 +314,7 @@ export default function UserDetailModal({
                       <div key={index} className="p-3 bg-gray-50 rounded-lg">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center">
-                            <Facebook className="h-4 w-4 text-blue-600 mr-2" />
+                            <Facebook className="h-4 w-4 text-blue-600 me-2" />
                             <span className="text-sm font-medium text-gray-900">
                               {account.facebookUserId}
                             </span>
@@ -353,7 +353,7 @@ export default function UserDetailModal({
               <div className="space-y-4">
                 <div className="p-4 bg-blue-50 rounded-lg">
                   <div className="flex items-center">
-                    <Activity className="h-5 w-5 text-blue-600 mr-2" />
+                    <Activity className="h-5 w-5 text-blue-600 me-2" />
                     <span className="text-sm font-medium text-blue-900">
                       Total Activities
                     </span>
@@ -364,7 +364,7 @@ export default function UserDetailModal({
                 </div>
                 <div className="p-4 bg-green-50 rounded-lg">
                   <div className="flex items-center">
-                    <Facebook className="h-5 w-5 text-green-600 mr-2" />
+                    <Facebook className="h-5 w-5 text-green-600 me-2" />
                     <span className="text-sm font-medium text-green-900">
                       Facebook Pages
                     </span>
@@ -388,7 +388,7 @@ export default function UserDetailModal({
                   onClick={() => setIsEditing(true)}
                   className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  <Save className="h-4 w-4 mr-2" />
+                  <Save className="h-4 w-4 me-2" />
                   Edit User
                 </button>
               ) : (
@@ -397,7 +397,7 @@ export default function UserDetailModal({
                   disabled={isLoading}
                   className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 transition-colors"
                 >
-                  <Save className="h-4 w-4 mr-2" />
+                  <Save className="h-4 w-4 me-2" />
                   {isLoading ? "Saving..." : "Save Changes"}
                 </button>
               )}
@@ -413,12 +413,12 @@ export default function UserDetailModal({
               >
                 {user.isActive ? (
                   <>
-                    <UserX className="h-4 w-4 mr-2" />
+                    <UserX className="h-4 w-4 me-2" />
                     Deactivate
                   </>
                 ) : (
                   <>
-                    <UserCheck className="h-4 w-4 mr-2" />
+                    <UserCheck className="h-4 w-4 me-2" />
                     Reactivate
                   </>
                 )}
@@ -440,7 +440,7 @@ export default function UserDetailModal({
                 disabled={isLoading}
                 className="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 disabled:opacity-50 transition-colors"
               >
-                <Trash2 className="h-4 w-4 mr-2" />
+                <Trash2 className="h-4 w-4 me-2" />
                 Delete User
               </button>
             </div>

@@ -95,7 +95,7 @@ export default function NotificationToast({
         <div className="p-4">
           <div className="flex items-start">
             <div className="flex-shrink-0">{getIcon()}</div>
-            <div className="ml-3 flex-1">
+            <div className="ms-3 flex-1">
               <h4 className={`text-sm font-medium ${getTextColor()}`}>
                 {toast.title}
               </h4>
@@ -105,7 +105,7 @@ export default function NotificationToast({
                 </p>
               )}
             </div>
-            <div className="ml-4 flex-shrink-0">
+            <div className="ms-4 flex-shrink-0">
               <button
                 onClick={() => {
                   setIsVisible(false);
@@ -163,4 +163,3 @@ export function useToast() {
     showInfo,
   };
 }
-

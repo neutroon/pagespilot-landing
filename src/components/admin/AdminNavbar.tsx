@@ -73,7 +73,7 @@ export default function AdminNavbar() {
               <div className="h-8 w-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Shield className="h-5 w-5 text-white" />
               </div>
-              <div className="ml-3">
+              <div className="ms-3">
                 <h1 className="text-xl font-bold text-gray-900">PagePilot</h1>
                 <p className="text-xs text-gray-500">Admin Portal</p>
               </div>
@@ -94,7 +94,7 @@ export default function AdminNavbar() {
                       : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
                   }`}
                 >
-                  <Icon className="h-4 w-4 mr-2" />
+                  <Icon className="h-4 w-4 me-2" />
                   {item.name}
                 </a>
               );
@@ -145,7 +145,7 @@ export default function AdminNavbar() {
                     onClick={handleLogout}
                     className="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
-                    <LogOut className="h-4 w-4 mr-2" />
+                    <LogOut className="h-4 w-4 me-2" />
                     Sign out
                   </button>
                 </div>
@@ -183,7 +183,7 @@ export default function AdminNavbar() {
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
-                    <Icon className="h-5 w-5 mr-3" />
+                    <Icon className="h-5 w-5 me-3" />
                     {item.name}
                   </a>
                 );

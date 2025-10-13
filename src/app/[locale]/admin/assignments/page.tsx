@@ -130,7 +130,7 @@ export default function AssignmentsPage() {
               {row.manager.name.charAt(0).toUpperCase()}
             </span>
           </div>
-          <div className="ml-3">
+          <div className="ms-3">
             <div className="text-sm font-medium text-gray-900">
               {row.manager.name}
             </div>
@@ -150,7 +150,7 @@ export default function AssignmentsPage() {
               {row.user.name.charAt(0).toUpperCase()}
             </span>
           </div>
-          <div className="ml-3">
+          <div className="ms-3">
             <div className="text-sm font-medium text-gray-900">
               {row.user.name}
             </div>
@@ -165,7 +165,7 @@ export default function AssignmentsPage() {
       sortable: true,
       render: (value: string) => (
         <div className="flex items-center text-sm text-gray-500">
-          <Calendar className="h-4 w-4 mr-1" />
+          <Calendar className="h-4 w-4 me-1" />
           {new Date(value).toLocaleDateString()}
         </div>
       ),
@@ -181,7 +181,7 @@ export default function AssignmentsPage() {
               {row.assigner.name.charAt(0).toUpperCase()}
             </span>
           </div>
-          <div className="ml-2">
+          <div className="ms-2">
             <div className="text-sm font-medium text-gray-900">
               {row.assigner.name}
             </div>
@@ -202,12 +202,12 @@ export default function AssignmentsPage() {
         >
           {value ? (
             <>
-              <UserCheck className="h-3 w-3 mr-1" />
+              <UserCheck className="h-3 w-3 me-1" />
               Active
             </>
           ) : (
             <>
-              <UserX className="h-3 w-3 mr-1" />
+              <UserX className="h-3 w-3 me-1" />
               Inactive
             </>
           )}
@@ -268,7 +268,7 @@ export default function AssignmentsPage() {
             onClick={handleAssignUser}
             className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
           >
-            <Plus className="h-4 w-4 mr-2" />
+            <Plus className="h-4 w-4 me-2" />
             Assign User
           </button>
         </div>
@@ -281,7 +281,7 @@ export default function AssignmentsPage() {
             <div className="p-2 bg-purple-100 rounded-lg">
               <UserCheck className="h-5 w-5 text-purple-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
                 Total Assignments
               </p>
@@ -296,7 +296,7 @@ export default function AssignmentsPage() {
             <div className="p-2 bg-green-100 rounded-lg">
               <UserCheck className="h-5 w-5 text-green-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
                 Active Assignments
               </p>
@@ -311,7 +311,7 @@ export default function AssignmentsPage() {
             <div className="p-2 bg-blue-100 rounded-lg">
               <Shield className="h-5 w-5 text-blue-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">Managers</p>
               <p className="text-2xl font-bold text-gray-900">
                 {managers.length}
@@ -324,7 +324,7 @@ export default function AssignmentsPage() {
             <div className="p-2 bg-orange-100 rounded-lg">
               <UserIcon className="h-5 w-5 text-orange-600" />
             </div>
-            <div className="ml-3">
+            <div className="ms-3">
               <p className="text-sm font-medium text-gray-600">
                 Unassigned Users
               </p>

@@ -111,7 +111,7 @@ export default function AnalyticsPage() {
           </div>
           <div className="flex items-center space-x-4">
             <button className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
-              <Download className="h-4 w-4 mr-2" />
+              <Download className="h-4 w-4 me-2" />
               Export Report
             </button>
           </div>
@@ -172,7 +172,7 @@ export default function AnalyticsPage() {
                     {card.value}
                   </p>
                   <p className="text-sm text-green-600 flex items-center mt-1">
-                    <TrendingUp className="h-3 w-3 mr-1" />
+                    <TrendingUp className="h-3 w-3 me-1" />
                     {card.change}
                   </p>
                 </div>
@@ -210,7 +210,7 @@ export default function AnalyticsPage() {
                   <div className="p-2 bg-blue-100 rounded-lg">
                     <Activity className="h-4 w-4 text-blue-600" />
                   </div>
-                  <div className="ml-3 flex-1">
+                  <div className="ms-3 flex-1">
                     <p className="text-sm font-medium text-gray-900">
                       {activity.title || "System Activity"}
                     </p>
@@ -219,7 +219,7 @@ export default function AnalyticsPage() {
                     </p>
                   </div>
                   <div className="text-xs text-gray-500">
-                    <Calendar className="h-3 w-3 inline mr-1" />
+                    <Calendar className="h-3 w-3 inline me-1" />
                     {new Date(
                       activity.timestamp || Date.now()
                     ).toLocaleDateString()}
@@ -264,7 +264,7 @@ export default function AnalyticsPage() {
                           {userAnalytic.name?.charAt(0) || "U"}
                         </span>
                       </div>
-                      <div className="ml-3">
+                      <div className="ms-3">
                         <p className="text-sm font-medium text-gray-900">
                           {userAnalytic.name || "User"}
                         </p>
@@ -339,7 +339,7 @@ export default function AnalyticsPage() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <button className="flex items-center p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 transition-colors">
-              <Eye className="h-5 w-5 text-blue-600 mr-3" />
+              <Eye className="h-5 w-5 text-blue-600 me-3" />
               <div className="text-left">
                 <p className="font-medium text-gray-900">
                   View Facebook Accounts
@@ -350,7 +350,7 @@ export default function AnalyticsPage() {
               </div>
             </button>
             <button className="flex items-center p-4 rounded-lg border border-gray-200 hover:border-green-300 hover:bg-green-50 transition-colors">
-              <Download className="h-5 w-5 text-green-600 mr-3" />
+              <Download className="h-5 w-5 text-green-600 me-3" />
               <div className="text-left">
                 <p className="font-medium text-gray-900">Export Analytics</p>
                 <p className="text-sm text-gray-500">
@@ -359,7 +359,7 @@ export default function AnalyticsPage() {
               </div>
             </button>
             <button className="flex items-center p-4 rounded-lg border border-gray-200 hover:border-purple-300 hover:bg-purple-50 transition-colors">
-              <BarChart3 className="h-5 w-5 text-purple-600 mr-3" />
+              <BarChart3 className="h-5 w-5 text-purple-600 me-3" />
               <div className="text-left">
                 <p className="font-medium text-gray-900">Advanced Analytics</p>
                 <p className="text-sm text-gray-500">Deep dive into data</p>

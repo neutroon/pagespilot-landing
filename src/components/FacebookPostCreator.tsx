@@ -217,7 +217,7 @@ export default function FacebookPostCreator({
               {success && (
                 <div className="mb-4 bg-green-50 border border-green-200 rounded-lg p-3">
                   <div className="flex items-center">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                    <div className="w-2 h-2 bg-green-500 rounded-full me-2"></div>
                     <span className="text-green-800 text-sm">{success}</span>
                   </div>
                 </div>
@@ -226,7 +226,7 @@ export default function FacebookPostCreator({
               {error && (
                 <div className="mb-4 bg-red-50 border border-red-200 rounded-lg p-3">
                   <div className="flex items-center">
-                    <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
+                    <div className="w-2 h-2 bg-red-500 rounded-full me-2"></div>
                     <span className="text-red-800 text-sm">{error}</span>
                   </div>
                 </div>
@@ -287,7 +287,7 @@ export default function FacebookPostCreator({
                         onChange={(e) =>
                           setPostFormat(e.target.value as "text")
                         }
-                        className="mr-2"
+                        className="me-2"
                       />
                       <span className="text-sm">
                         {t("dashboard.facebook.createPostModal.textOnly")}
@@ -301,7 +301,7 @@ export default function FacebookPostCreator({
                         onChange={(e) =>
                           setPostFormat(e.target.value as "image")
                         }
-                        className="mr-2"
+                        className="me-2"
                       />
                       <span className="text-sm">
                         {t("dashboard.facebook.createPostModal.withImage")}
@@ -346,7 +346,7 @@ export default function FacebookPostCreator({
                         value="now"
                         checked={postType === "now"}
                         onChange={(e) => setPostType(e.target.value as "now")}
-                        className="mr-2"
+                        className="me-2"
                       />
                       <span className="text-sm">
                         {t("dashboard.facebook.createPostModal.postNow")}
@@ -360,7 +360,7 @@ export default function FacebookPostCreator({
                         onChange={(e) =>
                           setPostType(e.target.value as "schedule")
                         }
-                        className="mr-2"
+                        className="me-2"
                       />
                       <span className="text-sm">
                         {t("dashboard.facebook.createPostModal.schedule")}
@@ -447,14 +447,14 @@ export default function FacebookPostCreator({
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                     ) : postType === "schedule" ? (
                       <>
-                        <Calendar className="w-5 h-5 mr-2" />
+                        <Calendar className="w-5 h-5 me-2" />
                         {postFormat === "image"
                           ? t("dashboard.facebook.createPostModal.schedule")
                           : t("dashboard.facebook.createPostModal.schedule")}
                       </>
                     ) : (
                       <>
-                        <Plus className="w-5 h-5 mr-2" />
+                        <Plus className="w-5 h-5 me-2" />
                         {postFormat === "image"
                           ? t("dashboard.facebook.createPostModal.postNow")
                           : t("dashboard.facebook.createPostModal.postNow")}

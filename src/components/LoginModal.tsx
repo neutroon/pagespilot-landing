@@ -79,7 +79,7 @@ export default function LoginModal({
           {error && (
             <div className="bg-red-50 border border-red-200 rounded-xl p-4">
               <div className="flex items-center">
-                <div className="w-5 h-5 text-red-500 mr-3">
+                <div className="w-5 h-5 text-red-500 me-3">
                   <svg fill="currentColor" viewBox="0 0 20 20">
                     <path
                       fillRule="evenodd"
@@ -145,7 +145,7 @@ export default function LoginModal({
                 type="checkbox"
                 className="w-4 h-4 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500"
               />
-              <span className="ml-2 text-sm text-slate-600">
+              <span className="ms-2 text-sm text-slate-600">
                 {t("login.rememberMe")}
               </span>
             </label>
@@ -164,7 +164,7 @@ export default function LoginModal({
           >
             {isLoading ? (
               <>
-                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-3" />
+                <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin me-3" />
                 {t("login.loggingIn")}
               </>
             ) : (
