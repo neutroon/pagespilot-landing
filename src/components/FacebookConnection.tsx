@@ -72,6 +72,7 @@ export default function FacebookConnection({
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
         }
       );
 
@@ -80,9 +81,12 @@ export default function FacebookConnection({
         console.log("OAuth callback response:", data);
 
         // Your backend returns { access_token: "..." }
-        if (data.access_token) {
+        if (data.tokenData.access_token) {
           // Store access token in localStorage for persistence
-          localStorage.setItem("facebook_access_token", data.access_token);
+          localStorage.setItem(
+            "facebook_access_token",
+            data.tokenData.access_token
+          );
           localStorage.setItem("facebook_connected", "true");
 
           setSuccess(t("dashboard.facebook.pageConnected"));
@@ -126,7 +130,10 @@ export default function FacebookConnection({
       const response = await fetch(
         `${FACEBOOK_API.PAGES}?access_token=${encodeURIComponent(
           accessToken
-        )}&userId=${user?.id || "1"}`
+        )}&userId=${user?.id || "1"}`,
+        {
+          credentials: "include",
+        }
       );
 
       if (response.ok) {
@@ -165,6 +172,7 @@ export default function FacebookConnection({
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
         }
       );
 
@@ -199,6 +207,7 @@ export default function FacebookConnection({
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
       });
 
       if (response.ok) {

@@ -47,6 +47,8 @@ class FacebookAPIService {
       `${FACEBOOK_API.LOGIN}?redirect_uri=${encodeURIComponent(redirectUri)}`,
       {
         method: "GET",
+        credentials: "include", // Include cookies for authentication
+
         headers: {
           "Content-Type": "application/json",
         },
@@ -68,6 +70,8 @@ class FacebookAPIService {
   ): Promise<{ access_token: string }> {
     const response = await fetch(FACEBOOK_API.CALLBACK, {
       method: "GET",
+      credentials: "include", // Include cookies for authentication
+
       headers: {
         "Content-Type": "application/json",
       },
@@ -83,7 +87,10 @@ class FacebookAPIService {
   // Get user's Facebook pages
   async getPages(accessToken: string): Promise<FacebookPage[]> {
     const response = await fetch(
-      `${this.baseURL}/${this.apiVersion}/me/accounts?access_token=${accessToken}&fields=id,name,access_token,category,followers_count,picture`
+      `${this.baseURL}/${this.apiVersion}/me/accounts?access_token=${accessToken}&fields=id,name,access_token,category,followers_count,picture`,
+      {
+        credentials: "include", // Include cookies for authentication
+      }
     );
 
     if (!response.ok) {
@@ -100,7 +107,10 @@ class FacebookAPIService {
     pageAccessToken: string
   ): Promise<FacebookPage> {
     const response = await fetch(
-      `${this.baseURL}/${this.apiVersion}/${pageId}?access_token=${pageAccessToken}&fields=id,name,category,followers_count,picture`
+      `${this.baseURL}/${this.apiVersion}/${pageId}?access_token=${pageAccessToken}&fields=id,name,category,followers_count,picture`,
+      {
+        credentials: "include", // Include cookies for authentication
+      }
     );
 
     if (!response.ok) {
@@ -136,6 +146,7 @@ class FacebookAPIService {
       `${this.baseURL}/${this.apiVersion}/${pageId}/feed`,
       {
         method: "POST",
+        credentials: "include", // Include cookies for authentication
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -158,7 +169,10 @@ class FacebookAPIService {
     limit: number = 25
   ): Promise<FacebookPost[]> {
     const response = await fetch(
-      `${this.baseURL}/${this.apiVersion}/${pageId}/posts?access_token=${pageAccessToken}&fields=id,message,created_time,permalink_url,likes.summary(true),comments.summary(true),shares&limit=${limit}`
+      `${this.baseURL}/${this.apiVersion}/${pageId}/posts?access_token=${pageAccessToken}&fields=id,message,created_time,permalink_url,likes.summary(true),comments.summary(true),shares&limit=${limit}`,
+      {
+        credentials: "include", // Include cookies for authentication
+      }
     );
 
     if (!response.ok) {
@@ -187,7 +201,9 @@ class FacebookAPIService {
       url += `&until=${until}`;
     }
 
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      credentials: "include", // Include cookies for authentication
+    });
 
     if (!response.ok) {
       throw new Error("Failed to fetch page analytics");
@@ -204,7 +220,10 @@ class FacebookAPIService {
     postId: string
   ): Promise<any[]> {
     const response = await fetch(
-      `${this.baseURL}/${this.apiVersion}/${postId}/comments?access_token=${pageAccessToken}&fields=id,message,from,created_time,like_count`
+      `${this.baseURL}/${this.apiVersion}/${postId}/comments?access_token=${pageAccessToken}&fields=id,message,from,created_time,like_count`,
+      {
+        credentials: "include", // Include cookies for authentication
+      }
     );
 
     if (!response.ok) {
@@ -225,6 +244,7 @@ class FacebookAPIService {
       `${this.baseURL}/${this.apiVersion}/${commentId}/comments`,
       {
         method: "POST",
+        credentials: "include", // Include cookies for authentication
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -249,7 +269,10 @@ class FacebookAPIService {
     pageAccessToken: string
   ): Promise<any[]> {
     const response = await fetch(
-      `${this.baseURL}/${this.apiVersion}/${pageId}/conversations?access_token=${pageAccessToken}&fields=id,updated_time,message_count`
+      `${this.baseURL}/${this.apiVersion}/${pageId}/conversations?access_token=${pageAccessToken}&fields=id,updated_time,message_count`,
+      {
+        credentials: "include", // Include cookies for authentication
+      }
     );
 
     if (!response.ok) {
@@ -271,6 +294,7 @@ class FacebookAPIService {
       `${this.baseURL}/${this.apiVersion}/me/messages`,
       {
         method: "POST",
+        credentials: "include", // Include cookies for authentication
         headers: {
           "Content-Type": "application/json",
         },
@@ -314,7 +338,10 @@ class FacebookAPIService {
     pageAccessToken: string
   ): Promise<FacebookPost[]> {
     const response = await fetch(
-      `${this.baseURL}/${this.apiVersion}/${pageId}/scheduled_posts?access_token=${pageAccessToken}&fields=id,message,created_time,scheduled_publish_time`
+      `${this.baseURL}/${this.apiVersion}/${pageId}/scheduled_posts?access_token=${pageAccessToken}&fields=id,message,created_time,scheduled_publish_time`,
+      {
+        credentials: "include", // Include cookies for authentication
+      }
     );
 
     if (!response.ok) {
@@ -331,6 +358,7 @@ class FacebookAPIService {
       `${this.baseURL}/${this.apiVersion}/${postId}`,
       {
         method: "DELETE",
+        credentials: "include", // Include cookies for authentication
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
@@ -347,7 +375,10 @@ class FacebookAPIService {
   async validateToken(accessToken: string): Promise<boolean> {
     try {
       const response = await fetch(
-        `${this.baseURL}/${this.apiVersion}/me?access_token=${accessToken}`
+        `${this.baseURL}/${this.apiVersion}/me?access_token=${accessToken}`,
+        {
+          credentials: "include", // Include cookies for authentication
+        }
       );
       return response.ok;
     } catch {

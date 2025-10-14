@@ -76,6 +76,7 @@ export default function ImageUpload({
       const response = await fetch(FACEBOOK_API.UPLOAD_IMAGE, {
         method: "POST",
         body: formData,
+        credentials: "include",
       });
 
       console.log("=== RESPONSE RECEIVED ===");

@@ -75,7 +75,7 @@ export default function UserMenu() {
 
           <div className="py-2">
             <Link
-              href="/profile"
+              href={`${user.role}/profile`}
               className="flex items-center px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 transition-colors"
             >
               <LayoutDashboard className="w-4 h-4 me-3 text-slate-500" />

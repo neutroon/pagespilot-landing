@@ -212,12 +212,12 @@ export default function AdminSidebar() {
             {/* </button>{" "} */}
           </div>
           {!isCollapsed && (
-            <div className="flex-1 min-w-0">
+            <Link href={`profile`} className="flex-1 min-w-0">
               <p className="text-sm font-medium text-gray-900 truncate">
                 {user.name || "Admin"}
               </p>
               <p className="text-xs text-gray-500 truncate">{user.email}</p>
-            </div>
+            </Link>
           )}
         </div>
       </div>

@@ -95,6 +95,7 @@ export default function FacebookPostCreator({
             "Content-Type": "application/json",
           },
           body: JSON.stringify(requestBody),
+          credentials: "include",
         }
       );
 
@@ -160,6 +161,7 @@ export default function FacebookPostCreator({
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
+        credentials: "include",
       }
     );
 

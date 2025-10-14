@@ -281,6 +281,7 @@ const api = {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
     });
     return response.json();
   },
