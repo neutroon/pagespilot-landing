@@ -528,6 +528,17 @@
       }
     }
   },
+  "manager": {
+    "navigation": {
+      "dashboard": "لوحة التحكم",
+      "users": "المستخدمين",
+      "managers": "المديرين",
+      "analytics": "التحليلات",
+      "facebook": "فيسبوك",
+      "settings": "الإعدادات",
+      "adminPanel": "لوحة الإدارة"
+    }
+  },
   "admin": {
     "navigation": {
       "dashboard": "لوحة التحكم",

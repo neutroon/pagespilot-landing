@@ -540,6 +540,17 @@
       }
     }
   },
+  "manager": {
+    "navigation": {
+      "dashboard": "Dashboard",
+      "users": "My Users",
+      "managers": "My Managers",
+      "analytics": "Analytics",
+      "facebook": "Facebook",
+      "settings": "Settings",
+      "adminPanel": "Admin Panel"
+    }
+  },
   "admin": {
     "navigation": {
       "dashboard": "Dashboard",
