@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { User } from "../app/services/api";
+import { User } from "../services/api";
 import { useAuth } from "../contexts/AuthContext";
 import Image from "next/image";
 
