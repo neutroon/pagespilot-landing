@@ -8,7 +8,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { DashboardProtection } from "@/components/DashboardProtection";
-// import { AdminAuthProvider } from "@/contexts/AdminAuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -53,10 +52,8 @@ export default async function LocaleLayout({
       >
         <NextIntlClientProvider messages={messages}>
           <AuthProvider>
-            {/* <AdminAuthProvider> */}
             <DashboardProtection />
             {children}
-            {/* </AdminAuthProvider> */}
           </AuthProvider>
         </NextIntlClientProvider>
         <Analytics />
