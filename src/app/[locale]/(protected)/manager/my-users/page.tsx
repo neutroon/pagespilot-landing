@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
-import { adminService, ManagedUser, User } from "@/lib/admin-api";
+import { adminService, User } from "@/lib/admin-api";
 import DataTable from "@/components/admin/DataTable";
 import {
   Plus,

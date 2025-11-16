@@ -2,7 +2,7 @@ import { fetchWithAuth } from "@/services/auth-api";
 import {
   CreateUserRequest,
   FacebookAnalytics,
-  ManagedUser,
+  // ManagedUser,
   User,
 } from "./admin-api";
 import { MANAGER_API } from "./config";
@@ -42,7 +42,7 @@ class ManagerService {
     });
   }
 
-  async getMyUsers(): Promise<ManagedUser[]> {
+  async getMyUsers(): Promise<any[]> {
     return fetchWithAuth(MANAGER_API.MY_USERS);
   }
 
