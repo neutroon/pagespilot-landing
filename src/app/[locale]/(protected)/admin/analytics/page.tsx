@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { adminService, FacebookAnalytics } from "@/lib/admin-api";
-import AdminLayout from "@/components/admin/AdminLayout";
 import {
   Users,
   UserCheck,
@@ -99,7 +98,7 @@ export default function AnalyticsPage() {
   };
 
   return (
-    <AdminLayout>
+    <>
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center justify-between">
@@ -374,6 +373,6 @@ export default function AnalyticsPage() {
           </div>
         </div>
       </div>
-    </AdminLayout>
+    </>
   );
 }

@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 // import { useAdminAuth } from "@/contexts/AdminAuthContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { adminService, FacebookAnalytics } from "@/lib/admin-api";
-import AdminLayout from "@/components/admin/AdminLayout";
+// import AdminLayout from "@/components/admin/AdminLayout";
 import {
   Users,
   UserCheck,
@@ -137,7 +137,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <AdminLayout>
+    <>
       {/* Header */}
       <div className="mb-8">
         {user && (
@@ -327,6 +327,6 @@ export default function AdminDashboard() {
           </div>
         </div>
       </div>
-    </AdminLayout>
+    </>
   );
 }

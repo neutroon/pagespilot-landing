@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useAuth } from "../../../../contexts/AuthContext";
-import { authService, UpdateProfileRequest } from "../../../services/api";
-import UserProfileCard from "../../../../components/UserProfileCard";
-import AppNavbar from "../../../../components/AppNavbar";
+import { useAuth } from "../../../../../contexts/AuthContext";
+import { authService, UpdateProfileRequest } from "../../../../../services/api";
+import UserProfileCard from "../../../../../components/UserProfileCard";
+import AppNavbar from "../../../../../components/AppNavbar";
 
 export default function SettingsPage() {
   const { user, updateUser } = useAuth();

@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { adminService, FacebookAccount, User } from "@/lib/admin-api";
-import AdminLayout from "@/components/admin/AdminLayout";
 import DataTable from "@/components/admin/DataTable";
 import {
   Trash2,
@@ -244,7 +243,7 @@ export default function FacebookPage() {
   };
 
   return (
-    <AdminLayout>
+    <>
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center justify-between">
@@ -454,6 +453,6 @@ export default function FacebookPage() {
           </div>
         </div>
       </div>
-    </AdminLayout>
+    </>
   );
 }

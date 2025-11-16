@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { adminService, User } from "@/lib/admin-api";
-import AdminLayout from "@/components/admin/AdminLayout";
 import DataTable from "@/components/admin/DataTable";
 import {
   Plus,
@@ -283,7 +282,7 @@ export default function UsersPage() {
   };
 
   return (
-    <AdminLayout>
+    <>
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center justify-between">
@@ -399,6 +398,6 @@ export default function UsersPage() {
           </div>
         </div>
       )}
-    </AdminLayout>
+    </>
   );
 }

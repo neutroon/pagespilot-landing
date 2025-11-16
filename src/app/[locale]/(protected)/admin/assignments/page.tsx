@@ -1,11 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, FormEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { adminService, UserAssignment, User } from "@/lib/admin-api";
-import AdminLayout from "@/components/admin/AdminLayout";
+// import AdminLayout from "@/components/admin/AdminLayout";
 import DataTable from "@/components/admin/DataTable";
 import {
   Plus,
@@ -62,9 +62,28 @@ export default function AssignmentsPage() {
       setIsLoading(false);
     }
   };
+  const [formData, setFormData] = useState({ managerId: NaN, userId: NaN });
 
-  const handleAssignUser = () => {
-    setShowAssignModal(true);
+  const handleChange = (e: any) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleAssignUser = async (e: any) => {
+    e.preventDefault(); // Prevents page reload
+    console.log(formData);
+    // const rsg(res);
+    const { managerId, userId } = formData;
+    console.log(managerId);
+    console.log(Number(managerId));
+
+    const res = await adminService.assignUserToManager(
+      Number(managerId),
+      Number(userId)
+    );
+    console.log(res);
   };
 
   const handleViewManager = (assignment: UserAssignment) => {
@@ -254,7 +273,7 @@ export default function AssignmentsPage() {
   };
 
   return (
-    <AdminLayout>
+    <>
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center justify-between">
@@ -265,7 +284,7 @@ export default function AssignmentsPage() {
             <p className="text-gray-600 mt-2">{t("assignments.subtitle")}</p>
           </div>
           <button
-            onClick={handleAssignUser}
+            onClick={() => setShowAssignModal(true)}
             className="inline-flex items-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
           >
             <Plus className="h-4 w-4 me-2" />
@@ -433,26 +452,37 @@ export default function AssignmentsPage() {
             <h3 className="text-lg font-semibold mb-4">
               Assign User to Manager
             </h3>
-            <p className="text-gray-600 mb-4">
-              Assignment form will be implemented here.
-            </p>
-            <div className="flex space-x-3">
-              <button
-                onClick={() => setShowAssignModal(false)}
-                className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={() => setShowAssignModal(false)}
-                className="flex-1 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
-              >
-                Assign
-              </button>
-            </div>
+            <form onSubmit={handleAssignUser}>
+              <input
+                type="number"
+                name="managerId"
+                value={formData.managerId}
+                onChange={handleChange}
+                placeholder="manager id"
+              />
+              <input
+                type="number"
+                name="userId"
+                value={formData.userId}
+                onChange={handleChange}
+                placeholder="user id"
+              />
+
+              <div className="flex space-x-3">
+                <button
+                  onClick={() => setShowAssignModal(false)}
+                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50"
+                >
+                  Cancel
+                </button>
+                <button className="flex-1 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                  Assign
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       )}
-    </AdminLayout>
+    </>
   );
 }

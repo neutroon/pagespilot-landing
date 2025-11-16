@@ -1,10 +1,8 @@
 "use client";
 
-import { useAuth } from "../../../../contexts/AuthContext";
-import AppNavbar from "../../../../components/AppNavbar";
+import { useAuth } from "@/contexts/AuthContext";
 import Link from "next/link";
 import Image from "next/image";
-import AdminLayout from "@/components/admin/AdminLayout";
 
 export default function ProfilePage() {
   const { user } = useAuth();
@@ -38,7 +36,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <AdminLayout>
+    <>
       <div className="min-h-screen bg-gray-50">
         {/* <AppNavbar /> */}
 
@@ -249,6 +247,6 @@ export default function ProfilePage() {
           </div>
         </div>
       </div>
-    </AdminLayout>
+    </>
   );
 }
