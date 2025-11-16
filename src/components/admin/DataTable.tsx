@@ -45,8 +45,8 @@ interface DataTableProps<T> {
 }
 
 export default function DataTable<T extends Record<string, any>>({
-  data,
-  columns,
+  data = [],
+  columns = [],
   searchable = true,
   searchPlaceholder = "Search...",
   searchFields,
