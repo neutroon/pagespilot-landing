@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { trackFeatureInteraction } from "@/lib/analytics";
-import api from "@/app/services/api";
+import api from "@/services/api";
 import ResponsiveNavigation from "@/components/ResponsiveNavigation";
 import {
   CheckIcon,
