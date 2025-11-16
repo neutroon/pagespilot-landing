@@ -29,12 +29,6 @@ export const API_CONFIG = {
     PREFERENCES: "/api/v1/user/preferences",
   },
 
-  // Dashboard API endpoints
-  DASHBOARD: {
-    STATS: "/api/v1/dashboard/stats",
-    ACTIVITY: "/api/v1/dashboard/activity",
-  },
-
   // Admin API endpoints
   ADMIN: {
     // User Management
@@ -59,6 +53,18 @@ export const API_CONFIG = {
     FACEBOOK_ANALYTICS: "/api/v1/admin/facebook/analytics",
     USER_FACEBOOK_ACCOUNTS: "/api/v1/admin/facebook/users/:id/accounts",
     DELETE_FACEBOOK_ACCOUNT: "/api/v1/admin/facebook/accounts/:id",
+  },
+
+  // Manager API endpoints
+  MANAGER: {
+    CREATE_USER: "/api/v1/manager/create-user",
+    MY_USERS: "/api/v1/manager/my-users",
+    DASHBOARD: "/api/v1/manager/dashboard",
+    MY_MANAGERS: "/api/v1/manager/my-managers",
+    USER_ANALYTICS: "/api/v1/manager/my-users/:id/analytics",
+    USER_BY_ID: "/api/v1/manager/my-users/:id",
+    USER_DEACTIVATE: "/api/v1/manager/my-users/:id/deactivate",
+    USER_REACTIVATE: "/api/v1/manager/my-users/:id/reactivate",
   },
 };
 
@@ -85,12 +91,6 @@ export const AUTH_API = {
   LOGOUT: buildApiUrl(API_CONFIG.AUTH.LOGOUT),
   REFRESH: buildApiUrl(API_CONFIG.AUTH.REFRESH),
   ME: buildApiUrl(API_CONFIG.AUTH.ME),
-};
-
-// Dashboard API URLs
-export const DASHBOARD_API = {
-  STATS: buildApiUrl(API_CONFIG.DASHBOARD.STATS),
-  ACTIVITY: buildApiUrl(API_CONFIG.DASHBOARD.ACTIVITY),
 };
 
 // Admin API URLs
@@ -135,5 +135,27 @@ export const ADMIN_API = {
   DELETE_FACEBOOK_ACCOUNT: (id: number) =>
     buildApiUrl(
       API_CONFIG.ADMIN.DELETE_FACEBOOK_ACCOUNT.replace(":id", id.toString())
+    ),
+};
+
+// Manager API URLs
+export const MANAGER_API = {
+  CREATE_USER: buildApiUrl(API_CONFIG.MANAGER.CREATE_USER),
+  MY_USERS: buildApiUrl(API_CONFIG.MANAGER.MY_USERS),
+  DASHBOARD: buildApiUrl(API_CONFIG.MANAGER.DASHBOARD),
+  MY_MANAGERS: buildApiUrl(API_CONFIG.MANAGER.MY_MANAGERS),
+  USER_ANALYTICS: (id: number) =>
+    buildApiUrl(
+      API_CONFIG.MANAGER.USER_ANALYTICS.replace(":id", id.toString())
+    ),
+  USER_BY_ID: (id: number) =>
+    buildApiUrl(API_CONFIG.MANAGER.USER_BY_ID.replace(":id", id.toString())),
+  USER_DEACTIVATE: (id: number) =>
+    buildApiUrl(
+      API_CONFIG.MANAGER.USER_DEACTIVATE.replace(":id", id.toString())
+    ),
+  USER_REACTIVATE: (id: number) =>
+    buildApiUrl(
+      API_CONFIG.MANAGER.USER_REACTIVATE.replace(":id", id.toString())
     ),
 };
