@@ -5,66 +5,66 @@ export const API_CONFIG = {
 
   // Facebook API endpoints
   FACEBOOK: {
-    LOGIN: "/api/v1/facebook/login",
-    CALLBACK: "/api/v1/facebook/login/callback",
-    PAGES: "/api/v1/facebook/pages",
-    POST: "/api/v1/facebook/post",
-    SCHEDULE: "/api/v1/facebook/schedule",
-    UPLOAD_IMAGE: "/api/v1/facebook/upload-image",
-    GENERATE_POST: "/api/v1/facebook/generate-post",
+    LOGIN: "/v1/facebook/login",
+    CALLBACK: "/v1/facebook/login/callback",
+    PAGES: "/v1/facebook/pages",
+    POST: "/v1/facebook/post",
+    SCHEDULE: "/v1/facebook/schedule",
+    UPLOAD_IMAGE: "/v1/facebook/upload-image",
+    GENERATE_POST: "/v1/content/generate-post",
   },
 
   // Authentication API endpoints
   AUTH: {
-    REGISTER: "/api/v1/auth/register",
-    LOGIN: "/api/v1/auth/login",
-    LOGOUT: "/api/v1/auth/logout",
-    REFRESH: "/api/v1/auth/refresh",
-    ME: "/api/v1/auth/me",
+    REGISTER: "/v1/auth/register",
+    LOGIN: "/v1/auth/login",
+    LOGOUT: "/v1/auth/logout",
+    REFRESH: "/v1/auth/refresh",
+    ME: "/v1/auth/me",
   },
 
   // User endpoints
   USER: {
-    PROFILE: "/api/v1/user/profile",
-    PREFERENCES: "/api/v1/user/preferences",
+    PROFILE: "/v1/user/profile",
+    PREFERENCES: "/v1/user/preferences",
   },
 
   // Admin API endpoints
   ADMIN: {
     // User Management
-    USERS: "/api/v1/admin/users",
-    USER_BY_ID: "/api/v1/admin/users/:id",
-    USER_DEACTIVATE: "/api/v1/admin/users/:id/deactivate",
-    USER_REACTIVATE: "/api/v1/admin/users/:id/reactivate",
-    USER_DELETE: "/api/v1/admin/users/:id",
-    USER_UPDATE: "/api/v1/admin/users/:id",
+    USERS: "/v1/admin/users",
+    USER_BY_ID: "/v1/admin/users/:id",
+    USER_DEACTIVATE: "/v1/admin/users/:id/deactivate",
+    USER_REACTIVATE: "/v1/admin/users/:id/reactivate",
+    USER_DELETE: "/v1/admin/users/:id",
+    USER_UPDATE: "/v1/admin/users/:id",
 
     // Role Management
-    ADD_ADMIN: "/api/v1/admin/addAdmin",
-    CREATE_MANAGER: "/api/v1/admin/create-manager",
-    CREATE_USER: "/api/v1/admin/create-user",
+    ADD_ADMIN: "/v1/admin/addAdmin",
+    CREATE_MANAGER: "/v1/admin/create-manager",
+    CREATE_USER: "/v1/admin/create-user",
 
     // User Assignments
-    ASSIGN_USER: "/api/v1/admin/assign-user",
-    ASSIGNMENTS: "/api/v1/admin/assignments",
-    ASSIGNMENT_DELETE: "/api/v1/admin/assignments/:id",
+    ASSIGN_USER: "/v1/admin/assign-user",
+    ASSIGNMENTS: "/v1/admin/assignments",
+    ASSIGNMENT_DELETE: "/v1/admin/assignments/:id",
 
     // Facebook Analytics
-    FACEBOOK_ANALYTICS: "/api/v1/admin/facebook/analytics",
-    USER_FACEBOOK_ACCOUNTS: "/api/v1/admin/facebook/users/:id/accounts",
-    DELETE_FACEBOOK_ACCOUNT: "/api/v1/admin/facebook/accounts/:id",
+    FACEBOOK_ANALYTICS: "/v1/admin/facebook/analytics",
+    USER_FACEBOOK_ACCOUNTS: "/v1/admin/facebook/users/:id/accounts",
+    DELETE_FACEBOOK_ACCOUNT: "/v1/admin/facebook/accounts/:id",
   },
 
   // Manager API endpoints
   MANAGER: {
-    CREATE_USER: "/api/v1/manager/create-user",
-    MY_USERS: "/api/v1/manager/my-users",
-    DASHBOARD: "/api/v1/manager/dashboard",
-    MY_MANAGERS: "/api/v1/manager/my-managers",
-    USER_ANALYTICS: "/api/v1/manager/my-users/:id/analytics",
-    USER_BY_ID: "/api/v1/manager/my-users/:id",
-    USER_DEACTIVATE: "/api/v1/manager/my-users/:id/deactivate",
-    USER_REACTIVATE: "/api/v1/manager/my-users/:id/reactivate",
+    CREATE_USER: "/v1/manager/create-user",
+    MY_USERS: "/v1/manager/my-users",
+    DASHBOARD: "/v1/manager/dashboard",
+    MY_MANAGERS: "/v1/manager/my-managers",
+    USER_ANALYTICS: "/v1/manager/my-users/:id/analytics",
+    USER_BY_ID: "/v1/manager/my-users/:id",
+    USER_DEACTIVATE: "/v1/manager/my-users/:id/deactivate",
+    USER_REACTIVATE: "/v1/manager/my-users/:id/reactivate",
   },
 };
 
