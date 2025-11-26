@@ -43,7 +43,7 @@ class DashboardService {
 
   async getDashboardStats(): Promise<DashboardStats> {
     try {
-      const data = await this.fetchWithAuth("/api/v1/dashboard/stats");
+      const data = await this.fetchWithAuth("/v1/dashboard/stats");
       return {
         connectedAccounts: data.connectedAccounts || 0,
         postsScheduled: data.postsScheduled || 0,
@@ -62,7 +62,7 @@ class DashboardService {
 
   async getDashboardActivity(): Promise<DashboardActivity[]> {
     try {
-      const data = await this.fetchWithAuth("/api/v1/dashboard/activity");
+      const data = await this.fetchWithAuth("/v1/dashboard/activity");
       return data.activities || [];
     } catch (error) {
       console.error("Failed to fetch dashboard activity:", error);
@@ -96,4 +96,3 @@ class DashboardService {
 }
 
 export const dashboardService = new DashboardService();
-
