@@ -22,14 +22,26 @@ interface FacebookPostCreatorProps {
     };
   }>;
   onPostCreated?: () => void;
+  /**
+   * When provided, the modal becomes controlled by the parent.
+   */
+  isOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+  /**
+   * Hide the default trigger buttons when the parent renders its own trigger.
+   */
+  hideTriggerButtons?: boolean;
 }
 
 export default function FacebookPostCreator({
   connectedPages,
   onPostCreated,
+  isOpen: controlledIsOpen,
+  onOpenChange,
+  hideTriggerButtons = false,
 }: FacebookPostCreatorProps) {
   const t = useTranslations("HomePage");
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
   const [isPosting, setIsPosting] = useState(false);
   const [selectedPage, setSelectedPage] = useState("");
   const [message, setMessage] = useState("");
@@ -48,6 +60,16 @@ export default function FacebookPostCreator({
     imageUrl?: string;
     imageError?: string;
   } | null>(null);
+
+  const isControlled = typeof controlledIsOpen === "boolean";
+  const modalIsOpen = isControlled ? controlledIsOpen : internalIsOpen;
+
+  const setModalOpen = (open: boolean) => {
+    onOpenChange?.(open);
+    if (!isControlled) {
+      setInternalIsOpen(open);
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -71,7 +93,8 @@ export default function FacebookPostCreator({
       }
 
       // Use single /post endpoint for both text and image posts
-      const endpoint = postType === "schedule" ? "/schedule" : "/post";
+      const endpoint =
+        postType === "schedule" ? FACEBOOK_API.SCHEDULE : FACEBOOK_API.POST;
       const requestBody = {
         pageId: selectedPage,
         message: message.trim(),
@@ -87,17 +110,14 @@ export default function FacebookPostCreator({
       console.log("Endpoint:", endpoint);
       console.log("Request body:", requestBody);
 
-      const response = await fetch(
-        `http://localhost:8080/api/v1/facebook${endpoint}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestBody),
-          credentials: "include",
-        }
-      );
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+        credentials: "include",
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -114,7 +134,7 @@ export default function FacebookPostCreator({
 
         // Close modal after success
         setTimeout(() => {
-          setIsOpen(false);
+          setModalOpen(false);
           setSuccess("");
         }, 2000);
       } else {
@@ -151,19 +171,18 @@ export default function FacebookPostCreator({
     imageUrl?: string;
     scheduleTime?: number;
   }) => {
-    const endpoint = data.scheduleTime ? "/schedule" : "/post";
+    const endpoint = data.scheduleTime
+      ? FACEBOOK_API.SCHEDULE
+      : FACEBOOK_API.POST;
 
-    const response = await fetch(
-      `http://localhost:8080/api/v1/facebook${endpoint}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-        credentials: "include",
-      }
-    );
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+      credentials: "include",
+    });
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -180,25 +199,27 @@ export default function FacebookPostCreator({
   return (
     <>
       {/* Action Buttons */}
-      <div className="flex flex-col sm:flex-row gap-3">
-        <button
-          onClick={() => setShowGenerateForm(true)}
-          className="flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-purple-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-        >
-          <Sparkles className="w-5 h-5" />
-          <span>{t("dashboard.facebook.generatePost")}</span>
-        </button>
-        <button
-          onClick={() => setIsOpen(true)}
-          className="flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
-        >
-          <Plus className="w-5 h-5" />
-          <span>{t("dashboard.facebook.createPost")}</span>
-        </button>
-      </div>
+      {!hideTriggerButtons && (
+        <div className="flex flex-col sm:flex-row gap-3">
+          <button
+            onClick={() => setShowGenerateForm(true)}
+            className="flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-xl font-semibold hover:from-purple-700 hover:to-purple-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            <Sparkles className="w-5 h-5" />
+            <span>{t("dashboard.facebook.generatePost")}</span>
+          </button>
+          <button
+            onClick={() => setModalOpen(true)}
+            className="flex items-center justify-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            <Plus className="w-5 h-5" />
+            <span>{t("dashboard.facebook.createPost")}</span>
+          </button>
+        </div>
+      )}
 
       {/* Modal */}
-      {isOpen && (
+      {modalIsOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6">
@@ -208,7 +229,7 @@ export default function FacebookPostCreator({
                   {t("dashboard.facebook.createPostModal.title")}
                 </h3>
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setModalOpen(false)}
                   className="text-gray-400 hover:text-gray-600"
                 >
                   <X className="w-5 h-5" />
@@ -413,7 +434,7 @@ export default function FacebookPostCreator({
                 <div className="flex space-x-3 pt-4">
                   <button
                     type="button"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => setModalOpen(false)}
                     className="flex-1 px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 hover:border-gray-400 transition-all duration-200"
                   >
                     {t("dashboard.facebook.createPostModal.cancel")}

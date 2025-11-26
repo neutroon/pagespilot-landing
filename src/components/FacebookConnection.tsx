@@ -5,7 +5,6 @@ import { useTranslations } from "next-intl";
 import { useAuth } from "@/contexts/AuthContext";
 import { API_CONFIG, FACEBOOK_API } from "@/lib/config";
 import { Facebook, CheckCircle, X, Loader2, ExternalLink } from "lucide-react";
-import FacebookPostCreator from "./FacebookPostCreator";
 import Image from "next/image";
 
 interface FacebookPage {

@@ -3,7 +3,7 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   dashboardService,
@@ -16,6 +16,7 @@ import FacebookPostCreator from "@/components/FacebookPostCreator";
 import GeneratePostForm from "@/components/GeneratePostForm";
 import PostReviewModal from "@/components/PostReviewModal";
 import AppNavbar from "@/components/AppNavbar";
+import { FACEBOOK_API } from "@/lib/config";
 import {
   Users,
   CheckCircle,
@@ -28,6 +29,19 @@ import {
   FileText,
   Sparkles,
 } from "lucide-react";
+
+type FacebookPage = {
+  id: string;
+  name: string;
+  access_token: string;
+  category: string;
+  followers_count?: number;
+  picture?: {
+    data: {
+      url: string;
+    };
+  };
+};
 
 export default function Dashboard() {
   const { user, isAuthenticated, isLoading } = useAuth();
@@ -48,7 +62,8 @@ export default function Dashboard() {
     imageUrl?: string;
     imageError?: string;
   } | null>(null);
-  const [connectedPages, setConnectedPages] = useState<any[]>([]);
+  const [connectedPages, setConnectedPages] = useState<FacebookPage[]>([]);
+  const [showPostCreatorModal, setShowPostCreatorModal] = useState(false);
 
   // State for dashboard data
   const [dashboardStats, setDashboardStats] = useState<DashboardStats>({
@@ -92,6 +107,60 @@ export default function Dashboard() {
     fetchDashboardData();
   }, [isAuthenticated, isLoading]);
 
+  const fetchConnectedPages = useCallback(async (): Promise<FacebookPage[]> => {
+    if (typeof window === "undefined") {
+      return [];
+    }
+
+    const isFacebookConnected =
+      localStorage.getItem("facebook_connected") === "true";
+
+    if (!isFacebookConnected) {
+      setConnectedPages([]);
+      return [];
+    }
+
+    const accessToken = localStorage.getItem("facebook_access_token");
+    if (!accessToken) {
+      setConnectedPages([]);
+      return [];
+    }
+
+    try {
+      const response = await fetch(
+        `${FACEBOOK_API.PAGES}?access_token=${encodeURIComponent(
+          accessToken
+        )}&userId=${user?.id || "1"}`,
+        { credentials: "include" }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch connected Facebook pages");
+      }
+
+      const data = await response.json();
+      const pages = Array.isArray(data.data) ? data.data : [];
+      setConnectedPages(pages);
+      return pages;
+    } catch (error) {
+      console.error("Failed to load connected pages:", error);
+      setConnectedPages([]);
+      return [];
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (isAuthenticated && !isLoading) {
+      fetchConnectedPages();
+    }
+  }, [isAuthenticated, isLoading, fetchConnectedPages]);
+
+  useEffect(() => {
+    if (connectedPages.length === 0 && showPostCreatorModal) {
+      setShowPostCreatorModal(false);
+    }
+  }, [connectedPages, showPostCreatorModal]);
+
   // Handler functions for content creation
   const handleGeneratePost = () => {
     // Check if Facebook is connected
@@ -105,13 +174,23 @@ export default function Dashboard() {
     }
   };
 
-  const handleCreatePost = () => {
+  const handleCreatePost = async () => {
     // Check if Facebook is connected
     const isConnected = localStorage.getItem("facebook_connected");
     if (isConnected === "true") {
-      // If connected, show the actual create post form
-      setModalTheme("blue");
-      setShowCreateForm(true);
+      let pages = connectedPages;
+      if (pages.length === 0) {
+        pages = await fetchConnectedPages();
+      }
+
+      if (pages.length === 0) {
+        // Still no pages, show helper modal that directs to mission control
+        setModalTheme("blue");
+        setShowCreateForm(true);
+        return;
+      }
+
+      setShowPostCreatorModal(true);
     } else {
       setModalTheme("blue");
       setShowCreateForm(true);
@@ -137,19 +216,18 @@ export default function Dashboard() {
     imageUrl?: string;
     scheduleTime?: number;
   }) => {
-    const endpoint = data.scheduleTime ? "/schedule" : "/post";
+    const endpoint = data.scheduleTime
+      ? FACEBOOK_API.SCHEDULE
+      : FACEBOOK_API.POST;
 
-    const response = await fetch(
-      `http://localhost:8080/api/v1/facebook${endpoint}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-        credentials: "include",
-      }
-    );
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+      credentials: "include",
+    });
 
     if (!response.ok) {
       const errorData = await response.json();
@@ -645,6 +723,19 @@ export default function Dashboard() {
             setShowReviewModal(false);
             setGeneratedData(null);
           }}
+        />
+      )}
+
+      {showPostCreatorModal && connectedPages.length > 0 && (
+        <FacebookPostCreator
+          connectedPages={connectedPages}
+          onPostCreated={() => {
+            fetchConnectedPages();
+            setShowPostCreatorModal(false);
+          }}
+          isOpen={showPostCreatorModal}
+          onOpenChange={(open) => setShowPostCreatorModal(open)}
+          hideTriggerButtons
         />
       )}
     </div>
