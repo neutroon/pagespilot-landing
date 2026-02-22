@@ -2,7 +2,6 @@
 
 import { useRouter, usePathname } from "next/navigation";
 import { localeNames, type Locale } from "@/i18n/config";
-import { trackLanguageSwitch } from "@/lib/analytics";
 
 interface LocaleSwitcherProps {
   currentLocale: string;
@@ -16,9 +15,6 @@ export default function LocaleSwitcher({ currentLocale }: LocaleSwitcherProps) {
   const targetLocale: Locale = currentLocale === "en" ? "ar" : "en";
 
   const handleLocaleToggle = () => {
-    // Track the language switch
-    trackLanguageSwitch(currentLocale, targetLocale);
-
     // Redirect to the new locale while preserving the current path structure
     const currentPath = pathname.replace(/^\/[a-z]{2}/, "") || "/";
     const newUrl = `/${targetLocale}${currentPath}`;
