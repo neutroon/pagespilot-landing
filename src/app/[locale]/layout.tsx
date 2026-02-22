@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import "../globals.css";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import { Locale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -6,8 +8,6 @@ import { notFound } from "next/navigation";
 import { locales } from "@/i18n/config";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { AuthProvider } from "@/contexts/AuthContext";
-import { DashboardProtection } from "@/components/DashboardProtection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,9 +20,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PagesPilot - Automate Your Facebook Page with AI",
+  title: "pagesPilot - Automate Your Facebook Page with AI",
   description:
-    "PagesPilot helps you schedule and generate posts, auto-reply to comments & messages, and grow your page without the daily grind. Join the waitlist for early access!",
+    "pagesPilot helps you schedule and generate posts, auto-reply to comments & messages, and grow your page without the daily grind. Join the waitlist for early access!",
 };
 
 interface LocaleLayoutProps {
@@ -51,10 +51,7 @@ export default async function LocaleLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
-          <AuthProvider>
-            <DashboardProtection />
-            {children}
-          </AuthProvider>
+          {children}
         </NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />
