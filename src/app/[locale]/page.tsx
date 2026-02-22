@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
-import { trackFeatureInteraction } from "@/lib/analytics";
+// import { trackFeatureInteraction } from "@/lib/analytics";
 import api from "@/services/api";
 import ResponsiveNavigation from "@/components/ResponsiveNavigation";
 import {
@@ -117,9 +117,9 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <a
                   href="#waitlist"
-                  onClick={() =>
-                    trackFeatureInteraction("hero_cta_primary", locale)
-                  }
+                  // onClick={() =>
+                  // trackFeatureInteraction("hero_cta_primary", locale)
+                  // }
                   className="inline-flex items-center justify-center px-8 py-4 bg-indigo-600 text-white font-semibold rounded-xl text-lg hover:bg-indigo-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
                   <HomeIcon
@@ -129,9 +129,9 @@ export default function Home() {
                   {t("hero.ctaPrimary")}
                 </a>
                 <button
-                  onClick={() =>
-                    trackFeatureInteraction("hero_cta_demo", locale)
-                  }
+                  // onClick={() =>
+                  //   trackFeatureInteraction("hero_cta_demo", locale)
+                  // }
                   className="inline-flex items-center justify-center px-8 py-4 border-2 border-slate-300 text-slate-700 font-semibold rounded-xl text-lg hover:border-slate-400 transition-all duration-200"
                 >
                   <PlayIcon
@@ -365,9 +365,8 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
             {/* Feature 1 */}
             <div
-              className={`space-y-6 ${
-                activeFeature === 0 ? "opacity-100" : "opacity-60"
-              } transition-opacity duration-500`}
+              className={`space-y-6 ${activeFeature === 0 ? "opacity-100" : "opacity-60"
+                } transition-opacity duration-500`}
             >
               <div className="inline-flex items-center bg-indigo-100 text-indigo-800 px-4 py-2 rounded-full text-sm font-medium">
                 <TableOfContents className={`w-4 h-4 me-2`} />
@@ -476,9 +475,8 @@ export default function Home() {
 
             {/* Feature 2 */}
             <div
-              className={`space-y-6 order-1 lg:order-2 ${
-                activeFeature === 1 ? "opacity-100" : "opacity-60"
-              } transition-opacity duration-500`}
+              className={`space-y-6 order-1 lg:order-2 ${activeFeature === 1 ? "opacity-100" : "opacity-60"
+                } transition-opacity duration-500`}
             >
               <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
                 <TrendingUpIcon
@@ -908,12 +906,12 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             {/* Brand */}
             <div className="md:col-span-2">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center">
-                  <Logo ariaLabel="PagesPilot Logo" />
+              <div className="flex items-center ltr:justify-start rtl:justify-end -space-x-2.5 mb-6" dir="ltr">
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                  <Logo ariaLabel="pagesPilot Logo" />
                 </div>
                 <span className="text-2xl font-bold text-white">
-                  PagesPilot
+                  pagesPilot
                 </span>
               </div>
               <p className="text-slate-400 mb-6 max-w-md leading-relaxed">
