@@ -53,7 +53,7 @@ export default function ResponsiveNavigation({
             </a>
             <LocaleSwitcher currentLocale={locale} />
             <Link
-              href="https://www.pagespilot.com/en/auth/login"
+              href="https://app.pagespilot.com/en/auth/login"
               className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
             >
               {t("login.loginNav")}
@@ -132,7 +132,6 @@ export default function ResponsiveNavigation({
               >
                 {t("navigation.joinBeta")}
               </Link>
-
             </div>
           </div>
         )}
