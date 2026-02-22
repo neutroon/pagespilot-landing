@@ -1,6 +1,6 @@
 {
   "HomePage": {
-    "title": "Welcome to PagesPilot",
+    "title": "Welcome to pagesPilot",
     
     "navigation": {
       "features": "Features",
@@ -11,7 +11,7 @@
       "badge": "AI-Powered Content Automation",
       "headline": "Your Content",
       "headlineHighlight": "Autopilot",
-      "description": "Take control of your digital content journey. PagesPilot generates, schedules, and optimizes your posts automatically—like having an AI co-pilot for your brand.",
+      "description": "Take control of your digital content journey. pagesPilot generates, schedules, and optimizes your posts automatically—like having an AI co-pilot for your brand.",
       "ctaPrimary": "Start Your Flight Plan",
       "ctaSecondary": "Watch Demo",
       "stats": {
@@ -22,7 +22,7 @@
     },
     "howItWorks": {
       "title": "Your AI Co-Pilot in Action",
-      "description": "Like a skilled pilot navigating through complex airspace, PagesPilot guides your content through the digital landscape with precision and intelligence.",
+      "description": "Like a skilled pilot navigating through complex airspace, pagesPilot guides your content through the digital landscape with precision and intelligence.",
       "steps": {
         "planning": {
           "title": "Flight Plan Creation",
@@ -44,7 +44,7 @@
       "contentGeneration": {
         "badge": "AI Content Generation",
         "title": "Intelligent Content Creation",
-        "description": "Our AI understands your brand voice and creates engaging, on-brand content that resonates with your audience. From captions to full articles, PagesPilot crafts content that converts.",
+        "description": "Our AI understands your brand voice and creates engaging, on-brand content that resonates with your audience. From captions to full articles, pagesPilot crafts content that converts.",
         "benefits": [
           "Brand voice consistency across all content",
           "Multi-format content (posts, stories, articles)",
@@ -64,20 +64,20 @@
     },
     "testimonials": {
       "title": "Trusted by Content Leaders",
-      "description": "Join thousands of businesses already flying on autopilot with PagesPilot",
+      "description": "Join thousands of businesses already flying on autopilot with pagesPilot",
       "customers": [
         {
-          "quote": "PagesPilot transformed our content strategy. We're now posting 10x more consistently and our engagement has tripled. It's like having a content team on autopilot.",
+          "quote": "pagesPilot transformed our content strategy. We're now posting 10x more consistently and our engagement has tripled. It's like having a content team on autopilot.",
           "name": "Sarah Mitchell",
           "title": "Marketing Director, TechFlow"
         },
         {
-          "quote": "As a small business owner, I don't have time to manage social media 24/7. PagesPilot handles everything while I focus on growing my business. Game changer!",
+          "quote": "As a small business owner, I don't have time to manage social media 24/7. pagesPilot handles everything while I focus on growing my business. Game changer!",
           "name": "Marcus Rodriguez",
           "title": "Founder, Local Fitness Studio"
         },
         {
-          "quote": "Managing 50+ client accounts was overwhelming until we found PagesPilot. Now we deliver consistent, high-quality content for all our clients effortlessly.",
+          "quote": "Managing 50+ client accounts was overwhelming until we found pagesPilot. Now we deliver consistent, high-quality content for all our clients effortlessly.",
           "name": "Lisa Kim",
           "title": "Agency Owner, Digital Boost"
         }
@@ -92,7 +92,7 @@
     "waitlist": {
       "badge": "Early Access Beta Program",
       "title": "Ready for Takeoff?",
-      "description": "Join the exclusive beta program and be among the first to experience the future of AI-powered content automation. Your feedback will help shape PagesPilot's evolution.",
+      "description": "Join the exclusive beta program and be among the first to experience the future of AI-powered content automation. Your feedback will help shape pagesPilot's evolution.",
       "form": {
         "nameLabel": "Full Name *",
         "namePlaceholder": "Enter your full name",
@@ -131,7 +131,7 @@
       ]
     },
     "footer": {
-      "description": "The AI-powered content automation platform that helps businesses and creators take control of their digital presence. From generating compelling content to automating engagement, PagesPilot is your co-pilot for content success.",
+      "description": "The AI-powered content automation platform that helps businesses and creators take control of their digital presence. From generating compelling content to automating engagement, pagesPilot is your co-pilot for content success.",
       "product": {
         "title": "Product",
         "features": "Features",
@@ -147,7 +147,7 @@
         "contact": "Contact"
       },
       "legal": {
-        "copyright": "© 2025 PagesPilot. All rights reserved.",
+        "copyright": "© 2025 pagesPilot. All rights reserved.",
         "privacy": "Privacy Policy",
         "terms": "Terms of Service",
         "cookies": "Cookie Policy"
@@ -155,7 +155,7 @@
     },
     "icons": {
       "alt": {
-        "pagesPilotLogo": "PagesPilot Logo",
+        "pagesPilotLogo": "pagesPilot Logo",
         "checkIcon": "Check mark",
         "homeIcon": "Home icon",
         "playIcon": "Play button",
@@ -179,7 +179,7 @@
         "analyticsIcon": "Analytics chart"
       },
       "labels": {
-        "dashboardTitle": "PagesPilot Dashboard",
+        "dashboardTitle": "pagesPilot Dashboard",
         "contentGenerated": "Content Generated",
         "postsScheduled": "posts scheduled",
         "autoResponses": "Auto-Responses",
@@ -207,705 +207,7 @@
       }
     },
     "login": {
-      "title": "Welcome Back",
-      "subtitle": "Sign in to your PagesPilot account",
-      "emailLabel": "Email Address",
-      "emailPlaceholder": "Enter your email",
-      "passwordLabel": "Password",
-      "passwordPlaceholder": "Enter your password",
-      "rememberMe": "Remember me",
-      "forgotPassword": "Forgot password?",
-      "loginButton": "Sign In",
-      "loggingIn": "Signing in...",
-      "noAccount": "Don't have an account?",
-      "signUp": "Sign up",
-      "loginNav": "Login",
-      "dashboardNav": "Dashboard",
-      "logoutNav": "Logout",
-      "userMenu": "User Menu",
-      "backToHome": "Back to Home",
-      "profileNav": "Profile"
-    },
-    "signup": {
-      "title": "Join PagesPilot",
-      "subtitle": "Create your account and start your content automation journey",
-      "nameLabel": "Full Name",
-      "namePlaceholder": "Enter your full name",
-      "emailLabel": "Email Address",
-      "emailPlaceholder": "Enter your email",
-      "passwordLabel": "Password",
-      "passwordPlaceholder": "Create a strong password",
-      "confirmPasswordLabel": "Confirm Password",
-      "confirmPasswordPlaceholder": "Confirm your password",
-      "agreeToTerms": "I agree to the",
-      "termsOfService": "Terms of Service",
-      "and": "and",
-      "privacyPolicy": "Privacy Policy",
-      "signupButton": "Create Account",
-      "creatingAccount": "Creating account...",
-      "haveAccount": "Already have an account?",
-      "signIn": "Sign in",
-      "signupNav": "Sign Up",
-      "validation": {
-        "nameRequired": "Full name is required",
-        "nameMinLength": "Name must be at least 2 characters",
-        "emailRequired": "Email address is required",
-        "emailInvalid": "Please enter a valid email address",
-        "passwordRequired": "Password is required",
-        "passwordMinLength": "Password must be at least 8 characters",
-        "passwordComplexity": "Password must contain uppercase, lowercase, and number",
-        "confirmPasswordRequired": "Please confirm your password",
-        "passwordMismatch": "Passwords do not match",
-        "termsRequired": "You must agree to the terms and conditions"
-      }
-    },
-    "dashboard": {
-      "navTitle": "PagesPilot Dashboard",
-      "title": "Dashboard Overview",
-      "subtitle": "Manage your content automation and track your performance",
-      "welcomeBack": "Welcome back,",
-      "welcomeBackWithName": "Welcome back, {name}! 🚀",
-      "missionControlCenter": "Your mission control center for social media success",
-      "backToHome": "Back to Home",
-      "loading": "Loading...",
-      "logout": "Logout",
-      "stats": {
-        "postsCreated": "Posts Created",
-        "totalEngagement": "Total Engagement",
-        "automationRate": "Automation Rate",
-        "autoResponses": "Auto-Responses",
-        "thisWeek": "This week",
-        "excellentPerformance": "Excellent performance",
-        "fromLastWeek": "from last week",
-        "connectedAccounts": "Connected Accounts",
-        "postsScheduled": "Posts Scheduled",
-        "totalReach": "Total Reach"
-      },
-      "activities": {
-        "newPostPublished": "New post published",
-        "engagementSpike": "Engagement spike detected",
-        "autoResponseSent": "Auto-response sent",
-        "hoursAgo": "hours ago"
-      },
-      "actions": {
-        "createNewPost": "Create New Post",
-        "viewAnalytics": "View Analytics",
-        "manageAutomation": "Manage Automation"
-      },
-      "missionStatus": "Mission Status",
-      "readyToLaunch": "Ready to Launch",
-      "contentCreation": {
-        "title": "Content Creation",
-        "subtitle": "Create and schedule your social media content",
-        "generatePost": "Generate Post",
-        "generatePostDescription": "AI-powered content creation",
-        "createPost": "Create Post",
-        "createPostDescription": "Manual content creation"
-      },
-      "missionControl": {
-        "title": "Mission Control",
-        "subtitle": "Connect your social media accounts and start your journey"
-      },
-      "quickActions": {
-        "quickActions": "Quick Actions",
-        "schedulePosts": "Schedule Posts",
-        "schedulePostsDescription": "Plan your content calendar",
-        "analytics": "Analytics",
-        "analyticsDescription": "View your performance",
-        "templates": "Templates",
-        "templatesDescription": "Use content templates"
-      },
-      "systemStatus": {
-        "title": "System Status",
-        "navigationSystems": "Navigation Systems",
-        "communication": "Communication",
-        "powerSystems": "Power Systems",
-        "missionControl": "Mission Control",
-        "online": "Online",
-        "connected": "Connected",
-        "optimal": "Optimal",
-        "ready": "Ready"
-      },
-      "recentActivity": {
-        "title": "Recent Activity",
-        "noActivity": "No recent activity",
-        "startConnecting": "Start by connecting your accounts"
-      },
-      "modals": {
-        "generatePost": "Generate Post",
-        "createPost": "Create Post",
-        "generatePostConnectRequired": "Generate Post - Connect Required",
-        "connectFacebookRequired": "Connect Facebook Required",
-        "facebookConnected": "Facebook Connected!",
-        "facebookConnectedDescription": "Your Facebook account is connected. You can now generate AI-powered content and schedule posts using the Mission Control section below.",
-        "aiContentGenerationRequired": "AI Content Generation Required",
-        "connectFacebookDescription": "You need to connect your Facebook account to generate AI-powered content and schedule posts. Please connect your Facebook account in the Mission Control section below.",
-        "goToMissionControl": "Go to Mission Control",
-        "connectFacebook": "Connect Facebook",
-        "cancel": "Cancel"
-      },
-      "navigation": {
-        "title": "Navigation",
-        "dashboard": "Dashboard",
-        "profile": "Profile",
-        "settings": "Settings"
-      },
-      "quickActions": {
-        "title": "Quick Actions",
-        "quickActions": "Quick Actions",
-        "schedulePosts": "Schedule Posts",
-        "schedulePostsDescription": "Plan and schedule your posts",
-        "analytics": "Analytics",
-        "analyticsDescription": "Track your performance",
-        "templates": "Templates",
-        "templatesDescription": "Use pre-made templates"
-      },
-      "contentCreation": {
-        "title": "Content Creation",
-        "subtitle": "Create engaging content with AI assistance",
-        "generatePost": "Generate Post",
-        "generatePostDescription": "AI-powered content generation",
-        "createPost": "Create Post",
-        "createPostDescription": "Manual content creation"
-      },
-      "facebook": {
-        "connectPage": "Connect Facebook Page",
-        "connectPages": "Connect Facebook Pages",
-        "connectedPages": "Connected Pages",
-        "noPagesConnected": "No pages connected",
-        "connectNow": "Connect Now",
-        "managePages": "Manage Pages",
-        "disconnect": "Disconnect",
-        "selectPage": "Select a page to get started",
-        "pageConnected": "Page connected successfully",
-        "pageDisconnected": "Page disconnected",
-        "errorConnecting": "Error connecting page",
-        "loading": "Loading...",
-        "pageName": "Page Name",
-        "pageId": "Page ID",
-        "followers": "Followers",
-        "lastPost": "Last Post",
-        "status": "Status",
-        "active": "Active",
-        "inactive": "Inactive",
-        "selectImage": "Select Image",
-        "uploadImage": "Upload Image",
-        "imageSelected": "Image selected",
-        "postWithImage": "Post with Image",
-        "textOnly": "Text Only",
-        "withImage": "With Image",
-        "generatePost": "Generate Post",
-        "createPost": "Create Post",
-        "generateForm": {
-          "title": "Generate Post",
-          "topic": "Topic",
-          "topicPlaceholder": "e.g., AI content automation in Arabic",
-          "tone": "Tone",
-          "length": "Length",
-          "keywords": "Keywords (comma-separated)",
-          "keywordsPlaceholder": "e.g., ai, facebook, automation",
-          "context": "Additional Context",
-          "contextPlaceholder": "Any additional context or requirements...",
-          "generateImage": "Generate AI Image",
-          "generate": "Generate",
-          "cancel": "Cancel",
-          "generating": "Generating...",
-          "pleaseEnterTopic": "Please enter a topic",
-          "failedToGenerate": "Failed to generate post"
-        },
-        "reviewModal": {
-          "title": "Review Generated Post",
-          "generatedContent": "Generated Content",
-          "generatedImage": "Generated Image",
-          "suggestedImage": "Suggested Image Description",
-          "imageGenerationFailed": "Image generation failed",
-          "selectPage": "Select Page",
-          "choosePage": "Choose a page...",
-          "postType": "Post Type",
-          "postNow": "Post Now",
-          "schedule": "Schedule",
-          "scheduleTime": "Schedule Time",
-          "edit": "Edit",
-          "cancel": "Cancel",
-          "posting": "Posting...",
-          "pleaseSelectPage": "Please select a page",
-          "postScheduled": "Post scheduled successfully!",
-          "postPublished": "Post published successfully!",
-          "failedToCreate": "Failed to create post"
-        },
-        "createPostModal": {
-          "title": "Create Facebook Post",
-          "selectPage": "Select Page",
-          "choosePage": "Choose a page...",
-          "message": "Message",
-          "messagePlaceholder": "What's on your mind?",
-          "postType": "Post Type",
-          "postNow": "Post Now",
-          "schedule": "Schedule",
-          "scheduleTime": "Schedule Time",
-          "postFormat": "Post Format",
-          "textOnly": "Text Only",
-          "withImage": "With Image",
-          "cancel": "Cancel",
-          "posting": "Posting...",
-          "postScheduled": "Post scheduled successfully!",
-          "postPublished": "Post published successfully!",
-          "failedToCreate": "Failed to create post"
-        }
-        ,
-        "features": {
-          "title": "Facebook Integration Features",
-          "subtitle": "Powerful automation tools for your Facebook pages",
-          "autoPost": {
-            "title": "Auto-Post Content",
-            "description": "Automatically create and publish posts to your Facebook pages",
-            "details": [
-              "AI-generated content based on your brand voice",
-              "Multiple post formats (text, image, video, link)",
-              "Hashtag optimization for better reach",
-              "Content scheduling and queuing"
-            ]
-          },
-          "smartScheduling": {
-            "title": "Smart Scheduling",
-            "description": "Schedule posts for optimal engagement times",
-            "details": [
-              "AI-powered optimal posting times",
-              "Bulk scheduling capabilities",
-              "Timezone-aware scheduling",
-              "Content calendar management"
-            ]
-          },
-          "autoResponses": {
-            "title": "Auto-Responses",
-            "description": "Automatically respond to comments and messages",
-            "details": [
-              "Intelligent comment moderation",
-              "Automated customer service responses",
-              "Sentiment analysis and appropriate responses",
-              "Multi-language support"
-            ]
-          },
-          "performanceAnalytics": {
-            "title": "Performance Analytics",
-            "description": "Track and analyze your page performance",
-            "details": [
-              "Real-time engagement metrics",
-              "Post performance analysis",
-              "Audience insights and demographics",
-              "ROI tracking and reporting"
-            ]
-          },
-          "contentInsights": {
-            "title": "Content Insights",
-            "description": "Get insights on what content performs best",
-            "details": [
-              "Content performance comparison",
-              "Trending topics in your industry",
-              "Competitor analysis",
-              "Content recommendation engine"
-            ]
-          },
-          "schedule": {
-            "title": "Smart Scheduling",
-            "description": "Schedule posts for optimal engagement times",
-            "details": [
-              "AI-powered optimal posting times",
-              "Bulk scheduling capabilities",
-              "Timezone-aware scheduling",
-              "Content calendar management"
-            ]
-          },
-          "messaging": {
-            "title": "Messaging Automation",
-            "description": "Automatically respond to comments and messages",
-            "details": [
-              "Instant responses with your brand tone",
-              "Smart context understanding",
-              "Escalation when a human is needed",
-              "Works 24/7 across your pages"
-            ]
-          },
-          "insights": {
-            "title": "Insights & Analytics",
-            "description": "Track performance and improve your content strategy",
-            "details": [
-              "Engagement and reach metrics",
-              "Post performance breakdown",
-              "Best time to post suggestions",
-              "Continuous optimization insights"
-            ]
-          }
-        }
-      }
-    }
-  },
-  "manager": {
-    "navigation": {
-      "dashboard": "Dashboard",
-      "users": "My Users",
-      "managers": "My Managers",
-      "analytics": "Analytics",
-      "facebook": "Facebook",
-      "settings": "Settings",
-      "adminPanel": "Admin Panel"
-    }
-  },
-  "admin": {
-    "navigation": {
-      "dashboard": "Dashboard",
-      "users": "Users",
-      "managers": "Managers",
-      "assignments": "Assignments",
-      "analytics": "Analytics",
-      "facebook": "Facebook",
-      "settings": "Settings",
-      "adminPanel": "Admin Panel"
-    },
-    "auth": {
-      "login": {
-        "title": "Admin Portal",
-        "subtitle": "Sign in to access the admin dashboard",
-        "email": "Email Address",
-        "password": "Password",
-        "rememberMe": "Remember me",
-        "signIn": "Sign in to Admin Portal",
-        "signingIn": "Signing in...",
-        "unauthorizedAccess": "Admin access only. Unauthorized access is prohibited."
-      }
-    },
-    "dashboard": {
-      "welcomeBack": "Welcome back, {name}! 👋",
-      "subtitle": "Here's what's happening with your platform today.",
-      "stats": {
-        "totalUsers": "Total Users",
-        "activeUsers": "Active Users",
-        "facebookAccounts": "Facebook Accounts",
-        "totalPages": "Total Pages",
-        "activeRate": "Active Rate"
-      },
-      "quickActions": {
-        "title": "Quick Actions",
-        "createUser": "Create User",
-        "createUserDesc": "Add a new user to the system",
-        "viewAnalytics": "View Analytics",
-        "viewAnalyticsDesc": "Check detailed analytics and reports",
-        "manageFacebook": "Manage Facebook",
-        "manageFacebookDesc": "View and manage Facebook accounts"
-      },
-      "recentActivity": {
-        "title": "Recent Activity",
-        "viewAll": "View all",
-        "noActivity": "No recent activity",
-        "noActivityDesc": "Activity will appear here as users interact with the platform"
-      },
-      "systemStatus": {
-        "title": "System Status",
-        "apiStatus": "API Status",
-        "operational": "Operational",
-        "facebookApi": "Facebook API",
-        "connected": "Connected",
-        "userSystem": "User System",
-        "active": "Active"
-      }
-    },
-    "users": {
-      "title": "Users",
-      "subtitle": "Manage all users in the system",
-      "createUser": "Create User",
-      "bulkActions": {
-        "selected": "{count} user(s) selected",
-        "deactivate": "Deactivate",
-        "delete": "Delete"
-      },
-      "table": {
-        "id": "ID",
-        "name": "Name",
-        "role": "Role",
-        "status": "Status",
-        "created": "Created",
-        "fbAccounts": "FB Accounts",
-        "actions": "Actions",
-        "view": "View",
-        "edit": "Edit",
-        "deactivate": "Deactivate",
-        "reactivate": "Reactivate",
-        "delete": "Delete",
-        "noUsers": "No users found",
-        "searchPlaceholder": "Search users..."
-      },
-      "roles": {
-        "super_admin": "Super Admin",
-        "admin": "Admin",
-        "manager": "Manager",
-        "user": "User"
-      },
-      "status": {
-        "active": "Active",
-        "inactive": "Inactive",
-        "deleted": "Deleted"
-      },
-      "modals": {
-        "createUser": {
-          "title": "Create User",
-          "subtitle": "Add a new user to the system",
-          "name": "Full Name",
-          "email": "Email Address",
-          "password": "Password",
-          "role": "Role",
-          "roleDesc": "Select the appropriate role for this user",
-          "create": "Create User",
-          "creating": "Creating...",
-          "cancel": "Cancel",
-          "validation": {
-            "nameRequired": "Name is required",
-            "emailRequired": "Email is required",
-            "emailInvalid": "Please enter a valid email address",
-            "passwordRequired": "Password is required",
-            "passwordMinLength": "Password must be at least 6 characters"
-          }
-        },
-        "editUser": {
-          "title": "Edit User",
-          "subtitle": "Update user information",
-          "save": "Save Changes",
-          "saving": "Saving...",
-          "cancel": "Cancel"
-        }
-      }
-    },
-    "managers": {
-      "title": "Managers",
-      "subtitle": "Manage team managers and their assignments",
-      "createManager": "Create Manager",
-      "stats": {
-        "totalManagers": "Total Managers",
-        "activeManagers": "Active Managers",
-        "totalAssignments": "Total Assignments",
-        "avgTeamSize": "Avg. Team Size"
-      },
-      "table": {
-        "id": "ID",
-        "manager": "Manager",
-        "status": "Status",
-        "created": "Created",
-        "assignedUsers": "Assigned Users",
-        "fbAccounts": "FB Accounts",
-        "actions": "Actions",
-        "view": "View",
-        "assignments": "Assignments",
-        "edit": "Edit",
-        "deactivate": "Deactivate",
-        "reactivate": "Reactivate",
-        "delete": "Delete",
-        "noManagers": "No managers found"
-      },
-      "modals": {
-        "createManager": {
-          "title": "Create Manager",
-          "subtitle": "Add a new manager to the system",
-          "name": "Full Name",
-          "email": "Email Address",
-          "password": "Password",
-          "permissions": "Manager Permissions",
-          "permissionsDesc": "Managers can manage assigned users, view team analytics, create and assign users, but cannot access admin settings",
-          "create": "Create Manager",
-          "creating": "Creating...",
-          "cancel": "Cancel"
-        }
-      }
-    },
-    "assignments": {
-      "title": "User Assignments",
-      "subtitle": "Manage user-manager assignments and team structures",
-      "assignUser": "Assign User",
-      "stats": {
-        "totalAssignments": "Total Assignments",
-        "activeAssignments": "Active Assignments",
-        "managers": "Managers",
-        "unassignedUsers": "Unassigned Users"
-      },
-      "filters": {
-        "title": "Filters:",
-        "manager": "Manager:",
-        "allManagers": "All Managers",
-        "status": "Status:",
-        "allStatus": "All Status",
-        "active": "Active",
-        "inactive": "Inactive",
-        "clearFilters": "Clear Filters"
-      },
-      "table": {
-        "id": "ID",
-        "manager": "Manager",
-        "user": "User",
-        "assignedDate": "Assigned Date",
-        "assignedBy": "Assigned By",
-        "status": "Status",
-        "actions": "Actions",
-        "viewManager": "View Manager",
-        "viewUser": "View User",
-        "delete": "Delete",
-        "noAssignments": "No assignments found"
-      },
-      "modals": {
-        "assignUser": {
-          "title": "Assign User to Manager",
-          "subtitle": "Create a new user-manager assignment",
-          "selectManager": "Select Manager",
-          "searchManagers": "Search managers...",
-          "selectUser": "Select User",
-          "searchUsers": "Search users...",
-          "noManagers": "No managers found",
-          "noUsers": "No unassigned users available",
-          "noUsersSearch": "No users found matching search",
-          "assignmentPreview": "Assignment Preview",
-          "createAssignment": "Create Assignment",
-          "assigning": "Assigning...",
-          "cancel": "Cancel"
-        }
-      }
-    },
-    "managers": {
-      "title": "Managers",
-      "subtitle": "Manage team managers and their assignments",
-      "createManager": "Create Manager",
-      "stats": {
-        "totalManagers": "Total Managers",
-        "activeManagers": "Active Managers",
-        "totalAssignments": "Total Assignments",
-        "avgTeamSize": "Avg. Team Size"
-      },
-      "bulkActions": {
-        "selected": "{count} manager(s) selected",
-        "deactivate": "Deactivate",
-        "delete": "Delete"
-      },
-      "table": {
-        "manager": "Manager",
-        "assignedUsers": "Assigned Users",
-        "assignments": "Assignments"
-      }
-    },
-    "analytics": {
-      "title": "Analytics Dashboard",
-      "subtitle": "Facebook analytics and platform insights",
-      "exportReport": "Export Report",
-      "overview": {
-        "totalUsers": "Total Users",
-        "activeUsers": "Active Users",
-        "facebookAccounts": "Facebook Accounts",
-        "totalPages": "Total Pages"
-      },
-      "filters": {
-        "title": "Filters:",
-        "dateRange": "Date Range:",
-        "last7days": "Last 7 days",
-        "last30days": "Last 30 days",
-        "last90days": "Last 90 days",
-        "lastYear": "Last year",
-        "user": "User:",
-        "allUsers": "All Users"
-      },
-      "stats": {
-        "totalUsers": "Total Users",
-        "activeUsers": "Active Users",
-        "facebookAccounts": "Facebook Accounts",
-        "totalPages": "Total Pages",
-        "activeRate": "Active Rate"
-      },
-      "recentActivity": {
-        "title": "Recent Activities",
-        "viewAll": "View all",
-        "noActivity": "No recent activities",
-        "noActivityDesc": "Activities will appear here as users interact with the platform"
-      },
-      "userAnalytics": {
-        "title": "User Analytics",
-        "viewDetails": "View details",
-        "noAnalytics": "No user analytics available",
-        "noAnalyticsDesc": "User analytics will appear here as users become active"
-      },
-      "charts": {
-        "activityOverTime": "Activity Over Time",
-        "userDistribution": "User Distribution",
-        "chartPlaceholder": "Chart will be implemented here",
-        "chartDesc": "Using a charting library like Recharts"
-      },
-      "quickActions": {
-        "title": "Quick Actions",
-        "viewFacebookAccounts": "View Facebook Accounts",
-        "viewFacebookAccountsDesc": "Manage connected accounts",
-        "exportAnalytics": "Export Analytics",
-        "exportAnalyticsDesc": "Download detailed reports",
-        "advancedAnalytics": "Advanced Analytics",
-        "advancedAnalyticsDesc": "Deep dive into data"
-      }
-    },
-    "assignments": {
-      "title": "User Assignments",
-      "subtitle": "Manage user-manager assignments and team structures",
-      "assignUser": "Assign User",
-      "stats": {
-        "totalAssignments": "Total Assignments",
-        "activeAssignments": "Active Assignments",
-        "managers": "Managers",
-        "assignedUsers": "Assigned Users"
-      },
-      "table": {
-        "manager": "Manager",
-        "user": "User",
-        "assignedAt": "Assigned At",
-        "status": "Status",
-        "viewManager": "View Manager",
-        "viewUser": "View User",
-        "delete": "Delete"
-      }
-    },
-    "facebook": {
-      "title": "Facebook Accounts",
-      "subtitle": "Manage Facebook accounts and connected pages across all users",
-      "stats": {
-        "totalAccounts": "Total Accounts",
-        "activeAccounts": "Active Accounts",
-        "totalPages": "Total Pages",
-        "totalActivities": "Total Activities"
-      },
-      "table": {
-        "user": "User",
-        "pageName": "Page Name",
-        "status": "Status",
-        "connectedAt": "Connected At",
-        "activities": "Activities",
-        "view": "View",
-        "delete": "Delete"
-      }
-    },
-    "settings": {
-      "title": "Settings",
-      "subtitle": "Manage system settings and configurations",
-      "general": {
-        "title": "General Settings",
-        "siteName": "Site Name",
-        "siteDescription": "Site Description",
-        "defaultLanguage": "Default Language",
-        "timezone": "Timezone"
-      },
-      "security": {
-        "title": "Security Settings",
-        "sessionTimeout": "Session Timeout",
-        "passwordPolicy": "Password Policy",
-        "twoFactorAuth": "Two-Factor Authentication"
-      },
-      "notifications": {
-        "title": "Notification Settings",
-        "emailNotifications": "Email Notifications",
-        "pushNotifications": "Push Notifications",
-        "smsNotifications": "SMS Notifications"
-      },
-      "save": "Save Changes",
-      "saving": "Saving...",
-      "cancel": "Cancel"
+      "loginNav": "Login"
     }
   }
 }
