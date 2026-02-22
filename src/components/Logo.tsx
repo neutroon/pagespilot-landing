@@ -8,13 +8,13 @@ export default function Logo({
   ariaLabel: string;
 }) {
   return (
-    <div className="flex items-center space-x-2">
+    <div className="flex items-center">
       <Image
         src="/logo.png"
         alt={ariaLabel || "Logo"}
-        width={100}
-        height={100}
-        className={className}
+        width={200}
+        height={200}
+        className={`${className} -rotate-[20deg]`}
       />
       {/* <span className={className}>PagesPilot</span> */}
     </div>
