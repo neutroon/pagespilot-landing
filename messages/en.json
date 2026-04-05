@@ -29,7 +29,11 @@
       "inputPlaceholder": "Type your message...",
       "sendButton": "Send",
       "aiReply1": "We are open from 8:00 AM to 10:00 PM, 7 days a week! Any other questions? ☕",
-      "aiReply2": "Yes, we deliver! Delivery is free for orders over 200 EGP. What would you like to order today? 🛵"
+      "aiReply2": "Yes, we deliver! Delivery is free for orders over 200 EGP. What would you like to order today? 🛵",
+      "errorConnection": "Connection error. Please try again later.",
+      "errorProcessing": "Sorry, an error occurred while processing your request.",
+      "aiConnectionProblem": "Sorry, I'm having trouble connecting to the server. Try again later!",
+      "statusOnline": "Online"
     },
     "howItWorks": {
       "badge": "How It Works",
