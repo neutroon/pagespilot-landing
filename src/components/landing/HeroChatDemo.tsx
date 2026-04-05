@@ -3,8 +3,8 @@ import { Send, CheckCheck, X, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import api from "@/services/api";
 
-type Role = "ai" | "user";
-type Message = { id: string; role: Role; text: string; time: string; };
+export type Role = "ai" | "user";
+export type Message = { id: string; role: Role; text: string; time: string; };
 
 function nowTime() {
   return new Date().toLocaleTimeString("ar-SA", { hour: "2-digit", minute: "2-digit" });
@@ -23,12 +23,25 @@ const getVisitorId = () => {
 interface HeroChatDemoProps {
   floating?: boolean;
   onClose?: () => void;
+  // Shared State Props
+  messages: Message[];
+  setMessages: (msgs: Message[] | ((prev: Message[]) => Message[])) => void;
+  conversationId: number | null;
+  setConversationId: (id: number | null) => void;
+  input: string;
+  setInput: (val: string) => void;
 }
 
-export default function HeroChatDemo({ floating, onClose }: HeroChatDemoProps) {
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [conversationId, setConversationId] = useState<number | null>(null);
-  const [input, setInput] = useState("");
+export default function HeroChatDemo({ 
+  floating, 
+  onClose,
+  messages,
+  setMessages,
+  conversationId,
+  setConversationId,
+  input,
+  setInput
+}: HeroChatDemoProps) {
   const [isTyping, setIsTyping] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
