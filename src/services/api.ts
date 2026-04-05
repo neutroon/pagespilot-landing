@@ -32,7 +32,7 @@ const api = {
         body: JSON.stringify({ visitorId, message, conversationId }),
         headers: {
           "Content-Type": "application/json",
-          "X-Widget-Site-Key": "wsk_29VocU48N4H3tcPWepKT6KgjpnR10qKE",
+          "X-Widget-Site-Key": "wsk_37aY6wkhJAiCnnWg9hw2P5dACoT3nH7h",
         },
       },
     );
