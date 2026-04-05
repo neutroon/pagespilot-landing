@@ -117,6 +117,7 @@
     "whoIsItFor": {
       "badge": "Who Is It For?",
       "title": "Built for you",
+      "description": "PagesPilot is the ultimate companion for businesses of all sizes, from solo entrepreneurs to large agencies.",
       "cards": {
         "owner": {
           "title": "Business Owner",
