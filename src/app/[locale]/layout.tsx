@@ -56,6 +56,6 @@ export default async function LocaleLayout({
         <Analytics />
         <SpeedInsights />
       </body>
-    </html>
+    </html >
   );
 }
