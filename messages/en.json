@@ -1,142 +1,169 @@
 {
   "HomePage": {
     "title": "Welcome to pagesPilot",
-    
     "navigation": {
       "features": "Features",
       "howItWorks": "How It Works",
-      "joinBeta": "Join Beta"
+      "joinBeta": "Start Free"
     },
     "hero": {
-      "badge": "AI-Powered Content Automation",
-      "headline": "Your Content",
-      "headlineHighlight": "Autopilot",
-      "description": "Take control of your digital content journey. pagesPilot generates, schedules, and optimizes your posts automatically—like having an AI co-pilot for your brand.",
-      "ctaPrimary": "Start Your Flight Plan",
-      "ctaSecondary": "Watch Demo",
+      "badge": "Your business, always online",
+      "headline": "Never miss a customer again — on ",
+      "headlineHighlight": "WhatsApp, Messenger & Facebook",
+      "description": "Connect your Facebook Page or WhatsApp Business account and let AI handle customer replies, content, and leads — in your brand's voice.",
+      "ctaPrimary": "Connect Your Page",
+      "ctaSecondary": "See how it works ↓",
       "stats": {
-        "contentCreation": "Faster Content Creation",
-        "automation": "Automated Engagement",
-        "timeSaved": "Time Saved"
+        "businesses": "Businesses",
+        "messages": "Messages handled",
+        "bilingual": "Bilingual AI",
+        "online": "Always online"
       }
     },
+    "heroChat": {
+      "headerTitle": "Nour from Cairo Coffee Co.",
+      "headerSubtitle": "Typically replies instantly",
+      "aiGreeting": "Hi there! 👋 Welcome to Cairo Coffee Co. How can I help you today?",
+      "suggestion1": "What are your working hours?",
+      "suggestion2": "Do you deliver?",
+      "inputPlaceholder": "Type your message...",
+      "sendButton": "Send",
+      "aiReply1": "We are open from 8:00 AM to 10:00 PM, 7 days a week! Any other questions? ☕",
+      "aiReply2": "Yes, we deliver! Delivery is free for orders over 200 EGP. What would you like to order today? 🛵"
+    },
     "howItWorks": {
-      "title": "Your AI Co-Pilot in Action",
-      "description": "Like a skilled pilot navigating through complex airspace, pagesPilot guides your content through the digital landscape with precision and intelligence.",
+      "badge": "How It Works",
+      "stepBadge": "Step {n}",
+      "title": "How It Works",
+      "description": "Getting started is as easy as 1-2-3.",
       "steps": {
         "planning": {
-          "title": "Flight Plan Creation",
-          "description": "AI analyzes your brand voice, audience, and goals to create a comprehensive content strategy and posting schedule."
+          "n": "1",
+          "title": "Connect your accounts",
+          "description": "Link your Facebook Page or WhatsApp Business in one click."
         },
         "execution": {
-          "title": "Autopilot Execution",
-          "description": "Content is automatically generated, posted, and optimized across your channels while you focus on growing your business."
+          "n": "2",
+          "title": "Configure your AI's brain",
+          "description": "Add your business info. Critically, set your specific Voice (e.g., Egyptian Arabic) and Tone (e.g., Professional) so it sounds exactly like you."
         },
         "control": {
-          "title": "Mission Control",
-          "description": "Monitor performance, adjust strategies, and receive intelligent insights to continuously improve your content's impact."
+          "n": "3",
+          "title": "Go live",
+          "description": "Your AI starts replying customers, generating posts, and capturing leads automatically."
         }
       }
     },
     "features": {
-      "title": "Full Control Tower Features",
-      "description": "Every tool you need to master your content strategy, all in one intelligent platform.",
-      "contentGeneration": {
-        "badge": "AI Content Generation",
-        "title": "Intelligent Content Creation",
-        "description": "Our AI understands your brand voice and creates engaging, on-brand content that resonates with your audience. From captions to full articles, pagesPilot crafts content that converts.",
-        "benefits": [
-          "Brand voice consistency across all content",
-          "Multi-format content (posts, stories, articles)",
-          "SEO-optimized content suggestions"
-        ]
-      },
-      "automation": {
-        "badge": "Smart Automation",
-        "title": "24/7 Engagement Autopilot",
-        "description": "Never miss a conversation again. Our AI responds to comments, messages, and mentions with contextually appropriate responses that maintain your brand voice and build relationships.",
-        "benefits": [
-          "Instant response to comments and DMs",
-          "Context-aware conversation handling",
-          "Smart escalation for complex queries"
-        ]
+      "badge": "Why Us?",
+      "title": "Everything your business needs",
+      "description": "Powerful tools that work for you 24/7.",
+      "cards": {
+        "brain": {
+          "title": "Your AI, trained on your business",
+          "description": "The AI knows your products, prices, policies, and tone — and only answers what it knows."
+        },
+        "support": {
+          "title": "Always-on customer support",
+          "description": "Customers get instant replies on WhatsApp and Messenger, 24/7, in Arabic or English."
+        },
+        "content": {
+          "title": "Post to Facebook in your voice",
+          "description": "Generate on-brand posts, captions, and images in seconds. Schedule them, or post now."
+        },
+        "crm": {
+          "title": "Never lose a lead",
+          "description": "Every customer inquiry that shows buying intent is automatically saved and sent to your team."
+        },
+        "team": {
+          "title": "Built for teams and agencies",
+          "description": "Add your social media manager, give your client a separate dashboard, keep everything organized."
+        },
+        "security": {
+          "title": "Safe and professional",
+          "description": "Your accounts and data are encrypted and protected. Built to business standards."
+        }
       }
     },
     "testimonials": {
-      "title": "Trusted by Content Leaders",
-      "description": "Join thousands of businesses already flying on autopilot with pagesPilot",
+      "badge": "Testimonials",
+      "title": "Trusted across the MENA region",
+      "description": "Businesses are growing faster with pagesPilot.",
+      "reviewsLabel": "+100 Happy Customers",
       "customers": [
         {
-          "quote": "pagesPilot transformed our content strategy. We're now posting 10x more consistently and our engagement has tripled. It's like having a content team on autopilot.",
-          "name": "Sarah Mitchell",
-          "title": "Marketing Director, TechFlow"
+          "quote": "pagesPilot replies to our customers on WhatsApp instantly in perfect Arabic. We've captured so many more leads overnight.",
+          "name": "Ahmed K.",
+          "title": "E-commerce Founder, Egypt"
         },
         {
-          "quote": "As a small business owner, I don't have time to manage social media 24/7. pagesPilot handles everything while I focus on growing my business. Game changer!",
-          "name": "Marcus Rodriguez",
-          "title": "Founder, Local Fitness Studio"
+          "quote": "Managing 10 client pages used to be a nightmare for my agency. Now, each client has their own AI answering queries accurately.",
+          "name": "Sara M.",
+          "title": "Marketing Agency Director, KSA"
         },
         {
-          "quote": "Managing 50+ client accounts was overwhelming until we found pagesPilot. Now we deliver consistent, high-quality content for all our clients effortlessly.",
-          "name": "Lisa Kim",
-          "title": "Agency Owner, Digital Boost"
+          "quote": "I love how easy it is. I just type what my business does, and the AI handles the Facebook comments and messages automatically.",
+          "name": "Mahmoud R.",
+          "title": "Restaurant Owner, UAE"
         }
       ],
       "stats": {
-        "pilots": "Active Pilots",
-        "posts": "Posts Generated",
-        "uptime": "Uptime",
-        "support": "AI Support"
+        "pilots": "Businesses connected",
+        "posts": "Messages handled",
+        "uptime": "Available in Arabic",
+        "support": "Continuous support"
       }
     },
-    "waitlist": {
-      "badge": "Early Access Beta Program",
-      "title": "Ready for Takeoff?",
-      "description": "Join the exclusive beta program and be among the first to experience the future of AI-powered content automation. Your feedback will help shape pagesPilot's evolution.",
-      "form": {
-        "nameLabel": "Full Name *",
-        "namePlaceholder": "Enter your full name",
-        "emailLabel": "Email Address *",
-        "emailPlaceholder": "Enter your email address",
-        "urlLabel": "Content Page/Profile URL",
-        "urlPlaceholder": "https://facebook.com/your-page (optional)",
-        "messageLabel": "Tell us about your content goals",
-        "messagePlaceholder": "What are your biggest content challenges? What features excite you most? (optional)",
-        "benefitsTitle": "🚀 Beta Pilot Benefits:",
-        "benefits": [
-          "6 months free access (valued at $297)",
-          "Direct line to our development team",
-          "Lifetime 50% discount on all plans",
-          "Exclusive beta pilot community access"
-        ],
-        "submitButton": "Request Beta Access"
-      },
-      "success": {
-        "title": "Welcome Aboard, Pilot! 🎉",
-        "description": "Your application has been received. We'll review your information and send you beta access details within 48 hours.",
-        "note": "📧 Check your email for next steps and exclusive pilot resources."
+    "whoIsItFor": {
+      "badge": "Who Is It For?",
+      "title": "Built for you",
+      "cards": {
+        "owner": {
+          "title": "Business Owner",
+          "description": "Stop paying someone just to reply on WhatsApp. PagesPilot handles it for you — and never misses a message."
+        },
+        "agency": {
+          "title": "Marketing Agency",
+          "description": "Manage all your clients' Facebook Pages and WhatsApp bots from one dashboard. Each client gets their own AI."
+        },
+        "ecommerce": {
+          "title": "E-commerce / Service",
+          "description": "Capture leads, answer product questions, and follow up — all automatically, directly on the channels your customers already use."
+        }
+      }
+    },
+    "pricingTeaser": {
+      "title": "Simple Pricing",
+      "cards": {
+        "starter": {
+          "name": "Starter",
+          "description": "1 business, 1 channel, basic AI replies",
+          "cta": "Get Started"
+        },
+        "growth": {
+          "name": "Growth",
+          "description": "Multiple channels, content generation, lead capture",
+          "cta": "Get Started"
+        },
+        "agency": {
+          "name": "Agency",
+          "description": "Unlimited clients, team roles, full control",
+          "cta": "Get Started"
+        }
       }
     },
     "cta": {
-      "badge": "Limited Beta Spots Available",
-      "title": "Your Content Journey",
-      "titleHighlight": "Starts Here",
-      "description": "Don't let your competitors take the lead. Join the content automation revolution and transform how you engage with your audience.",
-      "button": "Claim Your Pilot Seat",
-      "noCard": "No credit card required",
-      "features": [
-        "⚡ Instant Setup",
-        "🔒 Enterprise Security",
-        "📈 Proven Results"
-      ]
+      "title": "Your customers are messaging right now.",
+      "titleHighlight": "Are you replying?",
+      "button": "Connect your first page — free"
     },
     "footer": {
-      "description": "The AI-powered content automation platform that helps businesses and creators take control of their digital presence. From generating compelling content to automating engagement, pagesPilot is your co-pilot for content success.",
+      "description": "Your business, always online. Replying to customers, posting content, capturing leads — automatically.",
       "product": {
         "title": "Product",
         "features": "Features",
         "howItWorks": "How It Works",
-        "betaAccess": "Beta Access",
+        "betaAccess": "Connect Now",
         "pricing": "Pricing"
       },
       "company": {
@@ -147,7 +174,7 @@
         "contact": "Contact"
       },
       "legal": {
-        "copyright": "© 2025 pagesPilot. All rights reserved.",
+        "copyright": "© 2026 pagesPilot. All rights reserved.",
         "privacy": "Privacy Policy",
         "terms": "Terms of Service",
         "cookies": "Cookie Policy"
