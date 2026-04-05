@@ -2,20 +2,33 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, X } from "lucide-react";
-import HeroChatDemo from "./HeroChatDemo";
+import HeroChatDemo, { Message } from "./HeroChatDemo";
 
 interface StickyChatWrapperProps {
   locale: string;
   side: "left" | "right";
   isSticky: boolean;
   forceOpen?: boolean;
+  // Shared Chat State
+  messages: Message[];
+  setMessages: (msgs: Message[] | ((prev: Message[]) => Message[])) => void;
+  conversationId: number | null;
+  setConversationId: (id: number | null) => void;
+  input: string;
+  setInput: (val: string) => void;
 }
 
 export default function StickyChatWrapper({
   locale,
   side,
   isSticky,
-  forceOpen = false
+  forceOpen = false,
+  messages,
+  setMessages,
+  conversationId,
+  setConversationId,
+  input,
+  setInput
 }: StickyChatWrapperProps) {
   const isAr = locale === "ar";
   const [isOpen, setIsOpen] = useState(true);
@@ -111,7 +124,16 @@ export default function StickyChatWrapper({
             />
 
             {/* Chat demo content */}
-            <HeroChatDemo floating onClose={isMobile ? () => setIsOpen(false) : undefined} />
+            <HeroChatDemo 
+              floating 
+              onClose={isMobile ? () => setIsOpen(false) : undefined} 
+              messages={messages}
+              setMessages={setMessages}
+              conversationId={conversationId}
+              setConversationId={setConversationId}
+              input={input}
+              setInput={setInput}
+            />
           </motion.div>
         )}
       </AnimatePresence>
