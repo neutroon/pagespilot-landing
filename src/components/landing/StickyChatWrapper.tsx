@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { MessageSquare, X } from "lucide-react";
 import HeroChatDemo, { Message } from "./HeroChatDemo";
 
@@ -35,6 +35,20 @@ export default function StickyChatWrapper({
   const [isMobile, setIsMobile] = useState(false);
 
   // Sync open state with screen size
+  const { scrollY } = useScroll();
+  const overlapY = useTransform(scrollY, () => {
+    if (typeof window === "undefined") return 0;
+    if (!isSticky) return 0;
+    // Disable the push-up behavior on mobile screens (let the chat bubble stay fixed)
+    if (window.innerWidth < 1024) return 0;
+    
+    const footer = document.querySelector("footer");
+    if (!footer) return 0;
+    const rect = footer.getBoundingClientRect();
+    const overlap = window.innerHeight - rect.top;
+    return overlap > 0 ? -overlap : 0;
+  });
+
   useEffect(() => {
     const checkMobile = () => {
       const mobile = window.innerWidth < 1024;
@@ -82,6 +96,7 @@ export default function StickyChatWrapper({
     <motion.div
       layout
       initial={false}
+      style={{ y: overlapY }}
       className={`${isSticky
         ? `fixed bottom-6 lg:bottom-10 z-[100] ${horizontalClass}`
         : "relative w-full max-w-[420px]"
