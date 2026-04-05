@@ -44,9 +44,12 @@ export default function StickyChatWrapper({
   }, [forceOpen]);
 
   // Positioning Logic
-  // When OPEN: zigzag between left and right as the user scrolls.
-  // When CLOSED (Bubble): stay anchored to one professional side to avoid distraction.
-  const displaySide = isOpen ? side : (isAr ? "left" : "right");
+  // When OPEN: zigzag between left and right as the user scrolls (Desktop only).
+  // On MOBILE: stay locked to one side to avoid distracting layout shifts.
+  // When CLOSED (Bubble): stay anchored to one professional side.
+  const displaySide = isMobile 
+    ? (isAr ? "left" : "right") 
+    : (isOpen ? side : (isAr ? "left" : "right"));
   const horizontalClass = displaySide === "left" ? "left-[5%] lg:left-[5%]" : "right-[5%] lg:right-[5%]";
 
   return (
