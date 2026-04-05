@@ -16,6 +16,7 @@ import PricingTeaserSection from "@/components/landing/PricingTeaserSection";
 import FinalCtaSection from "@/components/landing/FinalCtaSection";
 import SharedBackground from "@/components/landing/SharedBackground";
 import StickyChatWrapper from "@/components/landing/StickyChatWrapper";
+import { Message } from "@/components/landing/HeroChatDemo";
 
 export default function Home() {
   const params = useParams();
@@ -27,6 +28,11 @@ export default function Home() {
   const [chatSide, setChatSide] = useState<"left" | "right">("right");
   const [isSticky, setIsSticky] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
+
+  // ── Shared Persistent Chat State ──
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [conversationId, setConversationId] = useState<number | null>(null);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     // 1. Sticky detection for the Hero
@@ -85,12 +91,27 @@ export default function Home() {
           locale={locale}
           side={chatSide}
           isSticky={true}
+          messages={messages}
+          setMessages={setMessages}
+          conversationId={conversationId}
+          setConversationId={setConversationId}
+          input={input}
+          setInput={setInput}
         />
       )}
 
       <main>
         <div ref={heroRef} data-chat-side="right" id="hero">
-          <HeroSection locale={locale} isSticky={isSticky} />
+          <HeroSection 
+            locale={locale} 
+            isSticky={isSticky} 
+            messages={messages}
+            setMessages={setMessages}
+            conversationId={conversationId}
+            setConversationId={setConversationId}
+            input={input}
+            setInput={setInput}
+          />
         </div>
 
         <div data-chat-side="left" id="how-it-works">
