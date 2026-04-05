@@ -8,15 +8,15 @@ import Logo from "./Logo";
 import { X, Menu } from "lucide-react";
 
 export default function ResponsiveNavigation({ locale }: { locale: string }) {
-  const t      = useTranslations("HomePage");
+  const t = useTranslations("HomePage");
   const [open, setOpen] = useState(false);
-  const isAr   = locale === "ar";
+  const isAr = locale === "ar";
 
   return (
     <nav
       className="sticky top-0 z-50 border-b"
       style={{
-        background:  "rgba(6,4,15,0.92)",
+        background: "rgba(6,4,15,0.92)",
         backdropFilter: "blur(20px)",
         borderColor: "rgba(30,19,64,0.8)",
       }}
@@ -34,9 +34,9 @@ export default function ResponsiveNavigation({ locale }: { locale: string }) {
 
           {/* Desktop links */}
           <div className={`hidden lg:flex items-center gap-7 ${isAr ? "flex-row-reverse" : ""}`}>
-            <a href="#features"    className="text-[#8070A8] hover:text-[#9B59F5] text-sm font-medium transition-colors">{t("navigation.features")}</a>
+            <a href="#features" className="text-[#8070A8] hover:text-[#9B59F5] text-sm font-medium transition-colors">{t("navigation.features")}</a>
             <a href="#how-it-works" className="text-[#8070A8] hover:text-[#9B59F5] text-sm font-medium transition-colors">{t("navigation.howItWorks")}</a>
-            <div className="text-[#F0EBF8]"><LocaleSwitcher currentLocale={locale} /></div>
+            <div className="text-[#F0EBF8] hidden"><LocaleSwitcher currentLocale={locale} /></div>
             <Link
               href="https://app.pagespilot.com/en/auth/login"
               className="text-[#8070A8] hover:text-[#F0EBF8] text-sm font-medium transition-colors"
@@ -65,7 +65,7 @@ export default function ResponsiveNavigation({ locale }: { locale: string }) {
         {open && (
           <div className="lg:hidden border-t border-[#1E1340] py-4 animate-slide-up" dir={isAr ? "rtl" : "ltr"}>
             <div className="flex flex-col gap-1">
-              <a href="#features"     onClick={() => setOpen(false)} className="text-[#8070A8] hover:text-[#9B59F5] text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-[#160F2E] transition-all">{t("navigation.features")}</a>
+              <a href="#features" onClick={() => setOpen(false)} className="text-[#8070A8] hover:text-[#9B59F5] text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-[#160F2E] transition-all">{t("navigation.features")}</a>
               <a href="#how-it-works" onClick={() => setOpen(false)} className="text-[#8070A8] hover:text-[#9B59F5] text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-[#160F2E] transition-all">{t("navigation.howItWorks")}</a>
               <div className="px-4 py-2"><LocaleSwitcher currentLocale={locale} /></div>
               <Link href="https://app.pagespilot.com/en/auth/login" onClick={() => setOpen(false)} className="text-center text-[#F0EBF8] text-sm font-medium px-4 py-2.5 mx-2 rounded-xl bg-[#160F2E] border border-[#1E1340]">
