@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useTranslations } from "next-intl";
 import { Send, CheckCheck, X, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import api from "@/services/api";
@@ -45,6 +46,7 @@ export default function HeroChatDemo({
   setInput,
   locale
 }: HeroChatDemoProps) {
+  const t = useTranslations("HomePage.heroChat");
   const isAr = locale === "ar";
   const [isTyping, setIsTyping] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -57,12 +59,9 @@ export default function HeroChatDemo({
   // Initial welcome message (clean and professional)
   useEffect(() => {
     if (messages.length === 0) {
-      const greeting = isAr 
-        ? "أهلاً بك! أنا مساعد PagesPilot الذكي، كيف يمكنني مساعدتك اليوم؟"
-        : "Hi there! I'm your PagesPilot AI assistant. How can I help you today?";
-      push("ai", greeting);
+      push("ai", t("aiGreeting"));
     }
-  }, [messages.length, push, isAr]);
+  }, [messages.length, push, t]);
 
   useEffect(() => {
     if (bottomRef.current) {
@@ -90,13 +89,13 @@ export default function HeroChatDemo({
         setConversationId(response.conversationId);
       }
 
-      const aiText = response?.reply || "عذراً، حدث خطأ في معالجة طلبك.";
+      const aiText = response?.reply || t("errorProcessing");
       push("ai", aiText);
     } catch (err) {
       console.error("Chat API error:", err);
       setIsTyping(false);
-      setError("حدث خطأ في الاتصال. يرجى المحاولة لاحقاً.");
-      push("ai", "عذراً، واجهت مشكلة في الاتصال بالخادم. حاول لاحقاً!");
+      setError(t("errorConnection"));
+      push("ai", t("aiConnectionProblem"));
     }
   };
 
@@ -114,7 +113,7 @@ export default function HeroChatDemo({
           <p className="text-[#F0EBF8] font-bold text-sm leading-tight truncate">PagesPilot AI</p>
           <div className="flex items-center gap-1.5 mt-1 justify-start">
             <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse" />
-            <p className="text-[#25D366] text-[10px] font-bold uppercase tracking-wider">{isAr ? "متصل الآن" : "Online"}</p>
+            <p className="text-[#25D366] text-[10px] font-bold uppercase tracking-wider">{t("statusOnline")}</p>
           </div>
         </div>
         <div className="flex gap-2 items-center">
@@ -190,7 +189,7 @@ export default function HeroChatDemo({
               value={input}
               onChange={e => setInput(e.target.value)}
               onKeyDown={e => { if (e.key === "Enter" && !isTyping) send(input); }}
-              placeholder={isAr ? "اكتب استفسارك هنا..." : "Type your query here..."}
+              placeholder={t("inputPlaceholder")}
               className="w-full bg-[#160F2E] border border-[#2E1D60]/60 text-[#F0EBF8] rounded-2xl px-5 py-3 text-sm outline-none focus:border-[#7C3AED]/60 placeholder-[#6B5F88] transition-all text-start"
               dir={isAr ? "rtl" : "ltr"}
               disabled={isTyping}
