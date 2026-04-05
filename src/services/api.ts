@@ -16,6 +16,28 @@ const api = {
     });
     return response.json();
   },
+  // chat api
+  // http://localhost:8080/v1/public/widget/chat
+  // headers --> X-Widget-Site-Key
+  // body -->  visitorId, message,conversationId
+  postChat: async (
+    visitorId: string,
+    message: string,
+    conversationId?: number,
+  ) => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API}/v1/public/widget/chat`,
+      {
+        method: "POST",
+        body: JSON.stringify({ visitorId, message, conversationId }),
+        headers: {
+          "Content-Type": "application/json",
+          "X-Widget-Site-Key": "wsk_ggdTDo0uurSFdbdY8U9YA9NoXrbmy-PN",
+        },
+      },
+    );
+    return response.json();
+  },
 };
 
 export default api;
