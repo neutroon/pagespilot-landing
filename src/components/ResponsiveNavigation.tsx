@@ -2,134 +2,76 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-
-import LocaleSwitcher from "@/components/LocaleSwitcher";
-
 import { Link } from "@/i18n/navigation";
+import LocaleSwitcher from "@/components/LocaleSwitcher";
 import Logo from "./Logo";
 import { X, Menu } from "lucide-react";
 
-interface ResponsiveNavigationProps {
-  locale: string;
-}
-
-export default function ResponsiveNavigation({
-  locale,
-}: ResponsiveNavigationProps) {
-  const t = useTranslations("HomePage");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+export default function ResponsiveNavigation({ locale }: { locale: string }) {
+  const t      = useTranslations("HomePage");
+  const [open, setOpen] = useState(false);
+  const isAr   = locale === "ar";
 
   return (
-    <nav className="bg-white/95 backdrop-blur-sm border-b border-slate-200 sticky top-0 z-40">
+    <nav
+      className="sticky top-0 z-50 border-b"
+      style={{
+        background:  "rgba(6,4,15,0.92)",
+        backdropFilter: "blur(20px)",
+        borderColor: "rgba(30,19,64,0.8)",
+      }}
+    >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center -space-x-2.5" dir="ltr">
-            <div className="w-10 h-10 flex items-center justify-center">
-              <Logo ariaLabel="PagesPilot Logo" />
-            </div>
-            <span className="text-2xl font-bold text-slate-800">
-              pagesPilot
-            </span>
-          </div>
+        <div className="flex items-center justify-between h-16" dir={isAr ? "rtl" : "ltr"}>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            <a
-              href="#features"
-              className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
-            >
-              {t("navigation.features")}
-            </a>
-            <a
-              href="#how-it-works"
-              className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
-            >
-              {t("navigation.howItWorks")}
-            </a>
-            <LocaleSwitcher currentLocale={locale} />
+          {/* Logo */}
+          <Link href="#hero" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity" dir="ltr">
+            <div className="w-8 h-8 flex items-center justify-center">
+              <Logo ariaLabel="pagesPilot Logo" />
+            </div>
+            <span className="text-lg font-bold text-[#F0EBF8] tracking-tight">pagesPilot</span>
+          </Link>
+
+          {/* Desktop links */}
+          <div className={`hidden lg:flex items-center gap-7 ${isAr ? "flex-row-reverse" : ""}`}>
+            <a href="#features"    className="text-[#8070A8] hover:text-[#9B59F5] text-sm font-medium transition-colors">{t("navigation.features")}</a>
+            <a href="#how-it-works" className="text-[#8070A8] hover:text-[#9B59F5] text-sm font-medium transition-colors">{t("navigation.howItWorks")}</a>
+            <div className="text-[#F0EBF8]"><LocaleSwitcher currentLocale={locale} /></div>
             <Link
               href="https://app.pagespilot.com/en/auth/login"
-              className="text-slate-600 hover:text-slate-900 font-medium transition-colors"
+              className="text-[#8070A8] hover:text-[#F0EBF8] text-sm font-medium transition-colors"
             >
               {t("login.loginNav")}
             </Link>
-            {/* <Link
-              href="/signup"
-              className="bg-indigo-600 text-white px-6 py-2 rounded-full font-medium hover:bg-indigo-700 transition-colors"
-            >
-              {t("signup.signupNav")}
-            </Link> */}
-
             <Link
               href="#waitlist"
-              className="bg-indigo-600 text-white px-6 py-2 rounded-full font-medium hover:bg-indigo-700 transition-colors"
+              className="btn-primary px-5 py-2 rounded-full text-white text-sm font-bold"
             >
               {t("navigation.joinBeta")}
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
-            <button
-              onClick={toggleMobileMenu}
-              className="p-2 rounded-lg hover:bg-slate-100 transition-colors"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-slate-600" />
-              ) : (
-                <Menu className="w-6 h-6 text-slate-600" />
-              )}
-            </button>
-          </div>
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setOpen(o => !o)}
+            className="lg:hidden p-2 rounded-lg text-[#F0EBF8] hover:bg-[#160F2E] transition-colors"
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
 
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-slate-200 py-4">
-            <div className="flex flex-col space-y-4">
-              <a
-                href="#features"
-                className="text-slate-600 hover:text-slate-900 font-medium transition-colors px-4 py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t("navigation.features")}
-              </a>
-              <a
-                href="#how-it-works"
-                className="text-slate-600 hover:text-slate-900 font-medium transition-colors px-4 py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {t("navigation.howItWorks")}
-              </a>
-
-              <div className="px-4 py-2">
-                <LocaleSwitcher currentLocale={locale} />
-              </div>
-              <Link
-                href="/auth/login"
-                className="text-slate-600 hover:text-slate-900 font-medium transition-colors px-4 py-2 text-center bg-slate-100 rounded-xl"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+        {/* Mobile menu */}
+        {open && (
+          <div className="lg:hidden border-t border-[#1E1340] py-4 animate-slide-up" dir={isAr ? "rtl" : "ltr"}>
+            <div className="flex flex-col gap-1">
+              <a href="#features"     onClick={() => setOpen(false)} className="text-[#8070A8] hover:text-[#9B59F5] text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-[#160F2E] transition-all">{t("navigation.features")}</a>
+              <a href="#how-it-works" onClick={() => setOpen(false)} className="text-[#8070A8] hover:text-[#9B59F5] text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-[#160F2E] transition-all">{t("navigation.howItWorks")}</a>
+              <div className="px-4 py-2"><LocaleSwitcher currentLocale={locale} /></div>
+              <Link href="https://app.pagespilot.com/en/auth/login" onClick={() => setOpen(false)} className="text-center text-[#F0EBF8] text-sm font-medium px-4 py-2.5 mx-2 rounded-xl bg-[#160F2E] border border-[#1E1340]">
                 {t("login.loginNav")}
               </Link>
-              {/* <Link
-                    href="/signup"
-                    className="bg-indigo-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-indigo-700 transition-colors mx-4 text-center"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {t("signup.signupNav")}
-                  </Link> */}
-              <Link
-                href="/auth/signup"
-                className="bg-indigo-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-indigo-700 transition-colors mx-4 text-center"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
+              <Link href="#waitlist" onClick={() => setOpen(false)} className="btn-primary text-center text-white font-bold text-sm px-4 py-3 mx-2 rounded-xl">
                 {t("navigation.joinBeta")}
               </Link>
             </div>
