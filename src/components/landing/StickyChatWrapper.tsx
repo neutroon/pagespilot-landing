@@ -57,13 +57,26 @@ export default function StickyChatWrapper({
   }, [forceOpen]);
 
   // Positioning Logic
-  // When OPEN: zigzag between left and right as the user scrolls (Desktop only).
-  // On MOBILE: stay locked to one side to avoid distracting layout shifts.
-  // When CLOSED (Bubble): stay anchored to one professional side.
-  const displaySide = isMobile 
-    ? (isAr ? "left" : "right") 
-    : (isOpen ? side : (isAr ? "left" : "right"));
-  const horizontalClass = displaySide === "left" ? "left-[5%] lg:left-[5%]" : "right-[5%] lg:right-[5%]";
+  // We want the chat to always be on the 'Empty' side of the content.
+  // In EN (LTR): Empty side is Right.
+  // In AR (RTL): Empty side is Left.
+  const displaySide = (() => {
+    // 1. Minimized/Bubble: Always on the 'Empty' side of the screen.
+    if (!isOpen) return isAr ? "left" : "right";
+    
+    // 2. Mobile Open: Stay on one consistent empty side.
+    if (isMobile) return isAr ? "left" : "right";
+    
+    // 3. Desktop Open: Flip the requested 'side' if we are in RTL.
+    // If the section says 'side="right"' (the standard empty side for LTR),
+    // in RTL that should physically be the 'left' side.
+    if (isAr) {
+      return side === "right" ? "left" : "right";
+    }
+    return side;
+  })();
+
+  const horizontalClass = displaySide === "left" ? "left-[5%]" : "right-[5%]";
 
   return (
     <motion.div
@@ -133,6 +146,7 @@ export default function StickyChatWrapper({
               setConversationId={setConversationId}
               input={input}
               setInput={setInput}
+              locale={locale}
             />
           </motion.div>
         )}
