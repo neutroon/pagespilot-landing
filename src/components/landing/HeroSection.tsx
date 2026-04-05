@@ -1,8 +1,27 @@
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import StickyChatWrapper from "./StickyChatWrapper";
+import { Message } from "./HeroChatDemo";
 
-export default function HeroSection({ locale, isSticky }: { locale: string, isSticky: boolean }) {
+export default function HeroSection({ 
+  locale, 
+  isSticky,
+  messages,
+  setMessages,
+  conversationId,
+  setConversationId,
+  input,
+  setInput
+}: { 
+  locale: string, 
+  isSticky: boolean,
+  messages: Message[],
+  setMessages: (msgs: Message[] | ((prev: Message[]) => Message[])) => void,
+  conversationId: number | null,
+  setConversationId: (id: number | null) => void,
+  input: string,
+  setInput: (val: string) => void
+}) {
   const t = useTranslations("HomePage");
   const isAr = locale === "ar";
 
@@ -108,6 +127,12 @@ export default function HeroSection({ locale, isSticky }: { locale: string, isSt
                 side="right"
                 isSticky={false}
                 forceOpen={true}
+                messages={messages}
+                setMessages={setMessages}
+                conversationId={conversationId}
+                setConversationId={setConversationId}
+                input={input}
+                setInput={setInput}
               />
             </motion.div>
           </div>
