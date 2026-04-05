@@ -1,12 +1,11 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap");
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Cairo", "Inter", var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-ibm-plex-arabic), var(--font-geist-sans), system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), monospace;
+  --font-heading: var(--font-alexandria), var(--font-ibm-plex-arabic), system-ui, sans-serif;
 
   /* ── Warm Professional Palette (MENA Business) ── */
   --color-bg:          #06040F;
@@ -92,12 +91,27 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
-  font-family: "Cairo", "Inter", system-ui, sans-serif;
 }
 
-/* Arabic font for RTL */
-[dir="rtl"] { font-family: "Cairo", system-ui, sans-serif; }
-[dir="ltr"] { font-family: "Inter", "Cairo", system-ui, sans-serif; }
+body {
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+[dir="rtl"] { 
+  font-family: var(--font-ibm-plex-arabic), system-ui, sans-serif; 
+}
+
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+  font-family: var(--font-alexandria), system-ui, sans-serif;
+}
+
+[dir="ltr"] { 
+  font-family: var(--font-geist-sans), system-ui, sans-serif; 
+}
 
 /* ── Scrollbar ── */
 ::-webkit-scrollbar       { width: 5px; }
