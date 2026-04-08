@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import "../globals.css";
 
-import { Geist, Geist_Mono, Alexandria, IBM_Plex_Sans_Arabic } from "next/font/google";
+import {
+  Geist,
+  Geist_Mono,
+  Alexandria,
+  IBM_Plex_Sans_Arabic,
+} from "next/font/google";
 import { Locale, NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
@@ -60,7 +65,12 @@ export default async function LocaleLayout({
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <html lang={locale} dir={dir} data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html
+      lang={locale}
+      dir={dir}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${alexandria.variable} ${ibmPlexArabic.variable} antialiased bg-bg text-text transition-colors duration-300`}
       >
@@ -77,9 +87,6 @@ export default async function LocaleLayout({
           <SpeedInsights />
         </ThemeProvider>
       </body>
-      <script src="http://localhost:3001/pagespilot-widget.js" defer data-site-key="wsk_wcNpne2OiOi-fnMrD9uLfjRWmLm68CK2" data-api-base="http://localhost:8080"></script>
-
     </html>
   );
 }
-
