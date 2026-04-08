@@ -173,7 +173,7 @@ export default function StickyChatWrapper({
 
             {/* Scan line animation - Optimized with transform (GPU) instead of 'top' */}
             <motion.div
-              animate={{ y: ["0px", "340px", "0px"] }}
+              animate={{ y: ["0px", "400px", "0px"] }}
               transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
               className="absolute inset-x-0 h-[2px] z-20 pointer-events-none opacity-20 transform-gpu"
               style={{
