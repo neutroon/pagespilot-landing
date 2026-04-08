@@ -105,24 +105,24 @@ export default function HeroChatDemo({
 
   return (
     <div className="flex flex-col w-full h-full" dir={isAr ? "rtl" : "ltr"}>
-      {/* ── Chat header ── */}
-      <div className="flex items-center gap-3 px-4 py-3 rounded-t-2xl bg-elevated/90">
+      {/* ── Integrated / Floating Header ── */}
+      <div className={`flex items-center gap-3 py-4 transition-all duration-500 ${floating ? "px-6 border-b border-white/5 bg-transparent" : "px-8 border-b border-white/5 bg-transparent"}`}>
         <div className="relative shrink-0">
-          <div className="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-base shadow-lg bg-gradient-to-br from-primary to-primary-lt">
+          <div className={`rounded-full flex items-center justify-center text-white font-bold transition-all ${floating ? "w-10 h-10 text-sm bg-gradient-to-br from-primary/80 to-primary-lt/80 shadow-inner" : "w-8 h-8 text-[10px] bg-primary/20 border border-primary/30"}`}>
             pP
           </div>
-          <span className="absolute bottom-0 left-0 w-3 h-3 rounded-full bg-accent border-2 border-bg shadow-[0_0_8px_var(--accent)]" />
+          <span className={`absolute bottom-0.5 left-0.5 rounded-full bg-accent border-2 border-white/10 shadow-[0_0_10px_rgba(37,211,102,0.5)] transition-all ${floating ? "w-2.5 h-2.5" : "w-2 h-2"}`} />
         </div>
         <div className="flex-1 min-w-0 text-start">
-          <p className="text-text font-bold text-sm leading-tight truncate">pagesPilot</p>
-          <div className="flex items-center gap-1.5 mt-1 justify-start">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-            <p className="text-accent text-[10px] font-bold uppercase tracking-wider">{t("statusOnline")}</p>
+          <p className={`text-text font-black leading-tight tracking-tight transition-all ${floating ? "text-sm" : "text-xs uppercase opacity-90"}`}>pagesPilot</p>
+          <div className="flex items-center gap-1.5 mt-0.5 justify-start">
+            <span className="w-1 h-1 rounded-full bg-accent animate-pulse" />
+            <p className="text-accent text-[9px] font-black uppercase tracking-widest opacity-80">{t("statusOnline")}</p>
           </div>
         </div>
         <div className="flex gap-2 items-center">
           {onClose && (
-            <button onClick={onClose} className="p-1.5 hover:bg-white/10 rounded-full text-muted hover:text-text transition-colors">
+            <button onClick={onClose} className="p-2 hover:bg-white/5 rounded-full text-muted hover:text-text transition-colors">
               <X className="w-4 h-4" />
             </button>
           )}
@@ -130,13 +130,16 @@ export default function HeroChatDemo({
       </div>
 
       {/* ── Messages area ── */}
-      <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-4 min-h-0 scrollbar-hide bg-bg/30" style={{ minHeight: 400, maxHeight: 400 }}>
+      <div 
+        className={`flex-1 overflow-y-auto flex flex-col gap-5 min-h-0 scrollbar-hide bg-transparent transition-all duration-500 ${floating ? "px-6 py-5" : "px-8 py-6"}`} 
+        style={{ minHeight: 400, maxHeight: 400 }}
+      >
         <AnimatePresence initial={false}>
           {messages.map((msg) => (
             <motion.div
               key={msg.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ y: 10 }}
+              animate={{ y: 0 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
               className={`flex flex-col max-w-[90%] transform-gpu ${msg.role === "user" ? "items-end self-end" : "items-start self-start"
                 }`}
@@ -158,9 +161,9 @@ export default function HeroChatDemo({
 
           {isTyping && (
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
               className="items-start self-start"
             >
               <div className="bubble-ai rounded-2xl rounded-tl-none px-4 py-3 inline-flex gap-1.5 items-center border border-border/20">
@@ -176,14 +179,14 @@ export default function HeroChatDemo({
 
       {/* ── Error message ── */}
       {error && (
-        <div className="px-4 py-2 bg-red-500/10 border-t border-red-500/20 flex gap-2 items-center text-[10px] text-red-400">
+        <div className="px-6 py-2 bg-red-500/10 border-t border-red-500/20 flex gap-2 items-center text-[10px] text-red-400">
           <AlertCircle className="w-3 h-3" />
           {error}
         </div>
       )}
 
       {/* ── Input bar ── */}
-      <div className="flex items-center gap-3 px-4 py-4 rounded-b-2xl border-t border-border/50 bg-elevated/90">
+      <div className={`flex items-center gap-3 border-t border-white/5 bg-transparent backdrop-blur-sm transition-all duration-500 ${floating ? "px-6 py-5" : "px-8 py-6"}`}>
         <div className="flex-1 relative">
           <input
             type="text"
@@ -191,7 +194,7 @@ export default function HeroChatDemo({
             onChange={e => setInput(e.target.value)}
             onKeyDown={e => { if (e.key === "Enter" && !isTyping) send(input); }}
             placeholder={t("inputPlaceholder")}
-            className="w-full bg-surface border border-border/60 text-text rounded-2xl px-5 py-3 text-sm outline-none focus:border-primary/60 placeholder-muted transition-all text-start"
+            className="w-full bg-surface/40 border border-white/5 text-text rounded-2xl px-5 py-3 text-sm outline-none focus:border-primary/40 placeholder-muted transition-all text-start"
             dir={isAr ? "rtl" : "ltr"}
             disabled={isTyping}
           />
