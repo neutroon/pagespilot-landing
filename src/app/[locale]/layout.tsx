@@ -77,6 +77,8 @@ export default async function LocaleLayout({
           <SpeedInsights />
         </ThemeProvider>
       </body>
+      <script src="http://localhost:3001/pagespilot-widget.js" defer data-site-key="wsk_wcNpne2OiOi-fnMrD9uLfjRWmLm68CK2" data-api-base="http://localhost:8080"></script>
+
     </html>
   );
 }
