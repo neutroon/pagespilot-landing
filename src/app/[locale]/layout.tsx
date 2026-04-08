@@ -42,6 +42,8 @@ interface LocaleLayoutProps {
   params: Promise<{ locale: Locale }>;
 }
 
+import { ThemeProvider } from "@/components/ThemeProvider";
+
 export default async function LocaleLayout({
   children,
   params,
@@ -58,16 +60,24 @@ export default async function LocaleLayout({
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <html lang={locale} dir={dir} data-scroll-behavior="smooth">
+    <html lang={locale} dir={dir} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${alexandria.variable} ${ibmPlexArabic.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${alexandria.variable} ${ibmPlexArabic.variable} antialiased bg-bg text-text transition-colors duration-300`}
       >
-        <NextIntlClientProvider messages={messages}>
-          {children}
-        </NextIntlClientProvider>
-        <Analytics />
-        <SpeedInsights />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+          <Analytics />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );
 }
+
