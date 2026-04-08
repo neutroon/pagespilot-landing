@@ -38,6 +38,18 @@ const api = {
     );
     return response.json();
   },
+  getHistory: async (visitorId: string) => {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API}/v1/public/widget/chat/history?visitorId=${visitorId}`,
+      {
+        method: "GET",
+        headers: {
+          "X-Widget-Site-Key": "wsk_37aY6wkhJAiCnnWg9hw2P5dACoT3nH7h",
+        },
+      },
+    );
+    return response.json();
+  },
 };
 
 export default api;
