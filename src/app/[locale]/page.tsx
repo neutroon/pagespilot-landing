@@ -10,6 +10,7 @@ import { X, LinkedinIcon, GithubIcon } from "lucide-react";
 import HeroSection from "@/components/landing/HeroSection";
 import api from "@/services/api";
 import { getVisitorId } from "@/utils/visitor";
+import socketService from "@/services/socket";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import SocialProofSection from "@/components/landing/SocialProofSection";
@@ -35,6 +36,48 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [conversationId, setConversationId] = useState<number | null>(null);
   const [input, setInput] = useState("");
+
+  // ── Socket.io Connection & Listeners ──
+  useEffect(() => {
+    const socket = socketService.connect();
+
+    socket.on("new_message", (data: any) => {
+      // Incoming message from Socket.io
+      const msg = data?.message || data; 
+      if (!msg || (!msg.id && !msg.content)) return;
+
+      setMessages((prev) => {
+        // Robust Duplication Guard: Check by ID or Content/Role combo if ID is missing
+        const isDuplicate = prev.some((m) => 
+          (msg.id && String(m.id) === String(msg.id)) || 
+          (m.text === msg.content && m.role === (msg.role === "user" ? "user" : "ai"))
+        );
+        
+        if (isDuplicate) return prev;
+
+        return [...prev, {
+          id: msg.id ? String(msg.id) : `${Date.now()}-${Math.random()}`,
+          role: msg.role === "user" ? "user" : "ai",
+          text: msg.content,
+          time: new Date(msg.createdAt || Date.now()).toLocaleTimeString(
+            locale === "ar" ? "ar-SA" : "en-US",
+            { hour: "2-digit", minute: "2-digit" }
+          )
+        }];
+      });
+    });
+
+    return () => {
+      socketService.disconnect();
+    };
+  }, [locale]);
+
+  // ── Join conversation room when ID available ──
+  useEffect(() => {
+    if (conversationId) {
+      socketService.joinConversation(conversationId);
+    }
+  }, [conversationId]);
 
   // ── Chat History Hydration ──
   useEffect(() => {
