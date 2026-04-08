@@ -8,6 +8,8 @@ import Logo from "@/components/Logo";
 import { X, LinkedinIcon, GithubIcon } from "lucide-react";
 
 import HeroSection from "@/components/landing/HeroSection";
+import api from "@/services/api";
+import { getVisitorId } from "@/utils/visitor";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import SocialProofSection from "@/components/landing/SocialProofSection";
@@ -33,6 +35,34 @@ export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [conversationId, setConversationId] = useState<number | null>(null);
   const [input, setInput] = useState("");
+
+  // ── Chat History Hydration ──
+  useEffect(() => {
+    const vid = getVisitorId();
+    if (!vid || vid === "anon") return;
+
+    const fetchHistory = async () => {
+      try {
+        const response = await api.getHistory(vid);
+        if (response?.result?.data) {
+          const history = response.result.data.map((m: any) => ({
+            id: String(m.id),
+            role: m.role === "user" ? "user" : "ai",
+            text: m.content,
+            time: new Date(m.createdAt).toLocaleTimeString(
+              locale === "ar" ? "ar-SA" : "en-US",
+              { hour: "2-digit", minute: "2-digit" }
+            )
+          }));
+          setMessages(history);
+        }
+      } catch (err) {
+        console.error("Failed to load chat history:", err);
+      }
+    };
+
+    fetchHistory();
+  }, [locale]);
 
   useEffect(() => {
     // 1. Sticky detection for the Hero
