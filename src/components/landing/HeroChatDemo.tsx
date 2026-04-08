@@ -35,8 +35,8 @@ interface HeroChatDemoProps {
   locale: string;
 }
 
-export default function HeroChatDemo({ 
-  floating, 
+export default function HeroChatDemo({
+  floating,
   onClose,
   messages,
   setMessages,
@@ -130,7 +130,7 @@ export default function HeroChatDemo({
       </div>
 
       {/* ── Messages area ── */}
-      <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-4 min-h-0 scrollbar-hide bg-bg/30" style={{ minHeight: 320, maxHeight: 420 }}>
+      <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-4 min-h-0 scrollbar-hide bg-bg/30" style={{ minHeight: 400, maxHeight: 550 }}>
         <AnimatePresence initial={false}>
           {messages.map((msg) => (
             <motion.div
@@ -138,14 +138,13 @@ export default function HeroChatDemo({
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className={`flex flex-col max-w-[90%] transform-gpu ${
-                msg.role === "user" ? "items-end self-end" : "items-start self-start"
-              }`}
+              className={`flex flex-col max-w-[90%] transform-gpu ${msg.role === "user" ? "items-end self-end" : "items-start self-start"
+                }`}
             >
               <div
                 className={`px-4 py-2.5 rounded-2xl text-sm whitespace-pre-wrap leading-relaxed relative ${msg.role === "user"
-                    ? "bubble-user text-white rounded-tr-none shadow-lg"
-                    : "bubble-ai text-text rounded-tl-none shadow-md border border-border/20"
+                  ? "bubble-user text-white rounded-tr-none shadow-lg"
+                  : "bubble-ai text-text rounded-tl-none shadow-md border border-border/20"
                   }`}
               >
                 {msg.text}
@@ -158,10 +157,10 @@ export default function HeroChatDemo({
           ))}
 
           {isTyping && (
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }} 
-              animate={{ opacity: 1, scale: 1 }} 
-              exit={{ opacity: 0, scale: 0.8 }} 
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
               className="items-start self-start"
             >
               <div className="bubble-ai rounded-2xl rounded-tl-none px-4 py-3 inline-flex gap-1.5 items-center border border-border/20">
@@ -186,16 +185,16 @@ export default function HeroChatDemo({
       {/* ── Input bar ── */}
       <div className="flex items-center gap-3 px-4 py-4 rounded-b-2xl border-t border-border/50 bg-elevated/90">
         <div className="flex-1 relative">
-            <input
-              type="text"
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              onKeyDown={e => { if (e.key === "Enter" && !isTyping) send(input); }}
-              placeholder={t("inputPlaceholder")}
-              className="w-full bg-surface border border-border/60 text-text rounded-2xl px-5 py-3 text-sm outline-none focus:border-primary/60 placeholder-muted transition-all text-start"
-              dir={isAr ? "rtl" : "ltr"}
-              disabled={isTyping}
-            />
+          <input
+            type="text"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={e => { if (e.key === "Enter" && !isTyping) send(input); }}
+            placeholder={t("inputPlaceholder")}
+            className="w-full bg-surface border border-border/60 text-text rounded-2xl px-5 py-3 text-sm outline-none focus:border-primary/60 placeholder-muted transition-all text-start"
+            dir={isAr ? "rtl" : "ltr"}
+            disabled={isTyping}
+          />
         </div>
         <button
           onClick={() => send(input)}
