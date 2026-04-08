@@ -44,10 +44,17 @@ export default function Home() {
     const fetchHistory = async () => {
       try {
         const response = await api.getHistory(vid);
-        if (response?.result?.data) {
-          const history = response.result.data.map((m: any) => ({
+        
+        // 1. Restore conversationId for context persistence
+        if (response?.conversationId) {
+          setConversationId(response.conversationId);
+        }
+
+        // 2. Map message history
+        if (response?.data) {
+          const history = response.data.map((m: any) => ({
             id: String(m.id),
-            role: m.role === "user" ? "user" : "ai",
+            role: (m.role === "user") ? "user" : "ai",
             text: m.content,
             time: new Date(m.createdAt).toLocaleTimeString(
               locale === "ar" ? "ar-SA" : "en-US",
