@@ -15,7 +15,7 @@ export default function HowItWorksSection({ locale }: { locale: string }) {
   const isAr = locale === "ar";
 
   return (
-    <section id="how-it-works" className="relative py-24 bg-[#0D0920] overflow-hidden">
+    <section id="how-it-works" className="relative py-24 overflow-hidden">
       <div className="dot-bg absolute inset-0 opacity-50 pointer-events-none" />
       
       <div className="container mx-auto px-4 relative z-10">
@@ -32,11 +32,11 @@ export default function HowItWorksSection({ locale }: { locale: string }) {
               viewport={{ once: true, margin: "-100px" }}
               className={`${isAr ? "text-right" : "text-left"} mb-16`}
             >
-              <span className="section-badge text-[#7C3AED]" style={{ background: "rgba(124,58,237,0.1)", border: "1px solid rgba(124,58,237,0.2)" }}>
+              <span className="section-badge text-primary bg-primary/10 border border-primary/20">
                 {t("badge")}
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-[#F0EBF8] mb-6 tracking-tight">{t("title")}</h2>
-              <p className="text-[#8070A8] max-w-xl leading-relaxed text-lg font-light">{t("description")}</p>
+              <h2 className="text-3xl md:text-5xl font-bold text-text mb-6 tracking-tight">{t("title")}</h2>
+              <p className="text-muted max-w-xl leading-relaxed text-lg font-light">{t("description")}</p>
             </motion.div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6 relative">
@@ -47,7 +47,7 @@ export default function HowItWorksSection({ locale }: { locale: string }) {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.15, duration: 0.6 }}
-                  className="glass-card rounded-3xl p-8 group hover:-translate-y-1 transition-all duration-300 relative flex gap-6 items-start border border-white/5"
+                  className="glass-card rounded-3xl p-8 group hover:-translate-y-1 transition-all duration-300 relative flex gap-6 items-start border border-border/40"
                 >
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
@@ -59,12 +59,12 @@ export default function HowItWorksSection({ locale }: { locale: string }) {
 
                   <div className="flex-grow">
                     <div className="flex items-center justify-between mb-2">
-                       <h3 className="text-xl font-bold text-[#F0EBF8]">{t(`steps.${key}.title`)}</h3>
-                       <span className="text-xs font-black px-3 py-1 rounded-full text-[#06040F]" style={{ background: color }}>
+                       <h3 className="text-xl font-bold text-text">{t(`steps.${key}.title`)}</h3>
+                       <span className="text-xs font-black px-3 py-1 rounded-full text-bg" style={{ background: color }}>
                          {t("stepBadge", { n: t(`steps.${key}.n` as any) })}
                        </span>
                     </div>
-                    <p className="text-[#8070A8] text-base leading-relaxed opacity-80">{t(`steps.${key}.description`)}</p>
+                    <p className="text-muted text-base leading-relaxed opacity-80">{t(`steps.${key}.description`)}</p>
                   </div>
                 </motion.div>
               ))}
