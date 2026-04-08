@@ -2,6 +2,7 @@
 
 import { useRouter, usePathname } from "next/navigation";
 import { localeNames, type Locale } from "@/i18n/config";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface LocaleSwitcherProps {
   currentLocale: string;
@@ -24,31 +25,26 @@ export default function LocaleSwitcher({ currentLocale }: LocaleSwitcherProps) {
   return (
     <button
       onClick={handleLocaleToggle}
-      className="flex items-center space-x-2 px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 font-medium transition-all duration-200 border border-slate-200 hover:border-slate-300 cursor-pointer"
+      className="relative flex items-center gap-2.5 px-2 py-2 rounded-xl bg-surface border border-border hover:border-primary/50 transition-all duration-300 group overflow-hidden"
       title={`Switch to ${localeNames[targetLocale]}`}
     >
-      {/* Current Language */}
-      {/* <span className="text-sm font-semibold">{localeNames[currentLocale as Locale]}</span> */}
+      <div className="relative h-5 flex items-center">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={targetLocale}
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="text-sm font-bold text-muted group-hover:text-text transition-colors uppercase"
+          >
+            {targetLocale}
+          </motion.span>
+        </AnimatePresence>
+      </div>
 
-      {/* Toggle Icon */}
-      {/* <svg
-        className="w-4 h-4 transform transition-transform duration-200 hover:scale-110"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-        />
-      </svg> */}
-
-      {/* Target Language */}
-      <span className="text-sm text-slate-500">
-        {localeNames[targetLocale]}
-      </span>
+      {/* Subtle indicator */}
+      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
     </button>
   );
 }
