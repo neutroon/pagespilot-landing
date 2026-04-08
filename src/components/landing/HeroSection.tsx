@@ -39,18 +39,8 @@ export default function HeroSection({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className={`flex flex-col lg:col-span-7 ${isAr ? "items-end text-right" : "items-start text-left"}`}
+            className={`flex flex-col lg:col-span-7 ${isAr ? "items-start text-right" : "items-start text-left"}`}
           >
-            {/* Badge */}
-            <div
-              className="section-badge text-accent bg-accent/10 border border-accent/20 mb-6"
-            >
-              <span className="relative flex h-1.5 w-1.5 me-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-              </span>
-              {t("hero.badge")}
-            </div>
 
             {/* Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-text mb-6">
@@ -61,12 +51,12 @@ export default function HeroSection({
             </h1>
 
             {/* Description */}
-            <p className="text-base md:text-xl text-muted leading-relaxed max-w-xl mb-10 font-light">
+            <p className="text-base md:text-xl text-muted leading-relaxed max-w-xl mb-4 font-light">
               {t("hero.description")}
             </p>
 
             {/* CTAs */}
-            <div className={`flex flex-col sm:flex-row gap-4 mb-12 ${isAr ? "sm:flex-row-reverse" : ""}`}>
+            <div className={`flex flex-col sm:flex-row gap-4 mb-8 ${isAr ? "sm:flex-row-reverse" : ""}`}>
               <a
                 href="#waitlist"
                 className="btn-primary inline-flex items-center justify-center px-8 py-4 text-white font-black rounded-2xl text-base shadow-xl shadow-[#7C3AED]/20"
@@ -109,6 +99,7 @@ export default function HeroSection({
                 Hero section height is pixel-perfectly stable (prevents scroll loops).
                 Framer Motion's layoutId handles the visual hand-off.
              */}
+
             <motion.div
               initial={false}
               animate={{
@@ -119,6 +110,16 @@ export default function HeroSection({
               transition={{ duration: 0.4, ease: "easeInOut" }}
               className="w-full max-w-[500px] group relative"
             >
+              {/* Badge */}
+              <div
+                className="section-badge text-accent bg-accent/10 border border-accent/20 mb-6"
+              >
+                <span className="relative flex h-1.5 w-1.5 me-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+                </span>
+                {t("hero.badge")}
+              </div>
               {/* Decorative background glow for the hero-specific chat */}
               <div className="absolute inset-0 bg-[#7C3AED]/10 blur-[100px] rounded-full group-hover:bg-[#7C3AED]/20 transition-colors duration-700" />
               <StickyChatWrapper
