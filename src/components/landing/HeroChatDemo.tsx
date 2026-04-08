@@ -3,24 +3,16 @@ import { useTranslations } from "next-intl";
 import { Send, CheckCheck, X, AlertCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import api from "@/services/api";
+import { getVisitorId } from "@/utils/visitor";
 
 export type Role = "ai" | "user";
 export type Message = { id: string; role: Role; text: string; time: string; };
 
-function nowTime(locale: string) {
+export function nowTime(locale: string) {
   const timeLocale = locale === "ar" ? "ar-SA" : "en-US";
   return new Date().toLocaleTimeString(timeLocale, { hour: "2-digit", minute: "2-digit" });
 }
 
-const getVisitorId = () => {
-  if (typeof window === "undefined") return "anon";
-  let id = localStorage.getItem("pp_visitor_id");
-  if (!id) {
-    id = "vis_" + Math.random().toString(36).substring(2, 11);
-    localStorage.setItem("pp_visitor_id", id);
-  }
-  return id;
-};
 
 interface HeroChatDemoProps {
   floating?: boolean;
