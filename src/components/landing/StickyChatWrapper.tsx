@@ -147,9 +147,9 @@ export default function StickyChatWrapper({
           <motion.button
             key="bubble"
             layoutId="chat-container"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.8 }}
             onClick={() => setIsOpen(true)}
             className="w-16 h-16 rounded-full bg-primary shadow-2xl flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-transform border border-white/20"
           >
@@ -165,26 +165,36 @@ export default function StickyChatWrapper({
           <motion.div
             key="window"
             layoutId="chat-container"
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className={`relative w-full max-w-[440px] md:max-w-[500px] rounded-[2.2rem] overflow-hidden border border-border/40 shadow-2xl bg-surface/95 backdrop-blur-3xl`}
+            initial={{ scale: 0.9, y: 20 }}
+            animate={{ scale: 1, y: 0 }}
+            exit={{ scale: 0.9, y: 20 }}
+            className={`relative w-full max-w-[440px] md:max-w-[500px] overflow-hidden transition-all duration-700
+              ${isSticky 
+                ? "bg-surface/95 border border-border/40 shadow-2xl backdrop-blur-3xl rounded-[2.5rem]" 
+                : "bg-transparent border-none shadow-none"
+              }`}
           >
+            {/* Vertical Separator for the Integrated Hero layout */}
+            {!isSticky && (
+              <div className={`absolute top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary/30 to-transparent ${isAr ? "right-0" : "left-0"}`} />
+            )}
 
-            {/* Scan line animation - Optimized with transform (GPU) instead of 'top' */}
-            <motion.div
-              animate={{ y: ["0px", "400px", "0px"] }}
-              transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
-              className="absolute inset-x-0 h-[2px] z-20 pointer-events-none opacity-20 transform-gpu"
-              style={{
-                top: "5%",
-                background: "linear-gradient(90deg, transparent, var(--primary), transparent)",
-              }}
-            />
+            {/* Scan line animation - Only show when Sticky/Floating for that "app" look, or leave for Hero if you like it */}
+            {isSticky && (
+              <motion.div
+                animate={{ y: ["0px", "520px", "0px"] }}
+                transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
+                className="absolute inset-x-0 h-[2px] z-20 pointer-events-none opacity-10 transform-gpu"
+                style={{
+                  top: "5%",
+                  background: "linear-gradient(90deg, transparent, var(--primary), transparent)",
+                }}
+              />
+            )}
 
             {/* Chat demo content */}
             <HeroChatDemo
-              floating
+              floating={isSticky}
               onClose={(isMobile && isSticky) ? () => setIsOpen(false) : undefined}
               messages={messages}
               setMessages={setMessages}
