@@ -15,7 +15,7 @@ export default function PricingTeaserSection({ locale }: { locale: string }) {
   const isAr = locale === "ar";
 
   return (
-    <section id="pricing" className="py-24 bg-[#0D0920] relative overflow-hidden">
+    <section id="pricing" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           
@@ -33,7 +33,7 @@ export default function PricingTeaserSection({ locale }: { locale: string }) {
               <span className="section-badge text-[#7C3AED]" style={{ background: "rgba(124,58,237,0.1)", border: "1px solid rgba(124,58,237,0.2)" }}>
                 {isAr ? "الأسعار" : "Pricing"}
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-[#F0EBF8] mb-6 tracking-tight">{t("title")}</h2>
+              <h2 className="text-3xl md:text-5xl font-bold text-text mb-6 tracking-tight">{t("title")}</h2>
             </motion.div>
 
             <div className="grid sm:grid-cols-1 gap-6 max-w-2xl">
@@ -47,8 +47,8 @@ export default function PricingTeaserSection({ locale }: { locale: string }) {
                   whileHover={{ x: isAr ? 5 : -5, transition: { duration: 0.3 } }}
                   className={`glass-card rounded-[2.5rem] p-8 relative overflow-hidden border-2 transition-all flex flex-col md:flex-row items-center gap-8 ${
                     popular 
-                    ? "border-[#7C3AED]/40 shadow-[0_20px_50px_rgba(124,58,237,0.15)] z-10" 
-                    : "border-white/5 opacity-80 hover:opacity-100"
+                    ? "border-primary/40 shadow-[0_20px_50px_rgba(124,58,237,0.15)] z-10" 
+                    : "border-border/40 opacity-80 hover:opacity-100"
                   }`}
                 >
                   {popular && (
@@ -58,8 +58,8 @@ export default function PricingTeaserSection({ locale }: { locale: string }) {
                   )}
 
                   <div className={`flex-grow ${isAr ? "text-right" : "text-left"}`}>
-                    <h3 className="text-2xl font-bold text-[#F0EBF8] mb-2">{t(`cards.${key}.name` as any)}</h3>
-                    <p className="text-[#8070A8] text-sm leading-relaxed opacity-80">
+                    <h3 className="text-2xl font-bold text-text mb-2">{t(`cards.${key}.name` as any)}</h3>
+                    <p className="text-muted text-sm leading-relaxed opacity-80">
                       {t(`cards.${key}.description` as any)}
                     </p>
                   </div>
@@ -69,8 +69,8 @@ export default function PricingTeaserSection({ locale }: { locale: string }) {
                       href="#waitlist"
                       className={`w-full md:px-10 py-4 rounded-2xl flex items-center justify-center font-black transition-all active:scale-95 ${
                         popular 
-                        ? "btn-primary text-white shadow-xl shadow-[#7C3AED]/30" 
-                        : "bg-white/5 text-[#F0EBF8] border border-white/10 hover:bg-white/10"
+                        ? "btn-primary text-white shadow-xl shadow-primary/30" 
+                        : "bg-elevated text-text border border-border/40 hover:bg-elevated/80"
                       }`}
                     >
                       {t(`cards.${key}.cta` as any)}
