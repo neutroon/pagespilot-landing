@@ -34,38 +34,72 @@ export default function StickyChatWrapper({
   const [isOpen, setIsOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
-  // Sync open state with screen size
   const { scrollY } = useScroll();
-  const overlapY = useTransform(scrollY, () => {
-    if (typeof window === "undefined") return 0;
-    if (!isSticky) return 0;
-    // Disable the push-up behavior on mobile screens (let the chat bubble stay fixed)
-    if (window.innerWidth < 1024) return 0;
-    
+
+  // Optimization: Cache the footer offset to avoid layout thrashing during scroll
+  const [footerOffset, setFooterOffset] = useState<number>(0);
+
+  const calculateFooterOffset = () => {
     const footer = document.querySelector("footer");
-    if (!footer) return 0;
-    const rect = footer.getBoundingClientRect();
-    const overlap = window.innerHeight - rect.top;
+    if (footer) {
+      const rect = footer.getBoundingClientRect();
+      const scrollY = window.scrollY;
+      setFooterOffset(rect.top + scrollY);
+    }
+  };
+
+  const overlapY = useTransform(scrollY, (latest: number) => {
+    if (typeof window === "undefined" || !isSticky || window.innerWidth < 1024 || !footerOffset) return 0;
+    
+    const viewBottom = latest + window.innerHeight;
+    const overlap = viewBottom - footerOffset;
     return overlap > 0 ? -overlap : 0;
   });
 
   useEffect(() => {
+    calculateFooterOffset();
+    window.addEventListener("resize", calculateFooterOffset);
+    // Periodically re-calculate in case of dynamic content height changes
+    const timer = setInterval(calculateFooterOffset, 2000);
+    return () => {
+      window.removeEventListener("resize", calculateFooterOffset);
+      clearInterval(timer);
+    };
+  }, []);
+
+  useEffect(() => {
+    let prevWidth = window.innerWidth;
+
     const checkMobile = () => {
-      const mobile = window.innerWidth < 1024;
+      const currentWidth = window.innerWidth;
+      const mobile = currentWidth < 1024;
       setIsMobile(mobile);
 
-      // If forced to open (e.g. Hero demo), stay open on mobile.
-      // Otherwise, default to collapsed bubble on small screens.
-      if (forceOpen) {
-        setIsOpen(true);
-      } else if (mobile) {
-        setIsOpen(false);
-      } else {
-        setIsOpen(true);
+      // Only force an open/close transition if we crossed the breakpoint
+      const wasMobile = prevWidth < 1024;
+      if (mobile !== wasMobile) {
+        if (forceOpen) {
+          setIsOpen(true);
+        } else if (mobile) {
+          setIsOpen(false);
+        } else {
+          setIsOpen(true);
+        }
       }
+      prevWidth = currentWidth;
     };
 
-    checkMobile();
+    // Initial check (first mount)
+    const initialMobile = window.innerWidth < 1024;
+    setIsMobile(initialMobile);
+    if (forceOpen) {
+      setIsOpen(true);
+    } else if (initialMobile) {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
+    }
+
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
   }, [forceOpen]);
@@ -117,13 +151,13 @@ export default function StickyChatWrapper({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             onClick={() => setIsOpen(true)}
-            className="w-16 h-16 rounded-full bg-[#7C3AED] shadow-2xl flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-transform border border-white/20"
+            className="w-16 h-16 rounded-full bg-primary shadow-2xl flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-transform border border-white/20"
           >
             <MessageSquare className="w-8 h-8" />
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ repeat: Infinity, duration: 2 }}
-              className="absolute -top-1 -right-1 w-4 h-4 bg-[#25D366] rounded-full border-2 border-[#06040F]"
+              className="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full border-2 border-bg"
             />
           </motion.button>
         ) : (
@@ -134,20 +168,17 @@ export default function StickyChatWrapper({
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className={`relative w-[320px] sm:w-[360px] md:w-[380px] rounded-[2.2rem] overflow-hidden border border-[#1E1340]/40 shadow-2xl`}
-            style={{
-              background: "rgba(13, 9, 32, 0.95)",
-              backdropFilter: "blur(24px)",
-            }}
+            className={`relative w-[320px] sm:w-[360px] md:w-[380px] rounded-[2.2rem] overflow-hidden border border-border/40 shadow-2xl bg-surface/95 backdrop-blur-3xl`}
           >
 
-            {/* Scan line animation */}
+            {/* Scan line animation - Optimized with transform (GPU) instead of 'top' */}
             <motion.div
-              animate={{ top: ["5%", "95%", "5%"] }}
-              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-              className="absolute inset-x-0 h-[2px] z-20 pointer-events-none opacity-20"
+              animate={{ y: ["0px", "340px", "0px"] }}
+              transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
+              className="absolute inset-x-0 h-[2px] z-20 pointer-events-none opacity-20 transform-gpu"
               style={{
-                background: "linear-gradient(90deg, transparent, #7C3AED, transparent)",
+                top: "5%",
+                background: "linear-gradient(90deg, transparent, var(--primary), transparent)",
               }}
             />
 
