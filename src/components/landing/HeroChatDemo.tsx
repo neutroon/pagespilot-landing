@@ -109,12 +109,12 @@ export default function HeroChatDemo({
       <div className="flex items-center gap-3 px-4 py-3 rounded-t-2xl bg-elevated/90">
         <div className="relative shrink-0">
           <div className="w-11 h-11 rounded-full flex items-center justify-center text-white font-bold text-base shadow-lg bg-gradient-to-br from-primary to-primary-lt">
-            PP
+            pP
           </div>
           <span className="absolute bottom-0 left-0 w-3 h-3 rounded-full bg-accent border-2 border-bg shadow-[0_0_8px_var(--accent)]" />
         </div>
         <div className="flex-1 min-w-0 text-start">
-          <p className="text-text font-bold text-sm leading-tight truncate">PagesPilot AI</p>
+          <p className="text-text font-bold text-sm leading-tight truncate">pagesPilot</p>
           <div className="flex items-center gap-1.5 mt-1 justify-start">
             <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
             <p className="text-accent text-[10px] font-bold uppercase tracking-wider">{t("statusOnline")}</p>
@@ -130,7 +130,7 @@ export default function HeroChatDemo({
       </div>
 
       {/* ── Messages area ── */}
-      <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-4 min-h-0 scrollbar-hide bg-bg/30" style={{ minHeight: 400, maxHeight: 550 }}>
+      <div className="flex-1 overflow-y-auto px-4 py-4 flex flex-col gap-4 min-h-0 scrollbar-hide bg-bg/30" style={{ minHeight: 400, maxHeight: 400 }}>
         <AnimatePresence initial={false}>
           {messages.map((msg) => (
             <motion.div
