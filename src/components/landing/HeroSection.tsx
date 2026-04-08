@@ -117,7 +117,7 @@ export default function HeroSection({
                 scale: isSticky ? 0.95 : 1
               }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="w-full max-w-[420px] group relative"
+              className="w-full max-w-[500px] group relative"
             >
               {/* Decorative background glow for the hero-specific chat */}
               <div className="absolute inset-0 bg-[#7C3AED]/10 blur-[100px] rounded-full group-hover:bg-[#7C3AED]/20 transition-colors duration-700" />
