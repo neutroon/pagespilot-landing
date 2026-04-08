@@ -33,7 +33,7 @@ export default function FeaturesSection({ locale }: { locale: string }) {
   const isAr = locale === "ar";
 
   return (
-    <section id="features" className="py-24 bg-[#06040F] overflow-hidden">
+    <section id="features" className="py-24 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           
@@ -48,8 +48,8 @@ export default function FeaturesSection({ locale }: { locale: string }) {
               <span className="section-badge text-[#F59E0B]" style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)" }}>
                 {t("badge")}
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-[#F0EBF8] mb-6 tracking-tight">{t("title")}</h2>
-              <p className="text-[#8070A8] max-w-xl text-lg font-light leading-relaxed">{t("description")}</p>
+              <h2 className="text-3xl md:text-5xl font-bold text-text mb-6 tracking-tight">{t("title")}</h2>
+              <p className="text-muted max-w-xl text-lg font-light leading-relaxed">{t("description")}</p>
             </motion.div>
 
             <motion.div 
@@ -64,7 +64,7 @@ export default function FeaturesSection({ locale }: { locale: string }) {
                   key={key}
                   variants={itemVariants}
                   whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                  className="glass-card rounded-3xl p-7 group relative overflow-hidden border border-white/5"
+                  className="glass-card rounded-3xl p-7 group relative overflow-hidden border border-border/40"
                 >
                   <div 
                     className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"
@@ -77,10 +77,10 @@ export default function FeaturesSection({ locale }: { locale: string }) {
                   >
                     <Icon className="w-6 h-6" style={{ color }} />
                   </div>
-                  <h3 className={`text-lg font-bold text-[#F0EBF8] mb-2 ${isAr ? "text-right" : "text-left"} relative z-10`}>
+                  <h3 className={`text-lg font-bold text-text mb-2 ${isAr ? "text-right" : "text-left"} relative z-10`}>
                     {t(`cards.${key}.title` as any)}
                   </h3>
-                  <p className={`text-[#8070A8] text-sm leading-relaxed ${isAr ? "text-right" : "text-left"} relative z-10 opacity-80`}>
+                  <p className={`text-muted text-sm leading-relaxed ${isAr ? "text-right" : "text-left"} relative z-10 opacity-80`}>
                     {t(`cards.${key}.description` as any)}
                   </p>
                 </motion.div>
