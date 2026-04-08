@@ -32,7 +32,7 @@ const api = {
         body: JSON.stringify({ visitorId, message, conversationId }),
         headers: {
           "Content-Type": "application/json",
-          "X-Widget-Site-Key": "wsk_37aY6wkhJAiCnnWg9hw2P5dACoT3nH7h",
+          "X-Widget-Site-Key": "wsk_wcNpne2OiOi-fnMrD9uLfjRWmLm68CK2",
         },
       },
     );
@@ -44,7 +44,7 @@ const api = {
       {
         method: "GET",
         headers: {
-          "X-Widget-Site-Key": "wsk_37aY6wkhJAiCnnWg9hw2P5dACoT3nH7h",
+          "X-Widget-Site-Key": "wsk_wcNpne2OiOi-fnMrD9uLfjRWmLm68CK2",
         },
       },
     );
