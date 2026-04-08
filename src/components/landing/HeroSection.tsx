@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import StickyChatWrapper from "./StickyChatWrapper";
 import { Message } from "./HeroChatDemo";
 
-export default function HeroSection({ 
-  locale, 
+export default function HeroSection({
+  locale,
   isSticky,
   messages,
   setMessages,
@@ -12,8 +12,8 @@ export default function HeroSection({
   setConversationId,
   input,
   setInput
-}: { 
-  locale: string, 
+}: {
+  locale: string,
   isSticky: boolean,
   messages: Message[],
   setMessages: (msgs: Message[] | ((prev: Message[]) => Message[])) => void,
@@ -26,7 +26,7 @@ export default function HeroSection({
   const isAr = locale === "ar";
 
   return (
-    <section id="hero" className="relative min-h-[90vh] flex items-center overflow-hidden bg-[#06040F]">
+    <section id="hero" className="relative min-h-[90vh] flex items-center overflow-hidden">
       {/* ── Background layers ── */}
       <div className="absolute inset-0 dot-bg pointer-events-none opacity-60" />
 
@@ -43,18 +43,17 @@ export default function HeroSection({
           >
             {/* Badge */}
             <div
-              className="section-badge text-[#25D366] mb-6"
-              style={{ background: "rgba(37,211,102,0.1)", border: "1px solid rgba(37,211,102,0.2)" }}
+              className="section-badge text-accent bg-accent/10 border border-accent/20 mb-6"
             >
               <span className="relative flex h-1.5 w-1.5 me-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[#25D366]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
               </span>
               {t("hero.badge")}
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-[#F0EBF8] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-text mb-6">
               {t("hero.headline")}
               <span className="block mt-2 gradient-text pb-1">
                 {t("hero.headlineHighlight")}
@@ -62,7 +61,7 @@ export default function HeroSection({
             </h1>
 
             {/* Description */}
-            <p className="text-base md:text-xl text-[#8070A8] leading-relaxed max-w-xl mb-10 font-light">
+            <p className="text-base md:text-xl text-muted leading-relaxed max-w-xl mb-10 font-light">
               {t("hero.description")}
             </p>
 
@@ -76,7 +75,7 @@ export default function HeroSection({
               </a>
               <a
                 href="#how-it-works"
-                className="inline-flex items-center justify-center px-8 py-4 font-bold rounded-2xl text-base text-[#F0EBF8] border border-[#1E1340] hover:border-[#7C3AED]/40 hover:bg-[#160F2E] transition-all duration-200"
+                className="inline-flex items-center justify-center px-8 py-4 font-bold rounded-2xl text-base text-text border border-border hover:border-primary/40 hover:bg-elevated transition-all duration-200"
               >
                 {t("hero.ctaSecondary")}
               </a>
@@ -87,16 +86,16 @@ export default function HeroSection({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className={`flex flex-wrap gap-x-8 gap-y-3 text-xs text-[#8070A8] font-medium ${isAr ? "justify-end" : "justify-start"}`}
+              className={`flex flex-wrap gap-x-8 gap-y-3 text-xs text-muted font-medium ${isAr ? "justify-end" : "justify-start"}`}
             >
               {[
-                { v: "+500", k: "businesses" },
-                { v: "+2M", k: "messages" },
-                { v: "AR/EN", k: "bilingual" },
+                { v: "+100", k: "businesses" },
+                { v: "+1M", k: "messages" },
+                // { v: "AR/EN", k: "bilingual" },
                 { v: "24/7", k: "online" },
               ].map(({ v, k }) => (
-                <div key={k} className="flex items-center gap-2 group cursor-default bg-[#0D0920] border border-[#1E1340] px-3 py-1.5 rounded-full">
-                  <span className="text-[#9B59F5] font-black text-sm">{v}</span>
+                <div key={k} className="flex items-center gap-2 group cursor-default bg-surface border border-border px-3 py-1.5 rounded-full">
+                  <span className="text-primary-lt font-black text-sm">{v}</span>
                   <span className="opacity-70 uppercase tracking-tighter">{t(`hero.stats.${k}` as any)}</span>
                 </div>
               ))}
