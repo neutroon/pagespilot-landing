@@ -50,7 +50,7 @@ export default function StickyChatWrapper({
 
   const overlapY = useTransform(scrollY, (latest: number) => {
     if (typeof window === "undefined" || !isSticky || window.innerWidth < 1024 || !footerOffset) return 0;
-    
+
     const viewBottom = latest + window.innerHeight;
     const overlap = viewBottom - footerOffset;
     return overlap > 0 ? -overlap : 0;
@@ -111,10 +111,10 @@ export default function StickyChatWrapper({
   const displaySide = (() => {
     // 1. Minimized/Bubble: Always on the 'Empty' side of the screen.
     if (!isOpen) return isAr ? "left" : "right";
-    
+
     // 2. Mobile Open: Stay on one consistent empty side.
     if (isMobile) return isAr ? "left" : "right";
-    
+
     // 3. Desktop Open: Flip the requested 'side' if we are in RTL.
     // If the section says 'side="right"' (the standard empty side for LTR),
     // in RTL that should physically be the 'left' side.
@@ -168,7 +168,7 @@ export default function StickyChatWrapper({
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className={`relative w-[320px] sm:w-[360px] md:w-[380px] rounded-[2.2rem] overflow-hidden border border-border/40 shadow-2xl bg-surface/95 backdrop-blur-3xl`}
+            className={`relative w-full max-w-[440px] md:max-w-[500px] rounded-[2.2rem] overflow-hidden border border-border/40 shadow-2xl bg-surface/95 backdrop-blur-3xl`}
           >
 
             {/* Scan line animation - Optimized with transform (GPU) instead of 'top' */}
@@ -183,9 +183,9 @@ export default function StickyChatWrapper({
             />
 
             {/* Chat demo content */}
-            <HeroChatDemo 
-              floating 
-              onClose={isMobile ? () => setIsOpen(false) : undefined} 
+            <HeroChatDemo
+              floating
+              onClose={(isMobile && isSticky) ? () => setIsOpen(false) : undefined}
               messages={messages}
               setMessages={setMessages}
               conversationId={conversationId}
