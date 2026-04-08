@@ -15,7 +15,7 @@ export default function WhoIsItForSection({ locale }: { locale: string }) {
   const isAr = locale === "ar";
 
   return (
-    <section className="py-24 bg-[#06040F] relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           
@@ -30,8 +30,8 @@ export default function WhoIsItForSection({ locale }: { locale: string }) {
               <span className="section-badge text-[#F59E0B]" style={{ background: "rgba(245,158,11,0.1)", border: "1px solid rgba(245,158,11,0.2)" }}>
                 {t("badge")}
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-[#F0EBF8] mb-6 tracking-tight">{t("title")}</h2>
-              <p className="text-[#8070A8] max-w-xl text-lg font-light leading-relaxed">{t("description")}</p>
+              <h2 className="text-3xl md:text-5xl font-bold text-text mb-6 tracking-tight">{t("title")}</h2>
+              <p className="text-muted max-w-xl text-lg font-light leading-relaxed">{t("description")}</p>
             </motion.div>
 
             <div className="grid sm:grid-cols-1 gap-5">
@@ -43,7 +43,7 @@ export default function WhoIsItForSection({ locale }: { locale: string }) {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   whileHover={{ x: isAr ? -10 : 10 }}
-                  className="glass-card rounded-[2rem] p-7 relative group overflow-hidden border border-white/5 flex gap-6 items-center"
+                  className="glass-card rounded-[2rem] p-7 relative group overflow-hidden border border-border/40 flex gap-6 items-center"
                 >
                   <div
                     className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110"
@@ -53,10 +53,10 @@ export default function WhoIsItForSection({ locale }: { locale: string }) {
                   </div>
 
                   <div className="flex-grow">
-                    <h3 className={`text-xl font-bold text-[#F0EBF8] mb-1 ${isAr ? "text-right" : "text-left"}`}>
+                    <h3 className={`text-xl font-bold text-text mb-1 ${isAr ? "text-right" : "text-left"}`}>
                       {t(`cards.${key}.title` as any)}
                     </h3>
-                    <p className={`text-[#8070A8] text-sm leading-relaxed ${isAr ? "text-right" : "text-left"} opacity-80`}>
+                    <p className={`text-muted text-sm leading-relaxed ${isAr ? "text-right" : "text-left"} opacity-80`}>
                       {t(`cards.${key}.description` as any)}
                     </p>
                   </div>
