@@ -79,7 +79,7 @@ export default function Home() {
 
   return (
     <div
-      className="min-h-screen bg-[#06040F] text-[#F0EBF8] relative overflow-x-hidden"
+      className="min-h-screen relative overflow-x-hidden"
       dir={isAr ? "rtl" : "ltr"}
     >
       <SharedBackground />
@@ -139,7 +139,7 @@ export default function Home() {
         </div>
       </main>
 
-      <footer className="border-t py-16" style={{ background: "#040310", borderColor: "#1E1340" }}>
+      <footer className="border-t border-border py-16 bg-surface/50">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-10 mb-10">
             <div className="md:col-span-2">
@@ -147,9 +147,9 @@ export default function Home() {
                 <div className="w-8 h-8 flex items-center justify-center">
                   <Logo ariaLabel="pagesPilot Logo" />
                 </div>
-                <span className="text-lg font-bold text-[#F0EBF8]">pagesPilot</span>
+                <span className="text-lg font-bold text-text">pagesPilot</span>
               </div>
-              <p className="text-[#8070A8] text-sm leading-relaxed max-w-xs mb-6" style={{ textAlign: isAr ? "right" : "left" }}>
+              <p className="text-muted text-sm leading-relaxed max-w-xs mb-6" style={{ textAlign: isAr ? "right" : "left" }}>
                 {t("footer.description")}
               </p>
               <div className={`flex gap-3 ${isAr ? "justify-end" : ""}`}>
@@ -162,8 +162,7 @@ export default function Home() {
                     key={label}
                     href={href}
                     aria-label={label}
-                    className="w-9 h-9 rounded-lg flex items-center justify-center text-[#8070A8] hover:text-[#9B59F5] hover:border-[#7C3AED]/30 transition-all"
-                    style={{ background: "#0D0920", border: "1px solid #1E1340" }}
+                    className="w-9 h-9 rounded-lg flex items-center justify-center text-muted hover:text-primary-lt hover:border-primary/30 transition-all border border-border bg-surface"
                   >
                     <Icon className="w-4 h-4" />
                   </a>
@@ -172,26 +171,26 @@ export default function Home() {
             </div>
 
             <div>
-              <h4 className="text-[#F0EBF8] font-semibold text-xs uppercase tracking-widest mb-5" style={{ textAlign: isAr ? "right" : "left" }}>
+              <h4 className="text-text font-semibold text-xs uppercase tracking-widest mb-5" style={{ textAlign: isAr ? "right" : "left" }}>
                 {t("footer.product.title")}
               </h4>
               <ul className="space-y-3 text-sm" style={{ textAlign: isAr ? "right" : "left" }}>
                 {(["features", "howItWorks", "betaAccess", "pricing"] as const).map(k => (
                   <li key={k}>
-                    <a href="#" className="text-[#8070A8] hover:text-[#9B59F5] transition-colors">{t(`footer.product.${k}`)}</a>
+                    <a href="#" className="text-muted hover:text-primary-lt transition-colors">{t(`footer.product.${k}`)}</a>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h4 className="text-[#F0EBF8] font-semibold text-xs uppercase tracking-widest mb-5" style={{ textAlign: isAr ? "right" : "left" }}>
+              <h4 className="text-text font-semibold text-xs uppercase tracking-widest mb-5" style={{ textAlign: isAr ? "right" : "left" }}>
                 {t("footer.company.title")}
               </h4>
               <ul className="space-y-3 text-sm" style={{ textAlign: isAr ? "right" : "left" }}>
                 {(["about", "blog", "careers", "contact"] as const).map(k => (
                   <li key={k}>
-                    <a href="#" className="text-[#8070A8] hover:text-[#9B59F5] transition-colors">{t(`footer.company.${k}`)}</a>
+                    <a href="#" className="text-muted hover:text-primary-lt transition-colors">{t(`footer.company.${k}`)}</a>
                   </li>
                 ))}
               </ul>
@@ -200,11 +199,11 @@ export default function Home() {
 
           <div className="divider mb-6" />
 
-          <div className={`flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-[#8070A8] ${isAr ? "md:flex-row-reverse" : ""}`}>
+          <div className={`flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted ${isAr ? "md:flex-row-reverse" : ""}`}>
             <p>{t("footer.legal.copyright")}</p>
             <div className={`flex gap-5 ${isAr ? "flex-row-reverse" : ""}`}>
               {(["privacy", "terms", "cookies"] as const).map(k => (
-                <a key={k} href="#" className="hover:text-[#9B59F5] transition-colors">{t(`footer.legal.${k}`)}</a>
+                <a key={k} href="#" className="hover:text-primary-lt transition-colors">{t(`footer.legal.${k}`)}</a>
               ))}
             </div>
           </div>
