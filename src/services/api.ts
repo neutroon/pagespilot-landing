@@ -44,7 +44,9 @@ const api = {
       {
         method: "GET",
         headers: {
-          "X-Widget-Site-Key": "wsk_wcNpne2OiOi-fnMrD9uLfjRWmLm68CK2",
+          "X-Widget-Site-Key":
+            process.env.NEXT_PUBLIC_WIDGET_SITE_KEY ||
+            "wsk_tOKa2IPl3leY_egtMLx-oOlS9nBaFP3z",
         },
       },
     );
