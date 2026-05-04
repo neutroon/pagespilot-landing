@@ -7,9 +7,8 @@
       "joinBeta": "Start Free"
     },
     "hero": {
-      "badge": "Your business, always online",
-      "headline": "Never miss a customer again — on ",
-      "headlineHighlight": "WhatsApp, Messenger & Facebook",
+      "headline": "Never miss a customer again",
+      "headlineHighlight": "Your business, always online",
       "description": "Connect your Facebook Page or WhatsApp Business account and let AI handle customer replies, content, and leads — in your brand's voice.",
       "ctaPrimary": "Connect Your Page",
       "ctaSecondary": "See how it works ↓",
