@@ -14,7 +14,7 @@ export default function Logo({
         alt={ariaLabel || "Logo"}
         width={200}
         height={200}
-        className={`${className} -rotate-[20deg]`}
+        className={`${className}`}
       />
       {/* <span className={className}>PagesPilot</span> */}
     </div>
