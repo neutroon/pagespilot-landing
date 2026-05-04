@@ -43,27 +43,32 @@ export default function Home() {
 
     socket.on("new_message", (data: any) => {
       // Incoming message from Socket.io
-      const msg = data?.message || data; 
+      const msg = data?.message || data;
       if (!msg || (!msg.id && !msg.content)) return;
 
       setMessages((prev) => {
         // Robust Duplication Guard: Check by ID or Content/Role combo if ID is missing
-        const isDuplicate = prev.some((m) => 
-          (msg.id && String(m.id) === String(msg.id)) || 
-          (m.text === msg.content && m.role === (msg.role === "user" ? "user" : "ai"))
+        const isDuplicate = prev.some(
+          (m) =>
+            (msg.id && String(m.id) === String(msg.id)) ||
+            (m.text === msg.content &&
+              m.role === (msg.role === "user" ? "user" : "ai")),
         );
-        
+
         if (isDuplicate) return prev;
 
-        return [...prev, {
-          id: msg.id ? String(msg.id) : `${Date.now()}-${Math.random()}`,
-          role: msg.role === "user" ? "user" : "ai",
-          text: msg.content,
-          time: new Date(msg.createdAt || Date.now()).toLocaleTimeString(
-            locale === "ar" ? "ar-SA" : "en-US",
-            { hour: "2-digit", minute: "2-digit" }
-          )
-        }];
+        return [
+          ...prev,
+          {
+            id: msg.id ? String(msg.id) : `${Date.now()}-${Math.random()}`,
+            role: msg.role === "user" ? "user" : "ai",
+            text: msg.content,
+            time: new Date(msg.createdAt || Date.now()).toLocaleTimeString(
+              locale === "ar" ? "ar-SA" : "en-US",
+              { hour: "2-digit", minute: "2-digit" },
+            ),
+          },
+        ];
       });
     });
 
@@ -87,7 +92,7 @@ export default function Home() {
     const fetchHistory = async () => {
       try {
         const response = await api.getHistory(vid);
-        
+
         // 1. Restore conversationId for context persistence
         if (response?.conversationId) {
           setConversationId(response.conversationId);
@@ -97,12 +102,12 @@ export default function Home() {
         if (response?.data) {
           const history = response.data.map((m: any) => ({
             id: String(m.id),
-            role: (m.role === "user") ? "user" : "ai",
+            role: m.role === "user" ? "user" : "ai",
             text: m.content,
             time: new Date(m.createdAt).toLocaleTimeString(
               locale === "ar" ? "ar-SA" : "en-US",
-              { hour: "2-digit", minute: "2-digit" }
-            )
+              { hour: "2-digit", minute: "2-digit" },
+            ),
           }));
           setMessages(history);
         }
@@ -138,12 +143,14 @@ export default function Home() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const side = entry.target.getAttribute("data-chat-side") as "left" | "right";
+            const side = entry.target.getAttribute("data-chat-side") as
+              | "left"
+              | "right";
             if (side) setChatSide(side);
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     window.addEventListener("scroll", handleScroll);
@@ -182,9 +189,9 @@ export default function Home() {
 
       <main>
         <div ref={heroRef} data-chat-side="right" id="hero">
-          <HeroSection 
-            locale={locale} 
-            isSticky={isSticky} 
+          <HeroSection
+            locale={locale}
+            isSticky={isSticky}
             messages={messages}
             setMessages={setMessages}
             conversationId={conversationId}
@@ -223,13 +230,18 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-10 mb-10">
             <div className="md:col-span-2">
-              <div className={`flex items-center gap-2 mb-5 ${isAr ? "flex-row-reverse" : ""}`} dir="ltr">
-                <div className="w-8 h-8 flex items-center justify-center">
-                  <Logo ariaLabel="pagesPilot Logo" />
+              <div className={`flex items-center mb-5 `}>
+                <div className={`flex items-center`} dir="ltr">
+                  <div className="w-8 h-8 flex items-center justify-center">
+                    <Logo ariaLabel="pagesPilot Logo" />
+                  </div>
+                  <span className="text-lg font-bold text-text">agesPilot</span>
                 </div>
-                <span className="text-lg font-bold text-text">pagesPilot</span>
               </div>
-              <p className="text-muted text-sm leading-relaxed max-w-xs mb-6" style={{ textAlign: isAr ? "right" : "left" }}>
+              <p
+                className="text-muted text-sm leading-relaxed max-w-xs mb-6"
+                style={{ textAlign: isAr ? "right" : "left" }}
+              >
                 {t("footer.description")}
               </p>
               <div className={`flex gap-3 ${isAr ? "justify-end" : ""}`}>
@@ -251,26 +263,50 @@ export default function Home() {
             </div>
 
             <div>
-              <h4 className="text-text font-semibold text-xs uppercase tracking-widest mb-5" style={{ textAlign: isAr ? "right" : "left" }}>
+              <h4
+                className="text-text font-semibold text-xs uppercase tracking-widest mb-5"
+                style={{ textAlign: isAr ? "right" : "left" }}
+              >
                 {t("footer.product.title")}
               </h4>
-              <ul className="space-y-3 text-sm" style={{ textAlign: isAr ? "right" : "left" }}>
-                {(["features", "howItWorks", "betaAccess", "pricing"] as const).map(k => (
+              <ul
+                className="space-y-3 text-sm"
+                style={{ textAlign: isAr ? "right" : "left" }}
+              >
+                {(
+                  ["features", "howItWorks", "betaAccess", "pricing"] as const
+                ).map((k) => (
                   <li key={k}>
-                    <a href="#" className="text-muted hover:text-primary-lt transition-colors">{t(`footer.product.${k}`)}</a>
+                    <a
+                      href="#"
+                      className="text-muted hover:text-primary-lt transition-colors"
+                    >
+                      {t(`footer.product.${k}`)}
+                    </a>
                   </li>
                 ))}
               </ul>
             </div>
 
             <div>
-              <h4 className="text-text font-semibold text-xs uppercase tracking-widest mb-5" style={{ textAlign: isAr ? "right" : "left" }}>
+              <h4
+                className="text-text font-semibold text-xs uppercase tracking-widest mb-5"
+                style={{ textAlign: isAr ? "right" : "left" }}
+              >
                 {t("footer.company.title")}
               </h4>
-              <ul className="space-y-3 text-sm" style={{ textAlign: isAr ? "right" : "left" }}>
-                {(["about", "blog", "careers", "contact"] as const).map(k => (
+              <ul
+                className="space-y-3 text-sm"
+                style={{ textAlign: isAr ? "right" : "left" }}
+              >
+                {(["about", "blog", "careers", "contact"] as const).map((k) => (
                   <li key={k}>
-                    <a href="#" className="text-muted hover:text-primary-lt transition-colors">{t(`footer.company.${k}`)}</a>
+                    <a
+                      href="#"
+                      className="text-muted hover:text-primary-lt transition-colors"
+                    >
+                      {t(`footer.company.${k}`)}
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -279,11 +315,19 @@ export default function Home() {
 
           <div className="divider mb-6" />
 
-          <div className={`flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted ${isAr ? "md:flex-row-reverse" : ""}`}>
+          <div
+            className={`flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted ${isAr ? "md:flex-row-reverse" : ""}`}
+          >
             <p>{t("footer.legal.copyright")}</p>
             <div className={`flex gap-5 ${isAr ? "flex-row-reverse" : ""}`}>
-              {(["privacy", "terms", "cookies"] as const).map(k => (
-                <a key={k} href="#" className="hover:text-primary-lt transition-colors">{t(`footer.legal.${k}`)}</a>
+              {(["privacy", "terms", "cookies"] as const).map((k) => (
+                <a
+                  key={k}
+                  href="#"
+                  className="hover:text-primary-lt transition-colors"
+                >
+                  {t(`footer.legal.${k}`)}
+                </a>
               ))}
             </div>
           </div>
