@@ -190,21 +190,6 @@ export default function HeroSection({
               transition={{ duration: 0.4, ease: "easeInOut" }}
               className="w-full max-w-full sm:max-w-[500px] group relative"
             >
-              {/* Badge
-                CHANGE: explicit inline-flex so it doesn't stretch full-width on mobile
-              */}
-              <div className="section-badge text-accent bg-accent/10 border border-accent/20 mb-4 sm:mb-6 inline-flex">
-                <span className="relative flex h-1.5 w-1.5 me-2 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
-                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
-                </span>
-                {t("hero.badge")}
-              </div>
-
-              {/* Glow
-                CHANGE: overflow-hidden on parent + pointer-events-none + 
-                constrained inset so it doesn't bleed off-screen on mobile
-              */}
               <div
                 className="
                   absolute -inset-4 sm:inset-0
