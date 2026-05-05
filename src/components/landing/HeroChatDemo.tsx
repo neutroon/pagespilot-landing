@@ -49,15 +49,21 @@ export default function HeroChatDemo({
 
   const push = useCallback(
     (role: Role, text: string) => {
-      setMessages((p) => [
-        ...p,
-        {
-          id: `${Date.now()}-${Math.random()}`,
-          role,
-          text,
-          time: nowTime(locale),
-        },
-      ]);
+      setMessages((prev) => {
+        // Prevent duplicate pushes (e.g. from both API response and Socket.io)
+        const isDuplicate = prev.some((m) => m.text === text && m.role === role);
+        if (isDuplicate) return prev;
+
+        return [
+          ...prev,
+          {
+            id: `${Date.now()}-${Math.random()}`,
+            role,
+            text,
+            time: nowTime(locale),
+          },
+        ];
+      });
     },
     [setMessages, locale],
   );
@@ -90,21 +96,35 @@ export default function HeroChatDemo({
 
     try {
       const visitorId = getVisitorId();
-      // Pass the existing conversationId if available to maintain context
-      const response = await api.postChat(
+      setIsTyping(false); // Hide the loading dots indicator since we'll stream text immediately
+      
+      const tempId = `${Date.now()}-streaming`;
+      
+      // Push an empty AI message that we will stream into
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: tempId,
+          role: "ai",
+          text: "",
+          time: nowTime(locale),
+        },
+      ]);
+
+      await api.streamChat(
         visitorId,
         userMsg,
         conversationId ?? undefined,
+        (chunk) => {
+          setMessages((prev) => 
+            prev.map((msg) => 
+              msg.id === tempId ? { ...msg, text: chunk } : msg
+            )
+          );
+        },
+        (id) => setConversationId(id)
       );
 
-      setIsTyping(false);
-
-      if (response?.conversationId) {
-        setConversationId(response.conversationId);
-      }
-
-      const aiText = response?.reply || t("errorProcessing");
-      push("ai", aiText);
     } catch (err) {
       console.error("Chat API error:", err);
       setIsTyping(false);
