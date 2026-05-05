@@ -7,7 +7,13 @@ import { getVisitorId } from "@/utils/visitor";
 import Logo from "../Logo";
 
 export type Role = "ai" | "user";
-export type Message = { id: string; role: Role; text: string; time: string };
+export type Message = { 
+  id: string; 
+  role: Role; 
+  text: string; 
+  time: string;
+  mediaMetadata?: any;
+};
 
 export function nowTime(locale: string) {
   const timeLocale = locale === "ar" ? "ar-SA" : "en-US";
@@ -196,6 +202,12 @@ export default function HeroChatDemo({
                     : "bubble-ai text-text rounded-tl-none shadow-md border border-border/20"
                 }`}
               >
+                {msg.mediaMetadata?.url && (
+                  <div className="mb-2 overflow-hidden rounded-xl bg-slate-100 border border-border/10">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={msg.mediaMetadata.url} alt="Attached Media" className="w-full max-h-[200px] object-cover" />
+                  </div>
+                )}
                 {msg.text}
               </div>
               <span className="text-[9px] text-muted mt-1 px-1 flex items-center gap-1 font-medium">
