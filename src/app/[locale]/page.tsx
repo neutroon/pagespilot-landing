@@ -109,7 +109,7 @@ export default function Home() {
               { hour: "2-digit", minute: "2-digit" },
             ),
           }));
-          setMessages(history);
+          setMessages(history.reverse());
         }
       } catch (err) {
         console.error("Failed to load chat history:", err);
