@@ -63,6 +63,7 @@ export default function Home() {
             id: msg.id ? String(msg.id) : `${Date.now()}-${Math.random()}`,
             role: msg.role === "user" ? "user" : "ai",
             text: msg.content,
+            mediaMetadata: msg.mediaMetadata,
             time: new Date(msg.createdAt || Date.now()).toLocaleTimeString(
               locale === "ar" ? "ar-SA" : "en-US",
               { hour: "2-digit", minute: "2-digit" },
@@ -104,6 +105,7 @@ export default function Home() {
             id: String(m.id),
             role: m.role === "user" ? "user" : "ai",
             text: m.content,
+            mediaMetadata: m.mediaMetadata,
             time: new Date(m.createdAt).toLocaleTimeString(
               locale === "ar" ? "ar-SA" : "en-US",
               { hour: "2-digit", minute: "2-digit" },
